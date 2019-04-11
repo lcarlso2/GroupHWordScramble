@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1555012262 source:/home/csuser/Desktop/GroupHWordScramble/main.cpp
+	<FL/Fl.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Box.H>
+	<iostream>
+

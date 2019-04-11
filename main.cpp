@@ -3,6 +3,7 @@
 #include <FL/Fl_Box.H>
 
 #include <iostream>
+using namespace std;
 
 int main (int argc, char ** argv)
 {

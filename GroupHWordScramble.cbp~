@@ -22,11 +22,7 @@
 		<Linker>
 			<Add option="`fltk-config --ldstaticflags`" />
 		</Linker>
-		<Unit filename="controller/Controller.cpp" />
-		<Unit filename="controller/Controller.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="view/MainWindow.cpp" />
-		<Unit filename="view/MainWindow.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

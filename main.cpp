@@ -19,7 +19,7 @@ int main (int argc, char ** argv)
   window->end ();
   window->show (argc, argv);
 
-  cout << "TEST conflict" << endl;
+  cout << "TEST break" << endl;
 
   return(Fl::run());
 }

@@ -12,7 +12,12 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++11" />
 					<Add option="-g" />
+					<Add directory="view"/>
+					<Add directory="controller" />
+					<Add directory="model" />
+					
 				</Compiler>
 			</Target>
 		</Build>
@@ -22,7 +27,11 @@
 		<Linker>
 			<Add option="`fltk-config --ldstaticflags`" />
 		</Linker>
+		<Unit filename="controller/Controller.cpp" />
+		<Unit filename="controller/Controller.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="view/MainWindow.cpp" />
+		<Unit filename="view/MainWindow.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

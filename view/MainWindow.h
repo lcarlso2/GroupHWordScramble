@@ -4,8 +4,13 @@
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Group.H>
-#include <FL/Fl_Button.H>
+#include <FL/Fl_Round_Button.H>
 #include <FL/Fl_Output.H>
+#include <FL/Fl_Text_Buffer.H>
+#include <FL/Fl_Text_Display.H>
+
+#include <string>
+using namespace std;
 
 namespace view {
 class MainWindow : public Fl_Window
@@ -18,10 +23,21 @@ class MainWindow : public Fl_Window
         Fl_Group *letterSelectionButtonGroup;
 
 
-        Fl_Button* letterSelectionButtonGroupButton[DEFAULT_NUMBER_OF_BUTTONS];
+        Fl_Round_Button* letterSelectionRadioButton[DEFAULT_NUMBER_OF_BUTTONS];
+
+        Fl_Text_Buffer *lettersChosenTextBuffer;
+        Fl_Text_Display *lettersChosenTextDisplay;
+
+        static void cbLetterSelected(Fl_Widget* widget, void* data);
+        inline void letterSelected();
+
+        void displayLettersSelected();
+
+
+        void createAndDisplayLetterSelection();
 
     public:
-        MainWindow();
+        MainWindow(int width, int height, const char* title);
 
         virtual ~MainWindow();
 

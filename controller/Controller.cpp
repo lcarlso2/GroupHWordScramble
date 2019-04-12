@@ -1,6 +1,7 @@
 #include "Controller.h"
 
-namespace controller {
+namespace controller
+{
 
 Controller::Controller()
 {

@@ -1,14 +1,15 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-namespace controller {
+namespace controller
+{
 class Controller
 {
-    public:
-        Controller();
-        virtual ~Controller();
+public:
+    Controller();
+    virtual ~Controller();
 
-    private:
+private:
 };
 
 }

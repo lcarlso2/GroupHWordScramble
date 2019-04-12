@@ -43,7 +43,7 @@ LetterFrequency::~LetterFrequency()
     //dtor
 }
 
-vector<string> LetterFrequency::getSixRandomLetters()
+vector<string> LetterFrequency::getRandomLetters(const int numberOfLettersToGenerate)
 {
     vector<string> possibleLetters;
     set<int> randomNumbersChosen;
@@ -52,13 +52,14 @@ vector<string> LetterFrequency::getSixRandomLetters()
     mt19937 mt(randomGenerator());
     uniform_int_distribution<int> distribution(0, 97);
 
-    while (randomNumbersChosen.size() < 6)
+    while (randomNumbersChosen.size() < numberOfLettersToGenerate)
     {
         int randomIndex = distribution(mt);
         randomNumbersChosen.insert(randomIndex);
     }
 
-    for (auto& indexOfLetter : randomNumbersChosen){
+    for (auto& indexOfLetter : randomNumbersChosen)
+    {
         possibleLetters.push_back(this->letters[indexOfLetter]);
     }
 
@@ -67,35 +68,18 @@ vector<string> LetterFrequency::getSixRandomLetters()
 
 vector<string> LetterFrequency::createFrequency(vector<string> letters, const int numberOfTimes, const string& letterToAdd)
 {
-    for (int i =0; i < numberOfTimes; i++)
+    for (int i= 0; i < numberOfTimes; i++)
     {
         letters.push_back(letterToAdd);
     }
     return letters;
 }
 
-vector<string> LetterFrequency::shuffleLetters(vector<string> letters){
+vector<string> LetterFrequency::shuffleLetters(vector<string> letters)
+{
     random_shuffle(letters.begin(), letters.end());
     return letters;
 }
+
 }
 
-
-//11
-//9
-//8
-//6
-//5
-//4
-//3
-//2
-//1
-//e
-//t
-//o
-//a,i,n,s
-//h,r
-//l
-//d,u,w,y
-//b,c,f,g,m,p,v
-//j,k,q,x,z

@@ -17,49 +17,76 @@ using namespace std;
 #include "Controller.h"
 using namespace controller;
 
-namespace view {
+namespace view
+{
+
+/**
+* The main window class
+* @author Lucas Carlson and Carson Bedrosian
+* @version 4/12/2019
+*/
 class MainWindow : public Fl_Window
 {
 
-    private:
-        static const int DEFAULT_NUMBER_OF_BUTTONS = 6;
-        vector<string> letters;
+private:
+    static const int DEFAULT_NUMBER_OF_BUTTONS = 6;
+    vector<string> letters;
 
-        string* lettersBeingDisplayed[DEFAULT_NUMBER_OF_BUTTONS];
+    string* lettersBeingDisplayed[DEFAULT_NUMBER_OF_BUTTONS];
 
-        Fl_Round_Button* letterSelectionRadioButton[DEFAULT_NUMBER_OF_BUTTONS];
+    vector<Fl_Widget*> orderOfButtonsSelected;
 
-        Fl_Text_Buffer *lettersChosenTextBuffer;
-        Fl_Text_Display *lettersChosenTextDisplay;
+    Controller controller;
 
-        static void cbLetterSelected(Fl_Widget* widget, void* data);
-        inline void letterSelected(Fl_Widget* widget);
+    Fl_Button* shuffleButton;
+    Fl_Button* newLettersButton;
+    Fl_Button* submitWordButton;
 
-        void displayLettersSelected();
+    Fl_Round_Button* letterSelectionRadioButton[DEFAULT_NUMBER_OF_BUTTONS];
 
-        void createAndDisplayLetterSelection(vector<string> letters);
+    Fl_Text_Buffer *lettersChosenTextBuffer;
+    Fl_Text_Display *lettersChosenTextDisplay;
 
-        void deleteButtons();
+    void displayLettersSelected();
 
-        void replaceLettersBeingDisplayed(vector<string> newLetters);
+    void createAndDisplayLetterSelection(vector<string> letters);
 
-        vector<Fl_Widget*> orderOfButtonsSelected;
+    void deleteRadioButtons();
 
-        Controller controller;
+    void replaceLettersBeingDisplayed(vector<string> newLetters);
 
-        Fl_Button* shuffleButton;
-        Fl_Button* newLettersButton;
+    static void cbLetterSelected(Fl_Widget* widget, void* data);
+    static void cbShuffleLetters(Fl_Widget* widget, void* data);
+    static void cbNewLetters(Fl_Widget* widget, void* data);
+    static void cbSubmitWord(Fl_Widget* widget, void* data);
 
-        static void cbShuffleLetters(Fl_Widget* widget, void* data);
-        static void cbNewLetters(Fl_Widget* widget, void* data);
+    inline void shuffleLetters();
+    inline void getNewLetters();
+    inline void letterSelected(Fl_Widget* widget);
+    inline void submitWord(const string& word);
 
-        inline void shuffleLetters();
-        inline void getNewLetters();
+public:
+    /**
+    * Creates a new main window object
+    * @param width the width of the window
+    * @param height the height of the window
+    * @param title the title of the window
+    * @precondition none
+    * @postcondition the window is created
+    */
+    MainWindow(int width, int height, const char* title);
 
-    public:
-        MainWindow(int width, int height, const char* title);
+    /**
+    * Destructs the main window object
+    */
+    virtual ~MainWindow();
 
-        virtual ~MainWindow();
+    /**
+    *Gets the word to submit
+    *@precondition none
+    *@return the word to submit
+    */
+    string getWordToSubmit();
 
 };
 }

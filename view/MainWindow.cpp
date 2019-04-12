@@ -7,7 +7,7 @@ MainWindow::MainWindow(int width, int height, const char* title) : Fl_Window(wid
 {
     begin();
 
-    this->letters = this->controller.getLettersToDisplay();
+    this->letters = this->controller.getLettersToDisplay(DEFAULT_NUMBER_OF_BUTTONS);
 
     createAndDisplayLetterSelection(this->letters);
 
@@ -21,45 +21,67 @@ MainWindow::MainWindow(int width, int height, const char* title) : Fl_Window(wid
 
     this->newLettersButton = new Fl_Button(365,175,125,25,"New letters");
     this->newLettersButton->callback(cbNewLetters, this);
+
+    this->submitWordButton = new Fl_Button(207,145,125,25,"Submit word");
+    this->submitWordButton->callback(cbSubmitWord, this);
+
+    this->submitWordButton->hide();
     end();
 }
 
 MainWindow::~MainWindow()
 {
-    this->deleteButtons();
+    this->deleteRadioButtons();
     this->lettersChosenTextDisplay->buffer(0);
     delete this->lettersChosenTextBuffer;
     delete this->lettersChosenTextDisplay;
     delete this->shuffleButton;
+    delete this->newLettersButton;
+    delete this->submitWordButton;
 }
 
-void MainWindow::cbShuffleLetters(Fl_Widget* widget, void* data) {
+void MainWindow::cbShuffleLetters(Fl_Widget* widget, void* data)
+{
     MainWindow* window = (MainWindow*)data;
     window->shuffleLetters();
 
- }
+}
 
-void MainWindow::cbNewLetters(Fl_Widget* widget, void* data) {
+void MainWindow::cbNewLetters(Fl_Widget* widget, void* data)
+{
     MainWindow* window = (MainWindow*)data;
     window->getNewLetters();
 }
 
-void MainWindow::shuffleLetters() {
+void MainWindow::cbSubmitWord(Fl_Widget* widget, void* data)
+{
+    MainWindow* window = (MainWindow*)data;
+    window->submitWord(window->getWordToSubmit());
+}
+
+void MainWindow::shuffleLetters()
+{
     this->letters = this->controller.getShuffledLetters(this->letters);
     this->replaceLettersBeingDisplayed(this->letters);
 
 }
 
-void MainWindow::getNewLetters() {
-    this->letters = this->controller.getLettersToDisplay();
+void MainWindow::getNewLetters()
+{
+    this->letters = this->controller.getLettersToDisplay(DEFAULT_NUMBER_OF_BUTTONS);
     this->replaceLettersBeingDisplayed(this->letters);
+}
 
+void MainWindow::submitWord(const string& word)
+{
 
 }
 
-void MainWindow::replaceLettersBeingDisplayed(vector<string> newLetters) {
+void MainWindow::replaceLettersBeingDisplayed(vector<string> newLetters)
+{
     for (int i = 0; i < DEFAULT_NUMBER_OF_BUTTONS; i++)
     {
+        this->orderOfButtonsSelected.clear();
         this->letterSelectionRadioButton[i]->value(0);
         this->lettersChosenTextBuffer->text("");
         delete this->lettersBeingDisplayed[i];
@@ -79,7 +101,7 @@ void MainWindow::createAndDisplayLetterSelection(vector<string> letters)
     }
 }
 
-void MainWindow::deleteButtons()
+void MainWindow::deleteRadioButtons()
 {
     for (int i = 0; i < DEFAULT_NUMBER_OF_BUTTONS; i++)
     {
@@ -123,7 +145,20 @@ void MainWindow::displayLettersSelected()
         }
     }
     this->lettersChosenTextBuffer->text(wordToDisplay.c_str());
+    if(wordToDisplay.length() >= 3)
+    {
+        this->submitWordButton->show();
+    }
+    else
+    {
+        this->submitWordButton->hide();
+    }
 
+}
+
+string MainWindow::getWordToSubmit()
+{
+    this->lettersChosenTextBuffer->text();
 }
 
 

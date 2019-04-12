@@ -10,6 +10,8 @@
 #include <FL/Fl_Text_Display.H>
 
 #include <string>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 #include "Controller.h"
@@ -22,9 +24,7 @@ class MainWindow : public Fl_Window
     private:
         static const int DEFAULT_NUMBER_OF_BUTTONS = 6;
 
-        Fl_Output *sortingOutputLabel;
-        Fl_Group *letterSelectionButtonGroup;
-
+        string* lettersBeingDisplayed[DEFAULT_NUMBER_OF_BUTTONS];
 
         Fl_Round_Button* letterSelectionRadioButton[DEFAULT_NUMBER_OF_BUTTONS];
 
@@ -32,12 +32,15 @@ class MainWindow : public Fl_Window
         Fl_Text_Display *lettersChosenTextDisplay;
 
         static void cbLetterSelected(Fl_Widget* widget, void* data);
-        inline void letterSelected();
+        inline void letterSelected(Fl_Widget* widget);
 
         void displayLettersSelected();
 
+        void createAndDisplayLetterSelection(vector<string> letters);
 
-        void createAndDisplayLetterSelection();
+        void deleteButtons();
+
+        vector<Fl_Widget*> orderOfButtonsSelected;
 
         Controller controller;
 

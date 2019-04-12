@@ -3,6 +3,9 @@
 
 #include <string>
 #include <vector>
+#include <random>
+#include <algorithm>
+#include <set>
 using namespace std;
 
 namespace model{
@@ -11,8 +14,9 @@ class LetterFrequency
 
 private:
 
-    vector<string> createFrequency(vector<string> letters, const int numberOfTimes, const string& letterToAdd);
+    vector<string> letters;
 
+    vector<string> createFrequency(vector<string> letters, const int numberOfTimes, const string& letterToAdd);
 
 public:
     LetterFrequency();

@@ -1,5 +1,7 @@
 #include "Controller.h"
 
+
+
 namespace controller
 {
 
@@ -16,8 +18,8 @@ Controller::~Controller()
 
 vector<string> Controller::getLettersToDisplay() {
     LetterFrequency freq;
-
-    return freq.getSixRandomLetters();
+    vector<string> letters = freq.getSixRandomLetters();
+    return letters;
 
 }
 

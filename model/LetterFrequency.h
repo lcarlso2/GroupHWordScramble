@@ -24,6 +24,8 @@ public:
 
     vector<string> getSixRandomLetters();
 
+    vector<string> shuffleLetters(vector<string> letters);
+
 
 
 };

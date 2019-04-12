@@ -12,7 +12,7 @@ int main (int argc, char ** argv)
 {
 
 
-    MainWindow mainWindow(540, 375, "Word Scramble by Carson Bedrosian and Lucas Carlson");
+    MainWindow mainWindow(540, 250, "Word Scramble by Carson Bedrosian and Lucas Carlson");
     mainWindow.show();
     int exitCode = Fl::run();
     return exitCode;

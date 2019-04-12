@@ -17,9 +17,13 @@ Controller::~Controller()
 
 
 vector<string> Controller::getLettersToDisplay() {
-    LetterFrequency freq;
-    vector<string> letters = freq.getSixRandomLetters();
+    vector<string> letters = this->letterFrequency.getSixRandomLetters();
     return letters;
+
+}
+
+vector<string> Controller::getShuffledLetters(vector<string> letters){
+    return this->letterFrequency.shuffleLetters(letters);
 
 }
 

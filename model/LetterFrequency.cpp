@@ -73,6 +73,11 @@ vector<string> LetterFrequency::createFrequency(vector<string> letters, const in
     }
     return letters;
 }
+
+vector<string> LetterFrequency::shuffleLetters(vector<string> letters){
+    random_shuffle(letters.begin(), letters.end());
+    return letters;
+}
 }
 
 

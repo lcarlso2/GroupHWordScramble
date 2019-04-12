@@ -12,13 +12,18 @@ namespace controller
 {
 class Controller
 {
+
+private:
+    LetterFrequency letterFrequency;
 public:
     Controller();
     virtual ~Controller();
 
     vector<string> getLettersToDisplay();
 
-private:
+    vector<string> getShuffledLetters(vector<string> letters);
+
+
 };
 
 }

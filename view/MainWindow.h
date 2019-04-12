@@ -23,6 +23,7 @@ class MainWindow : public Fl_Window
 
     private:
         static const int DEFAULT_NUMBER_OF_BUTTONS = 6;
+        vector<string> letters;
 
         string* lettersBeingDisplayed[DEFAULT_NUMBER_OF_BUTTONS];
 
@@ -40,9 +41,20 @@ class MainWindow : public Fl_Window
 
         void deleteButtons();
 
+        void replaceLettersBeingDisplayed(vector<string> newLetters);
+
         vector<Fl_Widget*> orderOfButtonsSelected;
 
         Controller controller;
+
+        Fl_Button* shuffleButton;
+        Fl_Button* newLettersButton;
+
+        static void cbShuffleLetters(Fl_Widget* widget, void* data);
+        static void cbNewLetters(Fl_Widget* widget, void* data);
+
+        inline void shuffleLetters();
+        inline void getNewLetters();
 
     public:
         MainWindow(int width, int height, const char* title);

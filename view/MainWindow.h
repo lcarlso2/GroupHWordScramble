@@ -12,6 +12,9 @@
 #include <string>
 using namespace std;
 
+#include "Controller.h"
+using namespace controller;
+
 namespace view {
 class MainWindow : public Fl_Window
 {
@@ -35,6 +38,8 @@ class MainWindow : public Fl_Window
 
 
         void createAndDisplayLetterSelection();
+
+        Controller controller;
 
     public:
         MainWindow(int width, int height, const char* title);

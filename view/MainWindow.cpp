@@ -14,6 +14,8 @@ MainWindow::MainWindow(int width, int height, const char* title) : Fl_Window(wid
     this->lettersChosenTextDisplay->textfont(FL_COURIER);
     this->lettersChosenTextDisplay->buffer(lettersChosenTextBuffer);
 
+   this->controller.getLettersToDisplay();
+
 
     end();
 }
@@ -24,6 +26,7 @@ MainWindow::~MainWindow()
     {
         delete this->letterSelectionRadioButton[i];
     }
+    this->lettersChosenTextDisplay->buffer(0);
     delete this->lettersChosenTextBuffer;
     delete this->lettersChosenTextDisplay;
 }

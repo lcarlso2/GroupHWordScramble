@@ -6,20 +6,26 @@
 	<iostream>
 	"MainWindow.h"
 
-1555019770 source:/home/csuser/Desktop/GroupHWordScramble/controller/Controller.cpp
+1555080470 source:/home/csuser/Desktop/GroupHWordScramble/controller/Controller.cpp
 	"Controller.h"
 
-1555019763 /home/csuser/Desktop/GroupHWordScramble/controller/Controller.h
-
-1555073327 source:/home/csuser/Desktop/GroupHWordScramble/model/LetterFrequency.cpp
+1555080294 /home/csuser/Desktop/GroupHWordScramble/controller/Controller.h
+	<string>
+	<vector>
 	"LetterFrequency.h"
 
-1555078447 /home/csuser/Desktop/GroupHWordScramble/model/LetterFrequency.h
+1555080470 source:/home/csuser/Desktop/GroupHWordScramble/model/LetterFrequency.cpp
+	"LetterFrequency.h"
+	<iostream>
 
-1555077508 source:/home/csuser/Desktop/GroupHWordScramble/view/MainWindow.cpp
+1555079689 /home/csuser/Desktop/GroupHWordScramble/model/LetterFrequency.h
+	<string>
+	<vector>
+
+1555080484 source:/home/csuser/Desktop/GroupHWordScramble/view/MainWindow.cpp
 	"MainWindow.h"
 
-1555077399 /home/csuser/Desktop/GroupHWordScramble/view/MainWindow.h
+1555078570 /home/csuser/Desktop/GroupHWordScramble/view/MainWindow.h
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Group.H>
@@ -28,4 +34,5 @@
 	<FL/Fl_Text_Buffer.H>
 	<FL/Fl_Text_Display.H>
 	<string>
+	"Controller.h"
 

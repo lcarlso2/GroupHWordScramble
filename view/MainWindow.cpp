@@ -7,7 +7,9 @@ MainWindow::MainWindow(int width, int height, const char* title) : Fl_Window(wid
 {
     begin();
 
-    this->letters = this->controller.getLettersToDisplay(DEFAULT_NUMBER_OF_BUTTONS);
+    this->numberOfButtonsToShow = 7;
+
+    this->letters = this->controller.getLettersToDisplay(this->numberOfButtonsToShow);
 
     createAndDisplayLetterSelection(this->letters);
 
@@ -68,7 +70,7 @@ void MainWindow::shuffleLetters()
 
 void MainWindow::getNewLetters()
 {
-    this->letters = this->controller.getLettersToDisplay(DEFAULT_NUMBER_OF_BUTTONS);
+    this->letters = this->controller.getLettersToDisplay(this->numberOfButtonsToShow);
     this->replaceLettersBeingDisplayed(this->letters);
 }
 
@@ -79,11 +81,12 @@ void MainWindow::submitWord(const string& word)
 
 void MainWindow::replaceLettersBeingDisplayed(vector<string> newLetters)
 {
-    for (int i = 0; i < DEFAULT_NUMBER_OF_BUTTONS; i++)
+    for (int i = 0; i < this->numberOfButtonsToShow; i++)
     {
         this->orderOfButtonsSelected.clear();
         this->letterSelectionRadioButton[i]->value(0);
         this->lettersChosenTextBuffer->text("");
+        this->letterSelectionRadioButton[i]->color(FL_BACKGROUND_COLOR);
         delete this->lettersBeingDisplayed[i];
         this->lettersBeingDisplayed[i] = new string(newLetters[i]);
         this->letterSelectionRadioButton[i]->label(this->lettersBeingDisplayed[i]->c_str());
@@ -93,17 +96,28 @@ void MainWindow::replaceLettersBeingDisplayed(vector<string> newLetters)
 
 void MainWindow::createAndDisplayLetterSelection(vector<string> letters)
 {
-    for (int i = 0; i < DEFAULT_NUMBER_OF_BUTTONS; i++)
+    for (int i = 0; i < this->numberOfButtonsToShow; i++)
     {
         this->lettersBeingDisplayed[i] = new string(letters[i]);
-        this->letterSelectionRadioButton[i] = new Fl_Round_Button(i*85+45, 215, 50, 25, this->lettersBeingDisplayed[i]->c_str());
+        if (this->numberOfButtonsToShow == MINIMUM_NUMBER_OF_BUTTONS)
+        {
+            this->letterSelectionRadioButton[i] = new Fl_Button(i*85+75, 215, 50, 25, this->lettersBeingDisplayed[i]->c_str());
+        }
+        else if (this->numberOfButtonsToShow == DEFAULT_NUMBER_OF_BUTTONS)
+        {
+            this->letterSelectionRadioButton[i] = new Fl_Button(i*68+75, 215, 50, 25, this->lettersBeingDisplayed[i]->c_str());
+        }
+        else
+        {
+            this->letterSelectionRadioButton[i] = new Fl_Button(i*57+75, 215, 50, 25, this->lettersBeingDisplayed[i]->c_str());
+        }
         this->letterSelectionRadioButton[i]->callback(cbLetterSelected, this);
     }
 }
 
 void MainWindow::deleteRadioButtons()
 {
-    for (int i = 0; i < DEFAULT_NUMBER_OF_BUTTONS; i++)
+    for (int i = 0; i < this->numberOfButtonsToShow; i++)
     {
         delete this->letterSelectionRadioButton[i];
         delete this->lettersBeingDisplayed[i];
@@ -124,11 +138,14 @@ void MainWindow::letterSelected(Fl_Widget* widget)
         if (this->orderOfButtonsSelected[buttonIndex] == widget)
         {
             widgetAlreadyAdded = true;
+            widget->color(FL_BACKGROUND_COLOR);
             this->orderOfButtonsSelected.erase(this->orderOfButtonsSelected.begin() + buttonIndex);
         }
     }
     if (!widgetAlreadyAdded)
     {
+        Fl_Color color = labelcolor();
+        widget->color(fl_inactive(color));
         this->orderOfButtonsSelected.push_back(widget);
     }
     this->displayLettersSelected();
@@ -139,13 +156,11 @@ void MainWindow::displayLettersSelected()
     string wordToDisplay = "";
     for(auto& button : this->orderOfButtonsSelected)
     {
-        if (button->active())
-        {
-            wordToDisplay += button->label();
-        }
+
+        wordToDisplay += button->label();
     }
     this->lettersChosenTextBuffer->text(wordToDisplay.c_str());
-    if(wordToDisplay.length() >= 3)
+    if(wordToDisplay.length() >= MINIMUM_NUMBER_OF_LETTERS_REQUIRED)
     {
         this->submitWordButton->show();
     }

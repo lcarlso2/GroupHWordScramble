@@ -50,7 +50,7 @@ vector<string> LetterFrequency::getRandomLetters(const int numberOfLettersToGene
 
     random_device randomGenerator;
     mt19937 mt(randomGenerator());
-    uniform_int_distribution<int> distribution(0, 97);
+    uniform_int_distribution<int> distribution(0, 96);
 
     while (randomNumbersChosen.size() < numberOfLettersToGenerate)
     {
@@ -62,7 +62,6 @@ vector<string> LetterFrequency::getRandomLetters(const int numberOfLettersToGene
     {
         possibleLetters.push_back(this->letters[indexOfLetter]);
     }
-
     return possibleLetters;
 }
 

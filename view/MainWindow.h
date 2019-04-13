@@ -30,9 +30,14 @@ class MainWindow : public Fl_Window
 
 private:
     static const int DEFAULT_NUMBER_OF_BUTTONS = 6;
+    static const int MAX_NUMBER_OF_BUTTONS = 7;
+    static const int MINIMUM_NUMBER_OF_LETTERS_REQUIRED = 3;
+    static const int MINIMUM_NUMBER_OF_BUTTONS = 5;
+    static const int MEDIUM_NUMBER_OF_BUTTONS = 6;
+    int numberOfButtonsToShow;
     vector<string> letters;
 
-    string* lettersBeingDisplayed[DEFAULT_NUMBER_OF_BUTTONS];
+    string* lettersBeingDisplayed[MAX_NUMBER_OF_BUTTONS];
 
     vector<Fl_Widget*> orderOfButtonsSelected;
 
@@ -42,7 +47,7 @@ private:
     Fl_Button* newLettersButton;
     Fl_Button* submitWordButton;
 
-    Fl_Round_Button* letterSelectionRadioButton[DEFAULT_NUMBER_OF_BUTTONS];
+    Fl_Button* letterSelectionRadioButton[MAX_NUMBER_OF_BUTTONS];
 
     Fl_Text_Buffer *lettersChosenTextBuffer;
     Fl_Text_Display *lettersChosenTextDisplay;

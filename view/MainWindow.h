@@ -33,7 +33,6 @@ private:
     static const int MAX_NUMBER_OF_BUTTONS = 7;
     static const int MINIMUM_NUMBER_OF_LETTERS_REQUIRED = 3;
     static const int MINIMUM_NUMBER_OF_BUTTONS = 5;
-    static const int MEDIUM_NUMBER_OF_BUTTONS = 6;
     int numberOfButtonsToShow;
     vector<string> letters;
 

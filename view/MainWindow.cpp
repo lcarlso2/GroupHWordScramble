@@ -28,6 +28,7 @@ MainWindow::MainWindow(int width, int height, const char* title) : Fl_Window(wid
     this->submitWordButton->callback(cbSubmitWord, this);
 
     this->submitWordButton->hide();
+
     end();
 }
 

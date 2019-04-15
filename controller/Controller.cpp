@@ -1,6 +1,6 @@
 #include "Controller.h"
 
-
+#include <iostream>
 
 namespace controller
 {
@@ -26,6 +26,16 @@ vector<string> Controller::getLettersToDisplay(const int numberOfLettersToGenera
 vector<string> Controller::getShuffledLetters(vector<string> letters)
 {
     return this->letterFrequency.shuffleLetters(letters);
+}
+
+int Controller::getPointsForWord(const int charactersInWord) {
+   // int letterCount = word.length();
+
+    string test = "test";
+
+    cout << charactersInWord << endl;
+
+    return charactersInWord * 10;
 }
 
 }

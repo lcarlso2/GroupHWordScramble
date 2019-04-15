@@ -6,10 +6,11 @@
 	<iostream>
 	"MainWindow.h"
 
-1555096560 source:/home/csuser/Desktop/GroupHWordScramble/controller/Controller.cpp
+1555335111 source:/home/csuser/Desktop/GroupHWordScramble/controller/Controller.cpp
 	"Controller.h"
+	<iostream>
 
-1555097280 /home/csuser/Desktop/GroupHWordScramble/controller/Controller.h
+1555335068 /home/csuser/Desktop/GroupHWordScramble/controller/Controller.h
 	<string>
 	<vector>
 	"LetterFrequency.h"
@@ -25,11 +26,11 @@
 	<algorithm>
 	<set>
 
-1555190450 source:/home/csuser/Desktop/GroupHWordScramble/view/MainWindow.cpp
+1555335375 source:/home/csuser/Desktop/GroupHWordScramble/view/MainWindow.cpp
 	"MainWindow.h"
 	<iostream>
 
-1555190450 /home/csuser/Desktop/GroupHWordScramble/view/MainWindow.h
+1555334144 /home/csuser/Desktop/GroupHWordScramble/view/MainWindow.h
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Group.H>
@@ -40,5 +41,26 @@
 	<string>
 	<vector>
 	<algorithm>
+	"OkCancelWindow.h"
+	"SettingsWindow.h"
 	"Controller.h"
+
+1555266430 source:/home/csuser/Desktop/GroupHWordScramble/view/OkCancelWindow.cpp
+	"OkCancelWindow.h"
+
+1555266439 /home/csuser/Desktop/GroupHWordScramble/view/OkCancelWindow.h
+	<Fl/Fl_Window.H>
+	<Fl/Fl_Button.H>
+
+1555333139 /home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.h
+	"OkCancelWindow.h"
+	<FL/Fl_Group.H>
+	<FL/Fl_Round_Button.H>
+	<FL/Fl_Output.H>
+	<FL/Fl_Window.H>
+	<Fl/fl_draw.H>
+	<string>
+
+1555271996 source:/home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.cpp
+	"SettingsWindow.h"
 

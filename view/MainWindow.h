@@ -14,6 +14,9 @@
 #include <algorithm>
 using namespace std;
 
+#include "OkCancelWindow.h"
+#include "SettingsWindow.h"
+
 #include "Controller.h"
 using namespace controller;
 
@@ -45,17 +48,26 @@ private:
     Fl_Button* shuffleButton;
     Fl_Button* newLettersButton;
     Fl_Button* submitWordButton;
+    Fl_Button* settingsButton;
+    Fl_Button* clearWordButton;
 
-    Fl_Button* letterSelectionRadioButton[MAX_NUMBER_OF_BUTTONS];
+    Fl_Output* timerLabel;
 
-    Fl_Text_Buffer *lettersChosenTextBuffer;
-    Fl_Text_Display *lettersChosenTextDisplay;
+    Fl_Output* pointsLabel;
+
+    Fl_Button* letterSelectionButton[MAX_NUMBER_OF_BUTTONS];
+
+    Fl_Text_Buffer* lettersChosenTextBuffer;
+    Fl_Text_Display* lettersChosenTextDisplay;
+
+    Fl_Text_Buffer* timerTextBuffer;
+    Fl_Text_Display* timerTextDisplay;
 
     void displayLettersSelected();
 
     void createAndDisplayLetterSelection(vector<string> letters);
 
-    void deleteRadioButtons();
+    void deleteLetterButtons();
 
     void replaceLettersBeingDisplayed(vector<string> newLetters);
 
@@ -63,11 +75,15 @@ private:
     static void cbShuffleLetters(Fl_Widget* widget, void* data);
     static void cbNewLetters(Fl_Widget* widget, void* data);
     static void cbSubmitWord(Fl_Widget* widget, void* data);
+    static void cbSettings(Fl_Widget* widget, void* data);
+    static void cbClearWord(Fl_Widget* widget, void* data);
 
     inline void shuffleLetters();
     inline void getNewLetters();
     inline void letterSelected(Fl_Widget* widget);
     inline void submitWord(const string& word);
+    inline void clearWord();
+    inline void resetButtons(const int letterCount, const int timer);
 
 public:
     /**

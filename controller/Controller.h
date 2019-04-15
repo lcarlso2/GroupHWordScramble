@@ -52,6 +52,15 @@ public:
     vector<string> getShuffledLetters(vector<string> letters);
 
 
+    /**
+    * Gets the points for the word
+    * @param charactersInWord the number of characters in the word
+    * @precondition none
+    * @return the points for the word
+    */
+    int getPointsForWord(const int charactersInWord);
+
+
 };
 
 }

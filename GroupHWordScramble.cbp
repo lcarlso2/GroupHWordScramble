@@ -33,6 +33,10 @@
 		<Unit filename="model/LetterFrequency.h" />
 		<Unit filename="view/MainWindow.cpp" />
 		<Unit filename="view/MainWindow.h" />
+		<Unit filename="view/OkCancelWindow.cpp" />
+		<Unit filename="view/OkCancelWindow.h" />
+		<Unit filename="view/SettingsWindow.cpp" />
+		<Unit filename="view/SettingsWindow.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

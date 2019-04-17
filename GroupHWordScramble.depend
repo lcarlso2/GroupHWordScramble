@@ -26,11 +26,11 @@
 	<algorithm>
 	<set>
 
-1555470064 source:/home/csuser/Desktop/GroupHWordScramble/view/MainWindow.cpp
+1555512628 source:/home/csuser/Desktop/GroupHWordScramble/view/MainWindow.cpp
 	"MainWindow.h"
 	<iostream>
 
-1555470253 /home/csuser/Desktop/GroupHWordScramble/view/MainWindow.h
+1555512414 /home/csuser/Desktop/GroupHWordScramble/view/MainWindow.h
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Group.H>
@@ -38,9 +38,12 @@
 	<FL/Fl_Output.H>
 	<FL/Fl_Text_Buffer.H>
 	<FL/Fl_Text_Display.H>
+	<FL/Fl_Timer.H>
 	<string>
 	<vector>
 	<algorithm>
+	<chrono>
+	<time.h>
 	"OkCancelWindow.h"
 	"SettingsWindow.h"
 	"WordScrambleController.h"
@@ -94,4 +97,11 @@
 
 1555469935 source:/home/csuser/Desktop/GroupHWordScramble/io/SettingsFileWriter.cpp
 	"SettingsFileWriter.h"
+
+1555471656 source:/home/csuser/Desktop/GroupHWordScramble/model/Timer.cpp
+	"Timer.h"
+
+1555471626 /home/csuser/Desktop/GroupHWordScramble/model/Timer.h
+	<thread>
+	<chrono>
 

@@ -8,10 +8,13 @@
 #include <FL/Fl_Output.H>
 #include <FL/Fl_Text_Buffer.H>
 #include <FL/Fl_Text_Display.H>
+#include <FL/Fl_Timer.H>
 
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <chrono>
+#include <time.h>
 using namespace std;
 
 #include "OkCancelWindow.h"
@@ -20,12 +23,16 @@ using namespace std;
 #include "WordScrambleController.h"
 using namespace controller;
 
+
+
 namespace view
 {
     const int DEFAULT_NUMBER_OF_BUTTONS = 6;
     const int MAX_NUMBER_OF_BUTTONS = 7;
     const int MINIMUM_NUMBER_OF_LETTERS_REQUIRED = 3;
     const int MINIMUM_NUMBER_OF_BUTTONS = 5;
+    static int globalTimer = 60;
+    static Fl_Text_Buffer* timerTextBuffer;
 
 /**
 * The main window class
@@ -38,6 +45,7 @@ class MainWindow : public Fl_Window
 
 private:
 
+    int startGameTime;
     string* lettersBeingDisplayed[MAX_NUMBER_OF_BUTTONS];
 
     vector<Fl_Widget*> orderOfButtonsSelected;
@@ -52,6 +60,7 @@ private:
     Fl_Button* settingsButton;
     Fl_Button* clearWordButton;
     Fl_Button* letterSelectionButton[MAX_NUMBER_OF_BUTTONS];
+    Fl_Button* startGame;
 
     Fl_Output* timerLabel;
     Fl_Output* pointsLabel;
@@ -59,7 +68,7 @@ private:
     Fl_Text_Buffer* lettersChosenTextBuffer;
     Fl_Text_Display* lettersChosenTextDisplay;
 
-    Fl_Text_Buffer* timerTextBuffer;
+
     Fl_Text_Display* timerTextDisplay;
 
     void displayLettersSelected();
@@ -74,14 +83,16 @@ private:
     static void cbSettings(Fl_Widget* widget, void* data);
     static void cbClearWord(Fl_Widget* widget, void* data);
 
+    static void cbStartGame(Fl_Widget* widget, void* data);
+
+    static void Timer_CB(void* data);
+
     inline void shuffleLetters();
     inline void getNewLetters();
     inline void letterSelected(Fl_Widget* widget);
     inline void submitWord(const string& word);
     inline void clearWord();
     inline void resetButtons(const int letterCount, const int timer);
-
-    void displayTimeRemaining(const int time);
 
 public:
     /**
@@ -106,6 +117,7 @@ public:
     */
     string getWordToSubmit();
 
+    inline void setTimer();
 };
 }
 

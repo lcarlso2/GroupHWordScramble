@@ -18,18 +18,19 @@ MainWindow::MainWindow(int width, int height, const char* title) : Fl_Window(wid
     this->lettersChosenTextDisplay->textfont(FL_COURIER);
     this->lettersChosenTextDisplay->buffer(this->lettersChosenTextBuffer);
 
-    this->timerLabel = new Fl_Output(130,15,5,5, "Time left.");
+    this->timerLabel = new Fl_Output(130,15,5,5, "Time left");
 
     this->pointsLabel = new Fl_Output(250,5,25,25,"");
     this->pointsLabel->value("0");
 
-    this->timerTextBuffer = new Fl_Text_Buffer();
+    timerTextBuffer = new Fl_Text_Buffer();
     this->timerTextDisplay = new Fl_Text_Display(5,5,50,25,"");
     this->timerTextDisplay->textfont(FL_COURIER);
-    this->timerTextDisplay->buffer(this->timerTextBuffer);
+    this->timerTextDisplay->buffer(timerTextBuffer);
+    this->timerTextDisplay->callback(cbStartGame, this);
 
     string timerDisplay = to_string(this->controller.getTimer());
-    this->timerTextBuffer->text(timerDisplay.c_str());
+    timerTextBuffer->text(timerDisplay.c_str());
 
     this->shuffleButton = new Fl_Button(50,175,125,25,"Shuffle letters");
     this->shuffleButton->callback(cbShuffleLetters, this);
@@ -46,12 +47,55 @@ MainWindow::MainWindow(int width, int height, const char* title) : Fl_Window(wid
     this->clearWordButton = new Fl_Button(50,145,125,25,"Clear word");
     this->clearWordButton->callback(cbClearWord, this);
 
+    this->startGame = new Fl_Button(25,50,100,25, "Start game");
+    this->startGame->callback(cbStartGame, this);
 
 
     this->submitWordButton->hide();
 
     end();
 }
+
+void MainWindow::Timer_CB(void* data) {
+    int count = globalTimer;
+    count -= 1;
+    printf("Timer! #%d\n", count);
+    string countString = to_string(count);
+    timerTextBuffer->text(countString.c_str());
+    if ( count <= 0 ) {
+        // After 10 timer ticks, turn timer off
+        Fl::remove_timeout(Timer_CB, data);
+        printf("Timer turned off.\n");
+    } else {
+        // less than 10 timer ticks? Keep running
+        //window->setTimer(count, window);
+        Fl::repeat_timeout(1, Timer_CB, data);
+    }
+}
+
+void MainWindow::cbStartGame(Fl_Widget* widget, void* data) {
+    MainWindow* window = (MainWindow*) data;
+    globalTimer = 5;
+    Fl::add_timeout(1, Timer_CB);
+   // window->setTimer();
+}
+
+
+void MainWindow::setTimer() {
+    cout << "HERE?" << endl;
+    string value = to_string(globalTimer);
+    cout << value << "    TIME " << endl;
+    //cout << (window == nullptr) << endl;
+   // window->timerLabel->value(value.c_str());
+    //this->timerTextBuffer->text(value.c_str());
+  // this->timerLabel->value(value.c_str());
+ // cout << (this->lettersChosenTextBuffer == nullptr) << " IS THIS NULL " << endl;
+ // this->lettersChosenTextBuffer->text(value.c_str());
+ //cout << this->numberOfButtonsToShow << "    TEST THIS" << endl;
+//    window->setTime(time);
+    cout << "DOES IT" << endl;
+}
+
 
 MainWindow::~MainWindow()
 {
@@ -68,7 +112,7 @@ MainWindow::~MainWindow()
     delete this->lettersChosenTextDisplay;
 
     this->timerTextDisplay->buffer(0);
-    delete this->timerTextBuffer;
+    delete timerTextBuffer;
     delete this->timerTextDisplay;
     delete this->timerLabel;
     delete this->pointsLabel;
@@ -113,20 +157,17 @@ void MainWindow::cbSettings(Fl_Widget* widget, void* data)
 
 }
 
-void MainWindow::resetButtons(const int letterCount, const int timer) {
-   this->controller.writeSettingsToFile(letterCount, timer);
-   this->deleteLetterButtons();
-   this->numberOfButtonsToShow = letterCount;
-   this->begin();
-   this->letters = this->controller.getLettersToDisplay(this->numberOfButtonsToShow);
-   this->createAndDisplayLetterSelection(this->letters);
-   string timerDisplay = to_string(timer);
-   this->timerTextBuffer->text(timerDisplay.c_str());
-   this->end();
-}
-
-void MainWindow::displayTimeRemaining(const int time) {
-
+void MainWindow::resetButtons(const int letterCount, const int timer)
+{
+    this->controller.writeSettingsToFile(letterCount, timer);
+    this->deleteLetterButtons();
+    this->numberOfButtonsToShow = letterCount;
+    this->begin();
+    this->letters = this->controller.getLettersToDisplay(this->numberOfButtonsToShow);
+    this->createAndDisplayLetterSelection(this->letters);
+    string timerDisplay = to_string(timer);
+    timerTextBuffer->text(timerDisplay.c_str());
+    this->end();
 }
 
 void MainWindow::cbClearWord(Fl_Widget* widget, void* data)

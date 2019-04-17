@@ -10,7 +10,7 @@
 	"Controller.h"
 	<iostream>
 
-1555335068 /home/csuser/Desktop/GroupHWordScramble/controller/Controller.h
+1555467087 /home/csuser/Desktop/GroupHWordScramble/controller/Controller.h
 	<string>
 	<vector>
 	"LetterFrequency.h"
@@ -26,11 +26,11 @@
 	<algorithm>
 	<set>
 
-1555335375 source:/home/csuser/Desktop/GroupHWordScramble/view/MainWindow.cpp
+1555470064 source:/home/csuser/Desktop/GroupHWordScramble/view/MainWindow.cpp
 	"MainWindow.h"
 	<iostream>
 
-1555334144 /home/csuser/Desktop/GroupHWordScramble/view/MainWindow.h
+1555470253 /home/csuser/Desktop/GroupHWordScramble/view/MainWindow.h
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Group.H>
@@ -43,7 +43,7 @@
 	<algorithm>
 	"OkCancelWindow.h"
 	"SettingsWindow.h"
-	"Controller.h"
+	"WordScrambleController.h"
 
 1555266430 source:/home/csuser/Desktop/GroupHWordScramble/view/OkCancelWindow.cpp
 	"OkCancelWindow.h"
@@ -52,7 +52,7 @@
 	<Fl/Fl_Window.H>
 	<Fl/Fl_Button.H>
 
-1555333139 /home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.h
+1555470064 /home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.h
 	"OkCancelWindow.h"
 	<FL/Fl_Group.H>
 	<FL/Fl_Round_Button.H>
@@ -60,7 +60,38 @@
 	<FL/Fl_Window.H>
 	<Fl/fl_draw.H>
 	<string>
+	"WordScrambleController.h"
 
-1555271996 source:/home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.cpp
+1555470070 source:/home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.cpp
 	"SettingsWindow.h"
+
+1555469471 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
+	"WordScrambleController.h"
+	<iostream>
+
+1555468792 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
+	<string>
+	<vector>
+	"LetterFrequency.h"
+	"SettingsFileReader.h"
+	"SettingsFileWriter.h"
+
+1555469843 source:/home/csuser/Desktop/GroupHWordScramble/io/SettingsFileReader.cpp
+	"SettingsFileReader.h"
+
+1555469935 /home/csuser/Desktop/GroupHWordScramble/io/SettingsFileReader.h
+	<iostream>
+	<iterator>
+	<sstream>
+	<fstream>
+	<vector>
+	<string>
+
+1555469739 /home/csuser/Desktop/GroupHWordScramble/io/SettingsFileWriter.h
+	<iostream>
+	<fstream>
+	<string>
+
+1555469935 source:/home/csuser/Desktop/GroupHWordScramble/io/SettingsFileWriter.cpp
+	"SettingsFileWriter.h"
 

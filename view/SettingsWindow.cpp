@@ -54,7 +54,7 @@ void SettingsWindow::createButtonsForTimer()
     this->timerRadioGroup->begin();
     for (int i = 0; i < NUMBER_OF_BUTTONS_FOR_TIMER; i++)
     {
-        string label = to_string(i + 1);
+        string label = to_string(i + OFFSET_TO_SELECTED_TIMER);
         this->timerLabels[i] = new string(label);
         this->timerRadioGroupButton[i] = new Fl_Round_Button(X_RADIO_GROUP + i*50, 35, 25, 25, this->timerLabels[i]->c_str());
         this->timerRadioGroupButton[i]->type(FL_RADIO_BUTTON);
@@ -64,8 +64,10 @@ void SettingsWindow::createButtonsForTimer()
 
     this->timerRadioGroup->end();
 
-    this->timerRadioGroupButton[0]->set();
-    this->selectedTime = 1;
+
+    int timer = this->controller.getTimer();
+    this->timerRadioGroupButton[(timer-OFFSET_TO_SELECTED_TIMER)]->set();
+    this->selectedTimer = timer;
 
 }
 
@@ -81,7 +83,7 @@ void SettingsWindow::createButtonsForLetters()
     this->letterRadioGroup->begin();
     for (int i = 0; i < NUMBER_OF_BUTTONS_FOR_LETTER_COUNT; i++)
     {
-        string label = to_string(i + 5);
+        string label = to_string(i + OFFSET_TO_SELECTED_LETTER_COUNT);
         this->letterCountLabels[i] = new string(label);
         this->letterRadioGroupButton[i] = new Fl_Round_Button(X_RADIO_GROUP + i*50, 100, 25, 25, this->letterCountLabels[i]->c_str());
         this->letterRadioGroupButton[i]->type(FL_RADIO_BUTTON);
@@ -91,16 +93,17 @@ void SettingsWindow::createButtonsForLetters()
 
     this->letterRadioGroup->end();
 
-    this->letterRadioGroupButton[1]->set();
-    this->selectedNumberOfLetters = 6;
+    int numberOfLetters = this->controller.getNumberOfLetters();
+    this->letterRadioGroupButton[(numberOfLetters-OFFSET_TO_SELECTED_LETTER_COUNT)]->set();
+    this->selectedNumberOfLetters = numberOfLetters;
 }
 
-int SettingsWindow::getSelectedTime()
+int SettingsWindow::getSelectedTimer()
 {
-    return this->selectedTime;
+    return this->selectedTimer;
 }
 
-int SettingsWindow::getSelectedNumberOfLetter()
+int SettingsWindow::getSelectedNumberOfLetters()
 {
     return this->selectedNumberOfLetters;
 }
@@ -120,7 +123,7 @@ void SettingsWindow::cbLetterCountChanged(Fl_Widget* widget, void* data)
 
 void SettingsWindow::setTimer(const string& value)
 {
-    this->selectedTime = stoi(value);
+    this->selectedTimer = stoi(value);
 }
 
 

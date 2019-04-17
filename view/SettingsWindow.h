@@ -11,17 +11,25 @@
 #include <string>
 using namespace std;
 
+#include "WordScrambleController.h"
+using namespace controller;
+
 namespace view
 {
+    const int NUMBER_OF_BUTTONS_FOR_TIMER = 3;
+    const int NUMBER_OF_BUTTONS_FOR_LETTER_COUNT = 3;
+    const int OFFSET_TO_SELECTED_TIMER = 1;
+    const int OFFSET_TO_SELECTED_LETTER_COUNT = 5;
 
+/**
+* The settings window that controls selecting the settings of the game
+* @author Lucas Carlson and Carson Bedrosian
+* @version 4/16/2019
+*/
 class SettingsWindow : public OkCancelWindow
 {
 
 private:
-    static const int NUMBER_OF_BUTTONS_FOR_TIMER = 3;
-
-    static const int NUMBER_OF_BUTTONS_FOR_LETTER_COUNT = 3;
-
     string* timerLabels[NUMBER_OF_BUTTONS_FOR_TIMER];
 
     string* letterCountLabels[NUMBER_OF_BUTTONS_FOR_LETTER_COUNT];
@@ -38,7 +46,7 @@ private:
 
     Fl_Round_Button* letterRadioGroupButton[NUMBER_OF_BUTTONS_FOR_LETTER_COUNT];
 
-    int selectedTime;
+    int selectedTimer;
 
     int selectedNumberOfLetters;
 
@@ -56,19 +64,47 @@ private:
 
     void draw();
 
-
+    WordScrambleController controller;
 
 public:
+    /**
+    * Creates a new settings window
+    * @precondition none
+    * @postcondition a new settings window is created
+    */
     SettingsWindow();
 
+    /**
+    * Destructs the settings window
+    */
     virtual ~SettingsWindow();
 
-    int getSelectedTime();
+    /**
+    * Gets the selected timer
+    * @precondition none
+    * @return the selected timer
+    */
+    int getSelectedTimer();
 
-    int getSelectedNumberOfLetter();
+    /**
+    * Gets the selected number of letters
+    * @precondition none
+    * @return the selected number of letters
+    */
+    int getSelectedNumberOfLetters();
 
+    /**
+    * Handles the ok click event
+    * @precondition none
+    * @postcondition the event is handled
+    */
     void okHandler();
 
+    /**
+    * Handles the cancel click event
+    * @precondition none
+    * @postcondition the event is handled
+    */
     void cancelHandler();
 
 };

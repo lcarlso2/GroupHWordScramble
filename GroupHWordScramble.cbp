@@ -17,6 +17,7 @@
 					<Add directory="model" />
 					<Add directory="view" />
 					<Add directory="controller" />
+					<Add directory="io" />
 				</Compiler>
 			</Target>
 		</Build>
@@ -26,11 +27,14 @@
 		<Linker>
 			<Add option="`fltk-config --ldstaticflags`" />
 		</Linker>
-		<Unit filename="controller/Controller.cpp" />
-		<Unit filename="controller/Controller.h" />
+		<Unit filename="controller/WordScrambleController.cpp" />
+		<Unit filename="controller/WordScrambleController.h" />
+		<Unit filename="io/SettingsFileReader.cpp" />
+		<Unit filename="io/SettingsFileReader.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="model/LetterFrequency.cpp" />
 		<Unit filename="model/LetterFrequency.h" />
+		<Unit filename="settings" />
 		<Unit filename="view/MainWindow.cpp" />
 		<Unit filename="view/MainWindow.h" />
 		<Unit filename="view/OkCancelWindow.cpp" />

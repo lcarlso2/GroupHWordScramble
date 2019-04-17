@@ -17,11 +17,15 @@ using namespace std;
 #include "OkCancelWindow.h"
 #include "SettingsWindow.h"
 
-#include "Controller.h"
+#include "WordScrambleController.h"
 using namespace controller;
 
 namespace view
 {
+    const int DEFAULT_NUMBER_OF_BUTTONS = 6;
+    const int MAX_NUMBER_OF_BUTTONS = 7;
+    const int MINIMUM_NUMBER_OF_LETTERS_REQUIRED = 3;
+    const int MINIMUM_NUMBER_OF_BUTTONS = 5;
 
 /**
 * The main window class
@@ -31,31 +35,26 @@ namespace view
 class MainWindow : public Fl_Window
 {
 
+
 private:
-    static const int DEFAULT_NUMBER_OF_BUTTONS = 6;
-    static const int MAX_NUMBER_OF_BUTTONS = 7;
-    static const int MINIMUM_NUMBER_OF_LETTERS_REQUIRED = 3;
-    static const int MINIMUM_NUMBER_OF_BUTTONS = 5;
-    int numberOfButtonsToShow;
-    vector<string> letters;
 
     string* lettersBeingDisplayed[MAX_NUMBER_OF_BUTTONS];
 
     vector<Fl_Widget*> orderOfButtonsSelected;
 
-    Controller controller;
+    WordScrambleController controller;
+    int numberOfButtonsToShow;
+    vector<string> letters;
 
     Fl_Button* shuffleButton;
     Fl_Button* newLettersButton;
     Fl_Button* submitWordButton;
     Fl_Button* settingsButton;
     Fl_Button* clearWordButton;
+    Fl_Button* letterSelectionButton[MAX_NUMBER_OF_BUTTONS];
 
     Fl_Output* timerLabel;
-
     Fl_Output* pointsLabel;
-
-    Fl_Button* letterSelectionButton[MAX_NUMBER_OF_BUTTONS];
 
     Fl_Text_Buffer* lettersChosenTextBuffer;
     Fl_Text_Display* lettersChosenTextDisplay;
@@ -64,11 +63,8 @@ private:
     Fl_Text_Display* timerTextDisplay;
 
     void displayLettersSelected();
-
     void createAndDisplayLetterSelection(vector<string> letters);
-
     void deleteLetterButtons();
-
     void replaceLettersBeingDisplayed(vector<string> newLetters);
 
     static void cbLetterSelected(Fl_Widget* widget, void* data);
@@ -84,6 +80,8 @@ private:
     inline void submitWord(const string& word);
     inline void clearWord();
     inline void resetButtons(const int letterCount, const int timer);
+
+    void displayTimeRemaining(const int time);
 
 public:
     /**

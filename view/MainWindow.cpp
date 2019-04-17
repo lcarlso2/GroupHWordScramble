@@ -7,7 +7,7 @@ MainWindow::MainWindow(int width, int height, const char* title) : Fl_Window(wid
 {
     begin();
 
-    this->numberOfButtonsToShow = DEFAULT_NUMBER_OF_BUTTONS;
+    this->numberOfButtonsToShow = this->controller.getNumberOfLetters();
 
     this->letters = this->controller.getLettersToDisplay(this->numberOfButtonsToShow);
 
@@ -18,17 +18,17 @@ MainWindow::MainWindow(int width, int height, const char* title) : Fl_Window(wid
     this->lettersChosenTextDisplay->textfont(FL_COURIER);
     this->lettersChosenTextDisplay->buffer(this->lettersChosenTextBuffer);
 
-    this->timerLabel = new Fl_Output(130,15,5,5, "minutes left.");
+    this->timerLabel = new Fl_Output(130,15,5,5, "Time left.");
 
     this->pointsLabel = new Fl_Output(250,5,25,25,"");
     this->pointsLabel->value("0");
 
     this->timerTextBuffer = new Fl_Text_Buffer();
-    this->timerTextDisplay = new Fl_Text_Display(5,5,25,25,"");
+    this->timerTextDisplay = new Fl_Text_Display(5,5,50,25,"");
     this->timerTextDisplay->textfont(FL_COURIER);
     this->timerTextDisplay->buffer(this->timerTextBuffer);
 
-    string timerDisplay = to_string(1);
+    string timerDisplay = to_string(this->controller.getTimer());
     this->timerTextBuffer->text(timerDisplay.c_str());
 
     this->shuffleButton = new Fl_Button(50,175,125,25,"Shuffle letters");
@@ -108,12 +108,13 @@ void MainWindow::cbSettings(Fl_Widget* widget, void* data)
 
     if (settingsWindow.getWindowResult() == OkCancelWindow::WindowResult::OK)
     {
-        window->resetButtons(settingsWindow.getSelectedNumberOfLetter(), settingsWindow.getSelectedTime());
+        window->resetButtons(settingsWindow.getSelectedNumberOfLetters(), settingsWindow.getSelectedTimer());
     }
 
 }
 
 void MainWindow::resetButtons(const int letterCount, const int timer) {
+   this->controller.writeSettingsToFile(letterCount, timer);
    this->deleteLetterButtons();
    this->numberOfButtonsToShow = letterCount;
    this->begin();
@@ -122,6 +123,10 @@ void MainWindow::resetButtons(const int letterCount, const int timer) {
    string timerDisplay = to_string(timer);
    this->timerTextBuffer->text(timerDisplay.c_str());
    this->end();
+}
+
+void MainWindow::displayTimeRemaining(const int time) {
+
 }
 
 void MainWindow::cbClearWord(Fl_Widget* widget, void* data)

@@ -52,9 +52,6 @@ public:
     * @return the shuffled collection of letters
     */
     vector<string> shuffleLetters(vector<string> letters);
-
-
-
 };
 }
 

@@ -9,12 +9,13 @@
 #include <string>
 using namespace std;
 
-namespace io {
+namespace io
+{
 
-    const string FILE_NAME = "settings";
-    const int INDEX_OF_SETTINGS = 0;
-    const int INDEX_OF_NUMBER_OF_LETTERS = 0;
-    const int INDEX_OF_TIMER = 1;
+const string FILE_NAME = "settings";
+const int INDEX_OF_SETTINGS = 0;
+const int INDEX_OF_NUMBER_OF_LETTERS = 0;
+const int INDEX_OF_TIMER = 1;
 
 /**
 * The settings file reader that controls reader the settings from the file
@@ -23,42 +24,42 @@ namespace io {
 */
 class SettingsFileReader
 {
-    private:
-        int numberOfLetters;
+private:
+    int numberOfLetters;
 
-        int timer;
+    int timer;
 
-        vector<string> split(const string& stringToSplit, char delimiter);
+    vector<string> split(const string& stringToSplit, char delimiter);
 
-        void readFile();
+    void readFile();
 
-    public:
+public:
 
-        /**
-        * Creates a new settings file reader
-        * @precondition none
-        * @postcondition a new settings file reader is created
-        */
-        SettingsFileReader();
+    /**
+    * Creates a new settings file reader
+    * @precondition none
+    * @postcondition a new settings file reader is created
+    */
+    SettingsFileReader();
 
-        /**
-        * Destructs the settings file reader
-        */
-        virtual ~SettingsFileReader();
+    /**
+    * Destructs the settings file reader
+    */
+    virtual ~SettingsFileReader();
 
-        /**
-        * Gets the number of letters to display
-        * @precondition none
-        * @return the number of letters to display
-        */
-        int getNumberOfLetters();
+    /**
+    * Gets the number of letters to display
+    * @precondition none
+    * @return the number of letters to display
+    */
+    int getNumberOfLetters();
 
-        /**
-        * Gets the timer to display
-        * @precondition none
-        * @return the timer to display
-        */
-        int getTimer();
+    /**
+    * Gets the timer to display
+    * @precondition none
+    * @return the timer to display
+    */
+    int getTimer();
 
 };
 }

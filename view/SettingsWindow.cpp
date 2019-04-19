@@ -35,7 +35,8 @@ SettingsWindow::~SettingsWindow()
     delete this->letterCountLabel;
 }
 
-void SettingsWindow::draw(){
+void SettingsWindow::draw()
+{
     Fl_Window::draw();
     fl_frame("AAAA", 85, 35, 150, 35);
 
@@ -64,7 +65,6 @@ void SettingsWindow::createButtonsForTimer()
 
     this->timerRadioGroup->end();
 
-
     int timer = this->controller.getTimer();
     this->timerRadioGroupButton[(timer-OFFSET_TO_SELECTED_TIMER)]->set();
     this->selectedTimer = timer;
@@ -88,7 +88,6 @@ void SettingsWindow::createButtonsForLetters()
         this->letterRadioGroupButton[i] = new Fl_Round_Button(X_RADIO_GROUP + i*50, 100, 25, 25, this->letterCountLabels[i]->c_str());
         this->letterRadioGroupButton[i]->type(FL_RADIO_BUTTON);
         this->letterRadioGroupButton[i]->callback(cbLetterCountChanged, this);
-
     }
 
     this->letterRadioGroup->end();

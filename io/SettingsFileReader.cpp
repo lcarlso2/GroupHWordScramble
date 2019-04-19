@@ -1,6 +1,7 @@
 #include "SettingsFileReader.h"
 
-namespace io {
+namespace io
+{
 SettingsFileReader::SettingsFileReader()
 {
     //ctor
@@ -42,12 +43,14 @@ vector<string> SettingsFileReader::split(const string& stringToSplit, char delim
     return lines;
 }
 
-int SettingsFileReader::getNumberOfLetters() {
+int SettingsFileReader::getNumberOfLetters()
+{
     this->readFile();
     return this->numberOfLetters;
 }
 
-int SettingsFileReader::getTimer() {
+int SettingsFileReader::getTimer()
+{
     this->readFile();
     return this->timer;
 }

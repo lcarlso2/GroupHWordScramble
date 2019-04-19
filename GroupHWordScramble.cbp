@@ -18,6 +18,7 @@
 					<Add directory="view" />
 					<Add directory="controller" />
 					<Add directory="io" />
+					<Add directory="utils" />
 				</Compiler>
 			</Target>
 		</Build>
@@ -37,6 +38,12 @@
 		<Unit filename="model/LetterFrequency.cpp" />
 		<Unit filename="model/LetterFrequency.h" />
 		<Unit filename="settings" />
+		<Unit filename="utils/Utils.cpp" />
+		<Unit filename="utils/Utils.h" />
+		<Unit filename="view/GameWindow.cpp" />
+		<Unit filename="view/GameWindow.h" />
+		<Unit filename="view/HighScoreWindow.cpp" />
+		<Unit filename="view/HighScoreWindow.h" />
 		<Unit filename="view/MainWindow.cpp" />
 		<Unit filename="view/MainWindow.h" />
 		<Unit filename="view/OkCancelWindow.cpp" />

@@ -56,14 +56,14 @@ public:
     */
     vector<string> getShuffledLetters(vector<string> letters);
 
-
     /**
     * Gets the points for the word
-    * @param charactersInWord the number of characters in the word
+    * @param word the word
+    * @param currentPoints the current points
     * @precondition none
     * @return the points for the word
     */
-    int getPointsForWord(const int charactersInWord);
+    int getPointsForWord(const string& word, const int currentPoints);
 
     /**
     * Gets the number of letters to display

@@ -1,6 +1,7 @@
 #include "SettingsFileWriter.h"
 
-namespace io {
+namespace io
+{
 
 SettingsFileWriter::SettingsFileWriter()
 {
@@ -12,7 +13,8 @@ SettingsFileWriter::~SettingsFileWriter()
     //dtor
 }
 
-void SettingsFileWriter::writeSettingsToFile(const int numberOfLetters, const int timer) {
+void SettingsFileWriter::writeSettingsToFile(const int numberOfLetters, const int timer)
+{
     ofstream myFile;
     myFile.open("settings");
 

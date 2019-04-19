@@ -97,7 +97,7 @@ public:
     * Handles the ok click event
     * @precondition none
     * @postcondition the event is handled
-    */
+        */
     void okHandler();
 
     /**

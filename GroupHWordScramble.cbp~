@@ -31,6 +31,8 @@
 		<Unit filename="controller/WordScrambleController.h" />
 		<Unit filename="io/SettingsFileReader.cpp" />
 		<Unit filename="io/SettingsFileReader.h" />
+		<Unit filename="io/SettingsFileWriter.cpp" />
+		<Unit filename="io/SettingsFileWriter.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="model/LetterFrequency.cpp" />
 		<Unit filename="model/LetterFrequency.h" />

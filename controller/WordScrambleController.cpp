@@ -1,6 +1,5 @@
 #include "WordScrambleController.h"
 
-#include <iostream>
 
 namespace controller
 {
@@ -69,5 +68,27 @@ int WordScrambleController::getPointsForWord(const string& word, const int curre
     return (word.length() * pointsPerLetter) + currentPoints;
 }
 
+void WordScrambleController::loadDictionary()
+{
+    this->validWords = this->dictionaryFileReader.getValidWords();
 
+}
+
+bool WordScrambleController::checkThatWordWasNotAlreadyGuessed(const string& word)
+{
+    return this->guessedWords.count(word) == WORD_ALREADY_GUESSED;
+}
+
+bool WordScrambleController::checkWord(const string& word)
+{
+    if (this->validWords.count(word) == WORD_IS_VALID)
+    {
+        this->guessedWords.insert(word);
+        return WORD_IS_VALID;
+    }
+    else
+    {
+        return WORD_IS_NOT_VALID;
+    }
+}
 }

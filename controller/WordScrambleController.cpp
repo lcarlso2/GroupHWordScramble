@@ -15,6 +15,22 @@ WordScrambleController::~WordScrambleController()
     //dtor
 }
 
+int WordScrambleController::getNumberOfLetters()
+{
+    this->settingsFileReader.getNumberOfLetters();
+
+}
+
+int WordScrambleController::getTimer()
+{
+    this->settingsFileReader.getTimer();
+}
+
+void WordScrambleController::writeSettingsToFile(const int numberOfLetters, const int timer)
+{
+    SettingsFileWriter writer;
+    writer.writeSettingsToFile(numberOfLetters, timer);
+}
 
 vector<string> WordScrambleController::getLettersToDisplay(const int numberOfLettersToGenerate)
 {
@@ -53,21 +69,5 @@ int WordScrambleController::getPointsForWord(const string& word, const int curre
     return (word.length() * pointsPerLetter) + currentPoints;
 }
 
-int WordScrambleController::getNumberOfLetters()
-{
-    this->settingsFileReader.getNumberOfLetters();
-
-}
-
-int WordScrambleController::getTimer()
-{
-    this->settingsFileReader.getTimer();
-}
-
-void WordScrambleController::writeSettingsToFile(const int numberOfLetters, const int timer)
-{
-    SettingsFileWriter writer;
-    writer.writeSettingsToFile(numberOfLetters, timer);
-}
 
 }

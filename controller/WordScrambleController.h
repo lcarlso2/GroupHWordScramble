@@ -24,8 +24,9 @@ class WordScrambleController
 {
 
 private:
-    LetterFrequency letterFrequency;
     SettingsFileReader settingsFileReader;
+    LetterFrequency letterFrequency;
+
 public:
     /**
     * Creates a new controller object
@@ -40,6 +41,29 @@ public:
     virtual ~WordScrambleController();
 
     /**
+    * Gets the number of letters to display
+    * @precondition none
+    * @return the number of letters to display
+    */
+    int getNumberOfLetters();
+
+    /**
+    * Gets the timer to display
+    * @precondition none
+    * @return the timer to display
+    */
+    int getTimer();
+
+     /**
+    * Writes the settings to the settings file
+    * @param numberOfLetters the number of letters to display
+    * @param timer the timer to display
+    * @precondition none
+    * @postcondition the file is written to
+    */
+    void writeSettingsToFile(const int numberOfLetters, const int timer);
+
+     /**
     * Gets the letters to display
     * @param numberOfLettersToGenerate the number of letters to generate
     * @precondition none
@@ -64,30 +88,6 @@ public:
     * @return the points for the word
     */
     int getPointsForWord(const string& word, const int currentPoints);
-
-    /**
-    * Gets the number of letters to display
-    * @precondition none
-    * @return the number of letters to display
-    */
-    int getNumberOfLetters();
-
-    /**
-    * Gets the timer to display
-    * @precondition none
-    * @return the timer to display
-    */
-    int getTimer();
-
-    /**
-    * Writes the settings to the settings file
-    * @param numberOfLetters the number of letters to display
-    * @param timer the timer to display
-    * @precondition none
-    * @postcondition the file is written to
-    */
-    void writeSettingsToFile(const int numberOfLetters, const int timer);
-
 
 };
 

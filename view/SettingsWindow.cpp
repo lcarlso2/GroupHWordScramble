@@ -7,7 +7,6 @@ SettingsWindow::SettingsWindow() : OkCancelWindow(330, 215, "Settings window")
 {
     begin();
 
-
     this->timerLabel = new Fl_Output(210, 25, 0, 0, "Timer in minutes:");
     this->letterCountLabel = new Fl_Output(180, 90, 0, 0, "Letter count:");
     createButtonsForTimer();

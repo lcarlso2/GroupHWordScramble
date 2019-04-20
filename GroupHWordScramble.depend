@@ -47,7 +47,7 @@
 	<Fl/Fl_Window.H>
 	<Fl/Fl_Button.H>
 
-1555687315 /home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.h
+1555792565 /home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.h
 	"OkCancelWindow.h"
 	<FL/Fl_Group.H>
 	<FL/Fl_Round_Button.H>
@@ -57,14 +57,14 @@
 	<string>
 	"WordScrambleController.h"
 
-1555687315 source:/home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.cpp
+1555791941 source:/home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.cpp
 	"SettingsWindow.h"
 
-1555687315 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
+1555792589 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
 	"WordScrambleController.h"
 	<iostream>
 
-1555687133 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
+1555792578 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
 	<string>
 	<vector>
 	"LetterFrequency.h"
@@ -97,11 +97,11 @@
 	<thread>
 	<chrono>
 
-1555688821 source:/home/csuser/Desktop/GroupHWordScramble/view/GameWindow.cpp
+1555791496 source:/home/csuser/Desktop/GroupHWordScramble/view/GameWindow.cpp
 	"GameWindow.h"
 	<iostream>
 
-1555687500 /home/csuser/Desktop/GroupHWordScramble/view/GameWindow.h
+1555792556 /home/csuser/Desktop/GroupHWordScramble/view/GameWindow.h
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Group.H>
@@ -132,4 +132,33 @@
 
 1555686632 /home/csuser/Desktop/GroupHWordScramble/utils/Utils.h
 	<string>
+
+1555781749 source:/home/csuser/Desktop/GroupHWordScramble/io/DictionaryFileReader.cpp
+	"DictionaryFileReader.h"
+
+1555781293 /home/csuser/Desktop/GroupHWordScramble/io/DictionaryFileReader.h
+	<iostream>
+	<iterator>
+	<sstream>
+	<fstream>
+	<vector>
+	<string>
+	<unordered_set>
+
+1555792065 source:/home/csuser/Desktop/GroupHWordScramble/controller/GameWindowController.cpp
+	"GameWindowController.h"
+
+1555791941 /home/csuser/Desktop/GroupHWordScramble/controller/GameWindowController.h
+	<string>
+	<vector>
+	"LetterFrequency.h"
+	"SettingsFileReader.h"
+	"WordScrambleController.h"
+
+1555792065 source:/home/csuser/Desktop/GroupHWordScramble/controller/SettingsWindowController.cpp
+	"SettingsWindowController.h"
+
+1555791875 /home/csuser/Desktop/GroupHWordScramble/controller/SettingsWindowController.h
+	"SettingsFileWriter.h"
+	"WordScrambleController.h"
 

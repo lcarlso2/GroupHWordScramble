@@ -139,12 +139,14 @@
 	"WordScrambleController.h"
 	<iostream>
 
-1555794410 /home/csuser/GroupHWordScramble/controller/WordScrambleController.h
+1555798671 /home/csuser/GroupHWordScramble/controller/WordScrambleController.h
 	<string>
 	<vector>
+	<unordered_set>
 	"LetterFrequency.h"
 	"SettingsFileReader.h"
 	"SettingsFileWriter.h"
+	"DictionaryFileReader.h"
 
 1555793391 /home/csuser/GroupHWordScramble/model/LetterFrequency.h
 	<string>
@@ -174,7 +176,7 @@
 	<fstream>
 	<string>
 
-1555791970 source:/home/csuser/GroupHWordScramble/io/SettingsFileReader.cpp
+1555797528 source:/home/csuser/GroupHWordScramble/io/SettingsFileReader.cpp
 	"SettingsFileReader.h"
 
 1555791970 source:/home/csuser/GroupHWordScramble/io/SettingsFileWriter.cpp
@@ -251,7 +253,7 @@
 1555791970 source:/home/csuser/GroupHWordScramble/view/HighScoreWindow.cpp
 	"HighScoreWindow.h"
 
-1555791970 source:/home/csuser/GroupHWordScramble/view/MainWindow.cpp
+1555796960 source:/home/csuser/GroupHWordScramble/view/MainWindow.cpp
 	"MainWindow.h"
 	<iostream>
 
@@ -292,4 +294,9 @@
 	<vector>
 	<string>
 	<unordered_set>
+
+1555797096 source:/home/csuser/GroupHWordScramble/io/HighScoreFileWriter.cpp
+	"HighScoreFileWriter.h"
+
+1555797137 /home/csuser/GroupHWordScramble/io/HighScoreFileWriter.h
 

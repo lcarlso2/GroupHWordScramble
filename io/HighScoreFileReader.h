@@ -15,10 +15,10 @@ using namespace std;
 namespace io
 {
 
-const string FILE_NAME = "HighScores";
-const int INDEX_OF_SETTINGS = 0;
-const int INDEX_OF_NUMBER_OF_LETTERS = 0;
-const int INDEX_OF_TIMER = 1;
+const string FILE_NAME = "highscores";
+const int INDEX_OF_NAME = 0;
+const int INDEX_OF_SCORE = 0;
+const int INDEX_OF_TIME = 1;
 const char COMMA = ',';
 
 class HighScoreFileReader

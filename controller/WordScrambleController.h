@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <unordered_set>
 using namespace std;
 
 #include "LetterFrequency.h"
@@ -10,11 +11,15 @@ using namespace model;
 
 #include "SettingsFileReader.h"
 #include "SettingsFileWriter.h"
+#include "DictionaryFileReader.h"
 using namespace io;
 
 namespace controller
 {
 
+    const int WORD_IS_VALID = 1;
+    const int WORD_IS_NOT_VALID = 0;
+    const int WORD_ALREADY_GUESSED = 1;
 /**
 * The controller class that controls the communication between the model and view classes
 * @authors Lucas Carlson and Carson Bedrosian
@@ -25,7 +30,14 @@ class WordScrambleController
 
 private:
     SettingsFileReader settingsFileReader;
+
+    DictionaryFileReader dictionaryFileReader;
+
     LetterFrequency letterFrequency;
+
+    unordered_set<string> validWords;
+
+    unordered_set<string> guessedWords;
 
 public:
     /**
@@ -88,6 +100,29 @@ public:
     * @return the points for the word
     */
     int getPointsForWord(const string& word, const int currentPoints);
+
+    /**
+    * Loads the dictionary
+    * @precondition none
+    * @postcondition the dictionary is loaded
+    */
+    void loadDictionary();
+
+    /**
+    * Checks that the given word is in the dictionary
+    * @param word the word to check
+    * @precondition none
+    * @return true if the word is present otherwise false
+    */
+    bool checkWord(const string& word);
+
+    /**
+    * Checks that the word was not already guessed
+    * @param word the word to check
+    * @precondition none
+    * @return true if the word was guessed otherwise false
+    */
+    bool checkThatWordWasNotAlreadyGuessed(const string& word);
 
 };
 

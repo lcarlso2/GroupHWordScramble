@@ -35,3 +35,22 @@ vector<string> permute(string str, string out, vector<string> words) {
     }
     return words;
 }
+
+void combinationEasy(string input, int pos, string r) {
+    cout << r << endl;
+
+    for (int i = pos; i < input.length(); i++) {
+        //if (i != pos && input[i] == input[i-1]){
+          //  continue;
+       // }
+        r.push_back(input[i]);
+        combinationEasy(input, i +1, r);
+        r.erase(r.size()-1);
+    }
+}
+
+void combinationEasy(string input) {
+    string r;
+    sort(input.begin(), input.end());
+    combinationEasy(input, 0, r);
+}

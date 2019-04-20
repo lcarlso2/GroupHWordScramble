@@ -15,5 +15,7 @@ const string toTime(const int value);
 
 vector<string> permute(string str, string out, vector<string> words);
 
+void combinationEasy(string input);
+
 
 #endif // UTILS_H

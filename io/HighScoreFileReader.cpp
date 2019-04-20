@@ -15,12 +15,13 @@ HighScoreFileReader::~HighScoreFileReader()
 }
 
 
-map<string, vector<int, int>> HighScoreFileReader::readFile()
+map<string, vector<int>> HighScoreFileReader::readFile()
 {
-    map<string, vector<int, int>> scores;
     ifstream inFile;
     inFile.open(FILE_NAME);
+    map<string, vector<int>> scores;
     vector<string> lines;
+    vector<int> scoreTime;
     string name;
     int score;
     int timeInSeconds;
@@ -34,10 +35,14 @@ map<string, vector<int, int>> HighScoreFileReader::readFile()
             name = lines[INDEX_OF_NAME];
             score = lines[INDEX_OF_SCORE];
             timeInSeconds = lines[INDEX_OF_TIME];
+            scoreTime.push_back(score);
+            scoreTime.push_back(timeInSeconds);
+            scores.insert({name, scoreTime});
+            lines.clear();
+            scoreTime.clear();
         }
     }
-
     inFile.close();
-    return newMap;
+    return scores;
 }
 }

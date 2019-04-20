@@ -1,15 +1,16 @@
 #include "SettingsFileReader.h"
 
+
 namespace io
 {
 SettingsFileReader::SettingsFileReader()
 {
-    //ctor
+
 }
 
 SettingsFileReader::~SettingsFileReader()
 {
-    //dtor
+
 }
 
 void SettingsFileReader::readFile()

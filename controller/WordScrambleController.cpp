@@ -83,7 +83,7 @@ bool WordScrambleController::checkWord(const string& word)
 {
     if (this->validWords.count(word) == WORD_IS_VALID)
     {
-        this->guessedWords.insert(word);
+        this->guessedWords.insert({word, this->getPointsForWord(word, 0)});
         return WORD_IS_VALID;
     }
     else
@@ -91,4 +91,9 @@ bool WordScrambleController::checkWord(const string& word)
         return WORD_IS_NOT_VALID;
     }
 }
+
+string WordScrambleController::getFormattedWordsAndTheirPoints() {
+    return OutputFormatter::formatWords(this->guessedWords);
+}
+
 }

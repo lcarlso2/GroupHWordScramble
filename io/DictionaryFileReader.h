@@ -13,6 +13,7 @@ using namespace std;
 
 namespace io
 {
+    const string DICTIONARY_FILE_NAME = "dictionary";
 
 //The dictionary file reader that handles reading data from the dictionary file
 //@author Lucas Carlson
@@ -21,6 +22,8 @@ class DictionaryFileReader
 
 private:
     vector<string> input;
+
+    void readFile();
 
 
 public:
@@ -33,16 +36,10 @@ public:
     //Destructs the dictionary file reader objects
     virtual ~DictionaryFileReader();
 
-    //Reads the file
-    //@param fileName the name of the file to read
-    //@precondition none
-    //@return true if the file was read otherwise false
-    bool readFile();
-
     //Parses the input from the specified filename
     //@precondition none
     //@return the input from the file as a list of baseball cards
-    unordered_set<string> parseInput();
+    unordered_set<string> getValidWords();
 
 };
 

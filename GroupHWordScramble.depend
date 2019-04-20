@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1555685634 source:/home/csuser/Desktop/GroupHWordScramble/main.cpp
+1555799915 source:/home/csuser/Desktop/GroupHWordScramble/main.cpp
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Box.H>
 	<iostream>
 	"MainWindow.h"
+	"Utils.h"
 
 1555335111 source:/home/csuser/Desktop/GroupHWordScramble/controller/Controller.cpp
 	"Controller.h"
@@ -15,16 +16,17 @@
 	<vector>
 	"LetterFrequency.h"
 
-1555188703 source:/home/csuser/Desktop/GroupHWordScramble/model/LetterFrequency.cpp
+1555795990 source:/home/csuser/Desktop/GroupHWordScramble/model/LetterFrequency.cpp
 	"LetterFrequency.h"
 	<iostream>
 
-1555684389 /home/csuser/Desktop/GroupHWordScramble/model/LetterFrequency.h
+1555797330 /home/csuser/Desktop/GroupHWordScramble/model/LetterFrequency.h
 	<string>
 	<vector>
 	<random>
 	<algorithm>
 	<set>
+	<map>
 
 1555688827 source:/home/csuser/Desktop/GroupHWordScramble/view/MainWindow.cpp
 	"MainWindow.h"
@@ -60,16 +62,19 @@
 1555791941 source:/home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.cpp
 	"SettingsWindow.h"
 
-1555792589 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
+1555798051 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
 	"WordScrambleController.h"
-	<iostream>
 
-1555792578 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
+1555797968 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
 	<string>
 	<vector>
+	<unordered_set>
+	<map>
 	"LetterFrequency.h"
 	"SettingsFileReader.h"
 	"SettingsFileWriter.h"
+	"DictionaryFileReader.h"
+	"OutputFormatter.h"
 
 1555687315 source:/home/csuser/Desktop/GroupHWordScramble/io/SettingsFileReader.cpp
 	"SettingsFileReader.h"
@@ -97,11 +102,11 @@
 	<thread>
 	<chrono>
 
-1555791496 source:/home/csuser/Desktop/GroupHWordScramble/view/GameWindow.cpp
+1555798802 source:/home/csuser/Desktop/GroupHWordScramble/view/GameWindow.cpp
 	"GameWindow.h"
 	<iostream>
 
-1555792556 /home/csuser/Desktop/GroupHWordScramble/view/GameWindow.h
+1555798644 /home/csuser/Desktop/GroupHWordScramble/view/GameWindow.h
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Group.H>
@@ -127,15 +132,26 @@
 1555687315 source:/home/csuser/Desktop/GroupHWordScramble/view/HighScoreWindow.cpp
 	"HighScoreWindow.h"
 
-1555687315 source:/home/csuser/Desktop/GroupHWordScramble/utils/Utils.cpp
+1555800052 source:/home/csuser/Desktop/GroupHWordScramble/utils/Utils.cpp
 	"Utils.h"
+	<iostream>
 
-1555686632 /home/csuser/Desktop/GroupHWordScramble/utils/Utils.h
+1555799727 /home/csuser/Desktop/GroupHWordScramble/utils/Utils.h
 	<string>
+	<vector>
+	<algorithm>
 
+1555686632 ated upstream
+
+1555793152 D
+
+<<<<<<< HEAD
 1555781293 D
 
 1555794410 source:/home/csuser/GroupHWordScramble/controller/WordScrambleController.cpp
+=======
+1555791970 source:/home/csuser/GroupHWordScramble/controller/WordScrambleController.cpp
+>>>>>>> Added functionality to show guessed words
 	"WordScrambleController.h"
 	<iostream>
 
@@ -156,12 +172,30 @@
 
 1555791970 /home/csuser/GroupHWordScramble/io/SettingsFileReader.h
 
+<<<<<<< HEAD
 1555781749 source:/home/csuser/Desktop/GroupHWordScramble/io/DictionaryFileReader.cpp
 	"DictionaryFileReader.h"
 
 1555781293 /home/csuser/Desktop/GroupHWordScramble/io/DictionaryFileReader.h
 
 1555791875 gin/master
+=======
+1555795990 source:/home/csuser/Desktop/GroupHWordScramble/io/DictionaryFileReader.cpp
+	"DictionaryFileReader.h"
+
+1555795990 /home/csuser/Desktop/GroupHWordScramble/io/DictionaryFileReader.h
+	<iostream>
+	<iterator>
+	<sstream>
+	<fstream>
+	<vector>
+	<string>
+	<unordered_set>
+
+1555791875 gin/master
+
+1555793152 shed changes
+>>>>>>> Added functionality to show guessed words
 	<iostream>
 	<iterator>
 	<sstream>
@@ -281,6 +315,7 @@
 	"SettingsFileWriter.h"
 	"WordScrambleController.h"
 
+<<<<<<< HEAD
 1555794410 source:/home/csuser/GroupHWordScramble/io/DictionaryFileReader.cpp
 	"DictionaryFileReader.h"
 
@@ -292,4 +327,14 @@
 	<vector>
 	<string>
 	<unordered_set>
+=======
+1555799599 source:/home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.cpp
+	"OutputFormatter.h"
+	<iostream>
+
+1555797826 /home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.h
+	<map>
+	<string>
+	<sstream>
+>>>>>>> Added functionality to show guessed words
 

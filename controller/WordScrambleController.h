@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <unordered_set>
+#include <map>
 using namespace std;
 
 #include "LetterFrequency.h"
@@ -13,6 +14,9 @@ using namespace model;
 #include "SettingsFileWriter.h"
 #include "DictionaryFileReader.h"
 using namespace io;
+
+#include "OutputFormatter.h"
+using namespace view;
 
 namespace controller
 {
@@ -37,7 +41,7 @@ private:
 
     unordered_set<string> validWords;
 
-    unordered_set<string> guessedWords;
+    map<string, int> guessedWords;
 
 public:
     /**
@@ -123,6 +127,13 @@ public:
     * @return true if the word was guessed otherwise false
     */
     bool checkThatWordWasNotAlreadyGuessed(const string& word);
+
+    /**
+    * Get the output for the guessed words and their points
+    * @precondition none
+    * @return the formatted output
+    */
+    string getFormattedWordsAndTheirPoints();
 
 };
 

@@ -2,6 +2,8 @@
 #define UTILS_H
 
 #include <string>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 /**
@@ -10,6 +12,8 @@ using namespace std;
 * @return a formatted time string
 */
 const string toTime(const int value);
+
+vector<string> permute(int k, string& word);
 
 
 #endif // UTILS_H

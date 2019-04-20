@@ -23,7 +23,6 @@ using namespace std;
 #include "SettingsWindow.h"
 
 #include "Utils.h"
-
 #include "WordScrambleController.h"
 using namespace controller;
 
@@ -66,6 +65,9 @@ private:
     Fl_Button* endGameButton;
 
     Fl_Output* pointsLabel;
+
+    Fl_Text_Buffer* guessedWordsTextBuffer;
+    Fl_Text_Display* guessedWordsTextDisplay;
 
     Fl_Text_Buffer* lettersChosenTextBuffer;
     Fl_Text_Display* lettersChosenTextDisplay;

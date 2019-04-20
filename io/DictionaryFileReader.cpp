@@ -14,15 +14,10 @@ DictionaryFileReader::~DictionaryFileReader()
 
 }
 
-bool DictionaryFileReader::readFile()
+void DictionaryFileReader::readFile()
 {
     ifstream inFile;
-    inFile.open("dictionary");
-
-    if(!inFile)
-    {
-        return false;
-    }
+    inFile.open(DICTIONARY_FILE_NAME);
 
     string str;
     while (getline(inFile, str))
@@ -32,18 +27,16 @@ bool DictionaryFileReader::readFile()
     }
 
     inFile.close();
-    return true;
 }
 
-unordered_set<string> DictionaryFileReader::parseInput()
+unordered_set<string> DictionaryFileReader::getValidWords()
 {
+    this->readFile();
     unordered_set<string> words;
     for (size_t index = 0; index < this->input.size(); index++)
     {
         words.insert(this->input[index]);
     }
-
     return words;
-
 }
 }

@@ -7,6 +7,7 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
 {
     begin();
 
+    this->controller.loadDictionary();
     this->numberOfButtonsToShow = this->controller.getNumberOfLetters();
 
     this->letters = this->controller.getLettersToDisplay(this->numberOfButtonsToShow);
@@ -23,6 +24,13 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
 
     this->pointsLabel = new Fl_Output(475,5,50,25,"Points: ");
     this->pointsLabel->value("0");
+
+   // this->guessedWordsLabel = new Fl_Output(110,50,320,90, "");
+
+    this->guessedWordsTextBuffer = new Fl_Text_Buffer();
+    this->guessedWordsTextDisplay = new Fl_Text_Display(110,50,320,90, "");
+    this->guessedWordsTextDisplay->textfont(FL_COURIER);
+    this->guessedWordsTextDisplay->buffer(this->guessedWordsTextBuffer);
 
     this->endGameButton = new Fl_Button(225,5,125,25,"End Game");
     this->endGameButton->callback(cbEndgame, this);
@@ -141,10 +149,22 @@ void GameWindow::getNewLetters()
 
 void GameWindow::submitWord(const string& word)
 {
-    string currentPoints = this->pointsLabel->value();
-    int totalPoints = this->controller.getPointsForWord(word, stoi(currentPoints));
-    string points = to_string(totalPoints);
-    this->pointsLabel->value(points.c_str());
+    if (this->controller.checkThatWordWasNotAlreadyGuessed(word) == controller::WORD_ALREADY_GUESSED)
+    {
+        fl_message("%s", "Word already guessed!");
+    }
+    else if (this->controller.checkWord(word) == controller::WORD_IS_VALID)
+    {
+        this->guessedWordsTextBuffer->text(this->controller.getFormattedWordsAndTheirPoints().c_str());
+        string currentPoints = this->pointsLabel->value();
+        int totalPoints = this->controller.getPointsForWord(word, stoi(currentPoints));
+        string points = to_string(totalPoints);
+        this->pointsLabel->value(points.c_str());
+    }
+    else
+    {
+        fl_message("%s", "Invalid word! Try again!");
+    }
 }
 
 void GameWindow::replaceLettersBeingDisplayed(vector<string> newLetters)
@@ -265,6 +285,10 @@ GameWindow::~GameWindow()
 
     delete timerLabel;
     delete this->pointsLabel;
+
+    this->guessedWordsTextDisplay->buffer(0);
+    delete this->guessedWordsTextBuffer;
+    delete this->guessedWordsTextDisplay;
 }
 
 }

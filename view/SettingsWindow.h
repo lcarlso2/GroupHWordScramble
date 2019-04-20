@@ -16,10 +16,10 @@ using namespace controller;
 
 namespace view
 {
-    const int NUMBER_OF_BUTTONS_FOR_TIMER = 3;
-    const int NUMBER_OF_BUTTONS_FOR_LETTER_COUNT = 3;
-    const int OFFSET_TO_SELECTED_TIMER = 1;
-    const int OFFSET_TO_SELECTED_LETTER_COUNT = 5;
+const int NUMBER_OF_BUTTONS_FOR_TIMER = 3;
+const int NUMBER_OF_BUTTONS_FOR_LETTER_COUNT = 3;
+const int OFFSET_TO_SELECTED_TIMER = 1;
+const int OFFSET_TO_SELECTED_LETTER_COUNT = 5;
 
 /**
 * The settings window that controls selecting the settings of the game

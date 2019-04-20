@@ -48,9 +48,11 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
     end();
 }
 
-void GameWindow::cbGameOver(Fl_Widget* widget, void* data) {
+void GameWindow::cbGameOver(Fl_Widget* widget, void* data)
+{
     GameWindow* window = (GameWindow*)data;
-    if (timeUp == true){
+    if (timeUp == true)
+    {
         window->hide();
     }
 }

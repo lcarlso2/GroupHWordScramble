@@ -6,36 +6,10 @@ namespace model
 {
 LetterFrequency::LetterFrequency()
 {
-    this->letters = this->createFrequency(this->letters, 11, "e");
-    this->letters = this->createFrequency(this->letters, 9, "t");
-    this->letters = this->createFrequency(this->letters, 8, "o");
-    this->letters = this->createFrequency(this->letters, 6, "a");
-    this->letters = this->createFrequency(this->letters, 6, "i");
-    this->letters = this->createFrequency(this->letters, 6, "n");
-    this->letters = this->createFrequency(this->letters, 6, "s");
-    this->letters = this->createFrequency(this->letters, 5, "h");
-    this->letters = this->createFrequency(this->letters, 5, "r");
-
-    this->letters = this->createFrequency(this->letters, 4, "l");
-
-    this->letters = this->createFrequency(this->letters, 3, "d");
-    this->letters = this->createFrequency(this->letters, 3, "u");
-    this->letters = this->createFrequency(this->letters, 3, "w");
-    this->letters = this->createFrequency(this->letters, 3, "y");
-
-    this->letters = this->createFrequency(this->letters, 2, "b");
-    this->letters = this->createFrequency(this->letters, 2, "c");
-    this->letters = this->createFrequency(this->letters, 2, "f");
-    this->letters = this->createFrequency(this->letters, 2, "g");
-    this->letters = this->createFrequency(this->letters, 2, "m");
-    this->letters = this->createFrequency(this->letters, 2, "p");
-    this->letters = this->createFrequency(this->letters, 2, "v");
-
-    this->letters = this->createFrequency(this->letters, 1, "j");
-    this->letters = this->createFrequency(this->letters, 1, "k");
-    this->letters = this->createFrequency(this->letters, 1, "q");
-    this->letters = this->createFrequency(this->letters, 1, "x");
-    this->letters = this->createFrequency(this->letters, 1, "z");
+    for(auto const& current : LETTER_FREQUENCIES)
+    {
+        this->letters = this->createFrequency(this->letters, current.second, current.first);
+    }
 }
 
 LetterFrequency::~LetterFrequency()

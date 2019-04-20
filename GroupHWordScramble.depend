@@ -133,3 +133,122 @@
 1555686632 /home/csuser/Desktop/GroupHWordScramble/utils/Utils.h
 	<string>
 
+1555791970 source:/home/csuser/GroupHWordScramble/controller/WordScrambleController.cpp
+	"WordScrambleController.h"
+	<iostream>
+
+1555791970 /home/csuser/GroupHWordScramble/controller/WordScrambleController.h
+	<string>
+	<vector>
+	"LetterFrequency.h"
+	"SettingsFileReader.h"
+	"SettingsFileWriter.h"
+
+1555793391 /home/csuser/GroupHWordScramble/model/LetterFrequency.h
+	<string>
+	<vector>
+	<random>
+	<algorithm>
+	<set>
+	<map>
+
+1555791970 /home/csuser/GroupHWordScramble/io/SettingsFileReader.h
+	<iostream>
+	<iterator>
+	<sstream>
+	<fstream>
+	<vector>
+	<string>
+
+1555791970 /home/csuser/GroupHWordScramble/io/SettingsFileWriter.h
+	<iostream>
+	<fstream>
+	<string>
+
+1555791970 source:/home/csuser/GroupHWordScramble/io/SettingsFileReader.cpp
+	"SettingsFileReader.h"
+
+1555791970 source:/home/csuser/GroupHWordScramble/io/SettingsFileWriter.cpp
+	"SettingsFileWriter.h"
+
+1555791970 source:/home/csuser/GroupHWordScramble/main.cpp
+	<FL/Fl.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Box.H>
+	<iostream>
+	"MainWindow.h"
+
+1555791970 /home/csuser/GroupHWordScramble/view/MainWindow.h
+	<FL/Fl.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Output.H>
+	"OkCancelWindow.h"
+	"SettingsWindow.h"
+	"GameWindow.h"
+	"HighScoreWindow.h"
+	"WordScrambleController.h"
+
+1555791970 /home/csuser/GroupHWordScramble/view/OkCancelWindow.h
+	<Fl/Fl_Window.H>
+	<Fl/Fl_Button.H>
+
+1555791970 /home/csuser/GroupHWordScramble/view/SettingsWindow.h
+	"OkCancelWindow.h"
+	<FL/Fl_Group.H>
+	<FL/Fl_Round_Button.H>
+	<FL/Fl_Output.H>
+	<FL/Fl_Window.H>
+	<Fl/fl_draw.H>
+	<string>
+	"WordScrambleController.h"
+
+1555791970 /home/csuser/GroupHWordScramble/view/GameWindow.h
+	<FL/Fl.H>
+	<FL/Fl_Window.H>
+	<FL/Fl_Group.H>
+	<FL/Fl_Round_Button.H>
+	<FL/Fl_Output.H>
+	<FL/Fl_Text_Buffer.H>
+	<FL/Fl_Text_Display.H>
+	<FL/Fl_Timer.H>
+	<Fl/fl_ask.H>
+	<string>
+	<vector>
+	<algorithm>
+	<chrono>
+	<time.h>
+	"OkCancelWindow.h"
+	"SettingsWindow.h"
+	"Utils.h"
+	"WordScrambleController.h"
+
+1555791970 /home/csuser/GroupHWordScramble/utils/Utils.h
+	<string>
+
+1555791970 /home/csuser/GroupHWordScramble/view/HighScoreWindow.h
+	"OkCancelWindow.h"
+
+1555791970 source:/home/csuser/GroupHWordScramble/model/LetterFrequency.cpp
+	"LetterFrequency.h"
+	<iostream>
+
+1555791970 source:/home/csuser/GroupHWordScramble/utils/Utils.cpp
+	"Utils.h"
+
+1555791970 source:/home/csuser/GroupHWordScramble/view/GameWindow.cpp
+	"GameWindow.h"
+	<iostream>
+
+1555791970 source:/home/csuser/GroupHWordScramble/view/HighScoreWindow.cpp
+	"HighScoreWindow.h"
+
+1555791970 source:/home/csuser/GroupHWordScramble/view/MainWindow.cpp
+	"MainWindow.h"
+	<iostream>
+
+1555791970 source:/home/csuser/GroupHWordScramble/view/OkCancelWindow.cpp
+	"OkCancelWindow.h"
+
+1555791970 source:/home/csuser/GroupHWordScramble/view/SettingsWindow.cpp
+	"SettingsWindow.h"
+

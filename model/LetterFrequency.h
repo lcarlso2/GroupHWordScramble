@@ -7,10 +7,39 @@
 #include <algorithm>
 #include <set>
 using namespace std;
+#include <map>
 
 namespace model
 {
 
+const map<string, int> LETTER_FREQUENCIES = {
+    {"e", 11},
+    {"t", 9},
+    {"o", 8},
+    {"a", 6},
+    {"i", 6},
+    {"n", 6},
+    {"s", 6},
+    {"h", 5},
+    {"r", 5},
+    {"l", 4},
+    {"d", 3},
+    {"u", 3},
+    {"w", 3},
+    {"y", 3},
+    {"b", 2},
+    {"c", 2},
+    {"f", 2},
+    {"g", 2},
+    {"m", 2},
+    {"p", 2},
+    {"v", 2},
+    {"j", 1},
+    {"k", 1},
+    {"q", 1},
+    {"x", 1},
+    {"z", 1}
+};
 /**
 * The letter frequency class in charge of keep track the letters
 * @author Lucas Carlson and Carson Bedrosian

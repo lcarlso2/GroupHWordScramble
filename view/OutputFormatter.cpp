@@ -17,7 +17,6 @@ string OutputFormatter::formatWords(map<string, int> words) {
     for (auto& currentWord : words) {
         builder << "Word: " << currentWord.first << "-" << currentWord.second << " point(s)" << endl;
     }
-
     return builder.str();
 }
 

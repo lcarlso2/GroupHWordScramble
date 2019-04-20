@@ -13,7 +13,7 @@ using namespace std;
 */
 const string toTime(const int value);
 
-vector<string> permute(int k, string& word);
+vector<string> permute(string str, string out, vector<string> words);
 
 
 #endif // UTILS_H

@@ -30,6 +30,8 @@
 		</Linker>
 		<Unit filename="controller/WordScrambleController.cpp" />
 		<Unit filename="controller/WordScrambleController.h" />
+		<Unit filename="io/DictionaryFileReader.cpp" />
+		<Unit filename="io/DictionaryFileReader.h" />
 		<Unit filename="io/SettingsFileReader.cpp" />
 		<Unit filename="io/SettingsFileReader.h" />
 		<Unit filename="io/SettingsFileWriter.cpp" />

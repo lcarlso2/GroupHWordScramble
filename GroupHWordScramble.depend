@@ -1,10 +1,8 @@
 # depslib dependency file v1.0
-1555801767 source:/home/csuser/Desktop/GroupHWordScramble/main.cpp
+1555801833 source:/home/csuser/Desktop/GroupHWordScramble/main.cpp
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Box.H>
-	<vector>
-	<iostream>
 	"MainWindow.h"
 	"Utils.h"
 
@@ -133,7 +131,7 @@
 1555687315 source:/home/csuser/Desktop/GroupHWordScramble/view/HighScoreWindow.cpp
 	"HighScoreWindow.h"
 
-1555801737 source:/home/csuser/Desktop/GroupHWordScramble/utils/Utils.cpp
+1555801823 source:/home/csuser/Desktop/GroupHWordScramble/utils/Utils.cpp
 	"Utils.h"
 	<iostream>
 

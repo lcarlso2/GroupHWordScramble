@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1555803389 source:/home/csuser/Desktop/GroupHWordScramble/main.cpp
+1555811115 source:/home/csuser/Desktop/GroupHWordScramble/main.cpp
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Box.H>
 	"Utils.h"
 	<iostream>
+	<string>
 	"MainWindow.h"
 
 1555335111 source:/home/csuser/Desktop/GroupHWordScramble/controller/Controller.cpp
@@ -132,14 +133,16 @@
 1555687315 source:/home/csuser/Desktop/GroupHWordScramble/view/HighScoreWindow.cpp
 	"HighScoreWindow.h"
 
-1555803383 source:/home/csuser/Desktop/GroupHWordScramble/utils/Utils.cpp
+1555812143 source:/home/csuser/Desktop/GroupHWordScramble/utils/Utils.cpp
 	"Utils.h"
 	<iostream>
+	<unordered_set>
 
-1555802953 /home/csuser/Desktop/GroupHWordScramble/utils/Utils.h
+1555808332 /home/csuser/Desktop/GroupHWordScramble/utils/Utils.h
 	<string>
 	<vector>
 	<algorithm>
+	<unordered_set>
 
 1555686632 ated upstream
 
@@ -198,12 +201,16 @@
 =======
 1555791970 /home/csuser/GroupHWordScramble/io/SettingsFileReader.h
 
+<<<<<<< HEAD
 1555800365 source:/home/csuser/Desktop/GroupHWordScramble/io/DictionaryFileReader.cpp
 >>>>>>> origin/master
 	"DictionaryFileReader.h"
+=======
+1555812468 source:/home/csuser/Desktop/GroupHWordScramble/io/DictionaryFileReader.cpp
+>>>>>>> Bug still in permutation
 	"DictionaryFileReader.h"
 
-1555800365 /home/csuser/Desktop/GroupHWordScramble/io/DictionaryFileReader.h
+1555812468 /home/csuser/Desktop/GroupHWordScramble/io/DictionaryFileReader.h
 	<iostream>
 	<iterator>
 	<sstream>

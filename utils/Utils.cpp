@@ -1,6 +1,8 @@
 #include "Utils.h"
 
 #include <iostream>
+#include <unordered_set>
+using namespace std;
 const string toTime(const int value)
 {
     string minutes;
@@ -54,3 +56,57 @@ void combinationEasy(string input) {
     sort(input.begin(), input.end());
     combinationEasy(input, 0, r);
 }
+
+
+// The main recursive method
+// to print all possible
+// strings of length k
+unordered_set<string> printAllKLengthRec(string input, string prefix, int n, int k, unordered_set<string> words)
+{
+
+    // Base case: k is 0,
+    // print prefix
+    if (k == 0)
+    {
+      //  cout << (prefix) << endl;
+        return words;
+    }
+
+    // One by one add all characters
+    // from set and recursively
+    // call for k equals to k-1
+    for (int i = 0; i < n; i++)
+    {
+        string newPrefix;
+        // Next character of input added
+        if (prefix.find(input[i]) == string::npos ||  (input[i] == input[i+1])) {
+            cout << "TEST----   current   " << input[i] << "    next    " << input[i+1] << endl;
+          //  cout << prefix << endl;
+              //  cout << "STUFF HAPPENs    "<< endl;
+        newPrefix = prefix + input[i];
+        //printAllKLengthRec(set, newPrefix, n, k - 1, words);
+        } else {
+            newPrefix = prefix;
+        }
+       // cout << prefix << endl;
+        words.insert(newPrefix);
+        // k is decreased, because
+        // we have added a new character
+        words = printAllKLengthRec(input, newPrefix, n, k - 1, words);
+    }
+    return words;
+
+}
+
+void printAllKLength(string input, int k,int n)
+{
+    unordered_set<string> test;
+    sort(input.begin(), input.end());
+    unordered_set<string> words = printAllKLengthRec(input, "", n, k, test);
+
+    for (auto& current : words) {
+        cout << current << endl;
+    }
+
+}
+

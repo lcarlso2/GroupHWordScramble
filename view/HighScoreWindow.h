@@ -1,7 +1,12 @@
 #ifndef HIGHSCOREWINDOW_H
 #define HIGHSCOREWINDOW_H
-
 #include "OkCancelWindow.h"
+#include <FL/Fl_Text_Buffer.H>
+#include <FL/Fl_Text_Display.H>
+
+#include "WordScrambleController.h"
+using namespace controller;
+
 
 namespace view
 {
@@ -14,6 +19,10 @@ namespace view
 class HighScoreWindow  : public OkCancelWindow
 {
 private:
+
+    WordScrambleController controller;
+    Fl_Text_Buffer* highScoresTextBuffer;
+    Fl_Text_Display* highScoresTextDisplay;
 
 public:
     /**

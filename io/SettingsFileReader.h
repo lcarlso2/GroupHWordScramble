@@ -12,7 +12,7 @@ using namespace std;
 namespace io
 {
 
-const string FILE_NAME = "settings";
+const string SETTINGS_FILE_NAME = "settings";
 const int INDEX_OF_SETTINGS = 0;
 const int INDEX_OF_NUMBER_OF_LETTERS = 0;
 const int INDEX_OF_TIMER = 1;

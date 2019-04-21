@@ -6,8 +6,9 @@
 #include <random>
 #include <algorithm>
 #include <set>
-using namespace std;
 #include <map>
+using namespace std;
+
 
 namespace model
 {

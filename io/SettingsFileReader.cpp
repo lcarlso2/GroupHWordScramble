@@ -16,7 +16,7 @@ SettingsFileReader::~SettingsFileReader()
 void SettingsFileReader::readFile()
 {
     ifstream inFile;
-    inFile.open(FILE_NAME);
+    inFile.open(SETTINGS_FILE_NAME);
     vector<string> input;
     string str;
     while (getline(inFile, str))

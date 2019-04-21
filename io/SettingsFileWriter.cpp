@@ -16,7 +16,7 @@ SettingsFileWriter::~SettingsFileWriter()
 void SettingsFileWriter::writeSettingsToFile(const int numberOfLetters, const int timer)
 {
     ofstream myFile;
-    myFile.open("settings");
+    myFile.open(SETTINGS_FILE_NAME);
 
     myFile << to_string(numberOfLetters) << "," << to_string(timer) << endl;
 

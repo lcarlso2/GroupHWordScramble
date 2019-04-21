@@ -81,7 +81,7 @@ bool WordScrambleController::checkThatWordWasNotAlreadyGuessed(const string& wor
 
 bool WordScrambleController::checkWord(const string& word)
 {
-    if (this->validWords.count(word) == WORD_IS_VALID)
+    if (this->possibleWords.count(word) == WORD_IS_VALID)
     {
         this->guessedWords.insert({word, this->getPointsForWord(word, 0)});
         return WORD_IS_VALID;
@@ -92,6 +92,13 @@ bool WordScrambleController::checkWord(const string& word)
     }
 }
 
+int WordScrambleController::getWordsRemaining(){
+    return this->possibleWords.size() - this->guessedWords.size();
+}
+
+int WordScrambleController::getTotalNumberOfWords(){
+    return this->possibleWords.size();
+}
 string WordScrambleController::getFormattedWordsAndTheirPoints() {
     return this->formatter.formatWords(this->guessedWords);
 }
@@ -100,8 +107,11 @@ string WordScrambleController::getFormattedHighScores()
 {
     map<string, vector<int>> scores = this->scoreFileReader.readFile();
     string output = this->formatter.formatScores(scores);
-    cout << output << endl;
     return this->formatter.formatScores(scores);
+}
+
+void WordScrambleController::resetWords(const string& word) {
+    this->possibleWords = findAllValidWords(word);
 }
 
 }

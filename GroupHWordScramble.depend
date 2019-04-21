@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1555811115 source:/home/csuser/Desktop/GroupHWordScramble/main.cpp
+1555816429 source:/home/csuser/Desktop/GroupHWordScramble/main.cpp
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Box.H>
@@ -63,10 +63,10 @@
 1555791941 source:/home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.cpp
 	"SettingsWindow.h"
 
-1555800365 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
+1555816563 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
 	"WordScrambleController.h"
 
-1555800365 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
+1555816558 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
 	<string>
 	<vector>
 	<unordered_set>
@@ -75,12 +75,14 @@
 	"SettingsFileReader.h"
 	"SettingsFileWriter.h"
 	"DictionaryFileReader.h"
+	"HighScoreFileReader.h"
 	"OutputFormatter.h"
+	"Utils.h"
 
-1555800364 source:/home/csuser/Desktop/GroupHWordScramble/io/SettingsFileReader.cpp
+1555812545 source:/home/csuser/Desktop/GroupHWordScramble/io/SettingsFileReader.cpp
 	"SettingsFileReader.h"
 
-1555687315 /home/csuser/Desktop/GroupHWordScramble/io/SettingsFileReader.h
+1555812545 /home/csuser/Desktop/GroupHWordScramble/io/SettingsFileReader.h
 	<iostream>
 	<iterator>
 	<sstream>
@@ -88,12 +90,13 @@
 	<vector>
 	<string>
 
-1555687315 /home/csuser/Desktop/GroupHWordScramble/io/SettingsFileWriter.h
+1555812545 /home/csuser/Desktop/GroupHWordScramble/io/SettingsFileWriter.h
 	<iostream>
 	<fstream>
 	<string>
+	"SettingsFileReader.h"
 
-1555687315 source:/home/csuser/Desktop/GroupHWordScramble/io/SettingsFileWriter.cpp
+1555812545 source:/home/csuser/Desktop/GroupHWordScramble/io/SettingsFileWriter.cpp
 	"SettingsFileWriter.h"
 
 1555471656 source:/home/csuser/Desktop/GroupHWordScramble/model/Timer.cpp
@@ -103,11 +106,11 @@
 	<thread>
 	<chrono>
 
-1555804095 source:/home/csuser/Desktop/GroupHWordScramble/view/GameWindow.cpp
+1555818182 source:/home/csuser/Desktop/GroupHWordScramble/view/GameWindow.cpp
 	"GameWindow.h"
 	<iostream>
 
-1555800365 /home/csuser/Desktop/GroupHWordScramble/view/GameWindow.h
+1555817848 /home/csuser/Desktop/GroupHWordScramble/view/GameWindow.h
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Group.H>
@@ -127,18 +130,22 @@
 	"Utils.h"
 	"WordScrambleController.h"
 
-1555684323 /home/csuser/Desktop/GroupHWordScramble/view/HighScoreWindow.h
+1555812545 /home/csuser/Desktop/GroupHWordScramble/view/HighScoreWindow.h
 	"OkCancelWindow.h"
+	<FL/Fl_Text_Buffer.H>
+	<FL/Fl_Text_Display.H>
+	"WordScrambleController.h"
 
-1555687315 source:/home/csuser/Desktop/GroupHWordScramble/view/HighScoreWindow.cpp
+1555812545 source:/home/csuser/Desktop/GroupHWordScramble/view/HighScoreWindow.cpp
 	"HighScoreWindow.h"
 
-1555812143 source:/home/csuser/Desktop/GroupHWordScramble/utils/Utils.cpp
+1555816365 source:/home/csuser/Desktop/GroupHWordScramble/utils/Utils.cpp
 	"Utils.h"
 	<iostream>
 	<unordered_set>
+	"DictionaryFileReader.h"
 
-1555808332 /home/csuser/Desktop/GroupHWordScramble/utils/Utils.h
+1555816360 /home/csuser/Desktop/GroupHWordScramble/utils/Utils.h
 	<string>
 	<vector>
 	<algorithm>
@@ -146,17 +153,19 @@
 
 1555686632 ated upstream
 
-1555791875 D
-<<<<<<< HEAD
-
-1555808571 source:/home/csuser/GroupHWordScramble/controller/WordScrambleController.cpp
-	"WordScrambleController.h"
-
-=======
+1555800365 D
 
 1555791970 source:/home/csuser/GroupHWordScramble/controller/WordScrambleController.cpp
+	"WordScrambleController.h"
 
->>>>>>> origin/master
+1555808571 bleController.h"
+
+1555808624 gin/master
+	"DictionaryFileReader.h"
+	"DictionaryFileReader.h"
+	"OutputFormatter.h"
+	<iostream>
+
 1555797826 ed functionality to show guessed words
 	"WordScrambleController.h"
 	<iostream>
@@ -188,8 +197,7 @@
 	<set>
 	<map>
 
-<<<<<<< HEAD
-1555804489 /home/csuser/GroupHWordScramble/io/SettingsFileReader.h
+1555791970 /home/csuser/GroupHWordScramble/io/SettingsFileReader.h
 	<iostream>
 	<iterator>
 	<sstream>
@@ -197,17 +205,11 @@
 	<vector>
 	<string>
 
-1555795990 source:/home/csuser/Desktop/GroupHWordScramble/io/DictionaryFileReader.cpp
-=======
-1555791970 /home/csuser/GroupHWordScramble/io/SettingsFileReader.h
-
-<<<<<<< HEAD
-1555800365 source:/home/csuser/Desktop/GroupHWordScramble/io/DictionaryFileReader.cpp
->>>>>>> origin/master
-	"DictionaryFileReader.h"
-=======
 1555812468 source:/home/csuser/Desktop/GroupHWordScramble/io/DictionaryFileReader.cpp
->>>>>>> Bug still in permutation
+
+1555800365 yFileReader.h"
+
+1555812468 still in permutation
 	"DictionaryFileReader.h"
 
 1555812468 /home/csuser/Desktop/GroupHWordScramble/io/DictionaryFileReader.h
@@ -218,8 +220,6 @@
 	<vector>
 	<string>
 	<unordered_set>
-
-1555791875 gin/master
 
 1555793152 shed changes
 
@@ -343,12 +343,7 @@
 	"SettingsFileWriter.h"
 	"WordScrambleController.h"
 
-<<<<<<< HEAD
-1555800712 source:/home/csuser/GroupHWordScramble/io/DictionaryFileReader.cpp
-=======
 1555794410 source:/home/csuser/GroupHWordScramble/io/DictionaryFileReader.cpp
->>>>>>> origin/master
-	"DictionaryFileReader.h"
 
 1555800712 /home/csuser/GroupHWordScramble/io/DictionaryFileReader.h
 	<iostream>
@@ -361,19 +356,16 @@
 
 1555794410 _set>
 
-<<<<<<< HEAD
-1555799599 source:/home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.cpp
-=======
-1555801584 source:/home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.cpp
->>>>>>> origin/master
+1555812545 source:/home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.cpp
 	"OutputFormatter.h"
 	<iostream>
 
-1555800365 /home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.h
+1555812545 /home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.h
 	<map>
+	<iomanip>
+	<vector>
 	<string>
 	<sstream>
-<<<<<<< HEAD
 
 1555797096 source:/home/csuser/GroupHWordScramble/io/HighScoreFileWriter.cpp
 	"HighScoreFileWriter.h"
@@ -404,6 +396,24 @@
 1555808624 source:/home/csuser/GroupHWordScramble/view/OutputFormatter.cpp
 	"OutputFormatter.h"
 	<iostream>
-=======
->>>>>>> origin/master
+
+1555808624 
+
+1555812545 /home/csuser/Desktop/GroupHWordScramble/io/HighScoreFileReader.h
+	<iostream>
+	<iterator>
+	<sstream>
+	<fstream>
+	<vector>
+	<string>
+	<vector>
+	<map>
+
+1555812545 source:/home/csuser/Desktop/GroupHWordScramble/io/HighScoreFileReader.cpp
+	"HighScoreFileReader.h"
+
+1555800364 source:/home/csuser/Desktop/GroupHWordScramble/io/HighScoreFileWriter.cpp
+	"HighScoreFileWriter.h"
+
+1555800364 /home/csuser/Desktop/GroupHWordScramble/io/HighScoreFileWriter.h
 

@@ -19,6 +19,8 @@ using namespace io;
 #include "OutputFormatter.h"
 using namespace view;
 
+#include "Utils.h"
+
 namespace controller
 {
 
@@ -48,6 +50,8 @@ private:
     unordered_set<string> validWords;
 
     map<string, int> guessedWords;
+
+    unordered_set<string> possibleWords;
 
 public:
     /**
@@ -148,6 +152,13 @@ public:
     * @return Formatted highscores
     */
     string getFormattedHighScores();
+
+    void resetWords(const string& word);
+
+    int getWordsRemaining();
+
+    int getTotalNumberOfWords();
+
 
 };
 

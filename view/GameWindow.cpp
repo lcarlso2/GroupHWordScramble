@@ -12,6 +12,13 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
 
     this->letters = this->controller.getLettersToDisplay(this->numberOfButtonsToShow);
 
+    string word;
+    for (auto& letter : this->letters) {
+        word += letter;
+    }
+
+    this->controller.resetWords(word);
+
     createAndDisplayLetterSelection(this->letters);
 
     this->lettersChosenTextBuffer = new Fl_Text_Buffer();
@@ -25,14 +32,17 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
     this->pointsLabel = new Fl_Output(475,5,50,25,"Points: ");
     this->pointsLabel->value("0");
 
-   // this->guessedWordsLabel = new Fl_Output(110,50,320,90, "");
-
     this->guessedWordsTextBuffer = new Fl_Text_Buffer();
     this->guessedWordsTextDisplay = new Fl_Text_Display(110,50,320,90, "");
     this->guessedWordsTextDisplay->textfont(FL_COURIER);
     this->guessedWordsTextDisplay->buffer(this->guessedWordsTextBuffer);
 
-    this->endGameButton = new Fl_Button(225,5,125,25,"End Game");
+
+    this->wordsLeftLabel = new Fl_Output(275,5,50,25,"Words left:");
+
+    this->setWordsLeftLabel();
+
+    this->endGameButton = new Fl_Button(210,145,125,25,"End Game");
     this->endGameButton->callback(cbEndgame, this);
 
     this->shuffleButton = new Fl_Button(50,175,125,25,"Shuffle letters");
@@ -54,6 +64,11 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
     this->submitWordButton->hide();
 
     end();
+}
+
+void GameWindow::setWordsLeftLabel() {
+    string wordsLeft = to_string(this->controller.getWordsRemaining()) + "/" + to_string(this->controller.getTotalNumberOfWords());
+    this->wordsLeftLabel->value(wordsLeft.c_str());
 }
 
 void GameWindow::cbGameOver(Fl_Widget* widget, void* data)
@@ -144,6 +159,13 @@ void GameWindow::getNewLetters()
 {
     this->submitWordButton->hide();
     this->letters = this->controller.getLettersToDisplay(this->numberOfButtonsToShow);
+    string word;
+    for (auto& letter : this->letters) {
+        word += letter;
+    }
+    this->controller.resetWords(word);
+    this->setWordsLeftLabel();
+
     this->replaceLettersBeingDisplayed(this->letters);
 }
 
@@ -155,11 +177,13 @@ void GameWindow::submitWord(const string& word)
     }
     else if (this->controller.checkWord(word) == controller::WORD_IS_VALID)
     {
+        this->setWordsLeftLabel();
         this->guessedWordsTextBuffer->text(this->controller.getFormattedWordsAndTheirPoints().c_str());
         string currentPoints = this->pointsLabel->value();
         int totalPoints = this->controller.getPointsForWord(word, stoi(currentPoints));
         string points = to_string(totalPoints);
         this->pointsLabel->value(points.c_str());
+        this->clearWord();
     }
     else
     {
@@ -289,6 +313,7 @@ GameWindow::~GameWindow()
 
     delete timerLabel;
     delete this->pointsLabel;
+    delete this->wordsLeftLabel;
 
     this->guessedWordsTextDisplay->buffer(0);
     delete this->guessedWordsTextBuffer;

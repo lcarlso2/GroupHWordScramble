@@ -66,6 +66,8 @@ private:
 
     Fl_Output* pointsLabel;
 
+    Fl_Output* wordsLeftLabel;
+
     Fl_Text_Buffer* guessedWordsTextBuffer;
     Fl_Text_Display* guessedWordsTextDisplay;
 
@@ -94,6 +96,8 @@ private:
     inline void submitWord(const string& word);
     inline void clearWord();
     inline void endGame();
+
+    void setWordsLeftLabel();
 
 public:
     /**

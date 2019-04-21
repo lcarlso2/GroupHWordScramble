@@ -22,4 +22,11 @@ unordered_set<string> printAllKLengthRec(string input, string prefix, int n, int
 void printAllKLength(string input, int k,int n);
 
 
+bool isPossible(string word, string letters);
+
+unordered_set<string> findAllValidWords(string letters);
+
+
+
+
 #endif // UTILS_H

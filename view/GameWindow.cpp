@@ -163,7 +163,11 @@ void GameWindow::submitWord(const string& word)
     }
     else
     {
-        fl_message("%s", "Invalid word! Try again!");
+        fl_message("%s", "Invalid word! You lose ten points!");
+        string currentPoints = this->pointsLabel->value();
+        int totalPoints = stoi(currentPoints) - 10;
+        string points = to_string(totalPoints);
+        this->pointsLabel->value(points.c_str());
     }
 }
 

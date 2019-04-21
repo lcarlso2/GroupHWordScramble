@@ -30,6 +30,7 @@
 		</Linker>
 		<Unit filename="controller/WordScrambleController.cpp" />
 		<Unit filename="controller/WordScrambleController.h" />
+		<Unit filename="dictionary" />
 		<Unit filename="io/DictionaryFileReader.cpp" />
 		<Unit filename="io/DictionaryFileReader.h" />
 		<Unit filename="io/SettingsFileReader.cpp" />
@@ -50,6 +51,8 @@
 		<Unit filename="view/MainWindow.h" />
 		<Unit filename="view/OkCancelWindow.cpp" />
 		<Unit filename="view/OkCancelWindow.h" />
+		<Unit filename="view/OutputFormatter.cpp" />
+		<Unit filename="view/OutputFormatter.h" />
 		<Unit filename="view/SettingsWindow.cpp" />
 		<Unit filename="view/SettingsWindow.h" />
 		<Extensions>

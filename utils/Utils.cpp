@@ -20,14 +20,37 @@ const string toTime(const int value)
     return minutes + ":" + seconds;
 }
 
-vector<string> permute(int k, string &word) {
-    for(int j = 1; j < word.size(); j++)
+vector<string> permute(string str, string out, vector<string> words) {
+
+    if (str.size() == 0)
     {
-        cout << "here??" << endl;
-        std::swap(word[k % (j + 1)], word[j]);
-        cout << word << endl;
-    cout << "here??123" << endl;
-        k = k / (j + 1);
-        cout << "here??555" << endl;
+        words.push_back(out);
+        return words;
     }
+
+    for (int i = 0; i < str.size(); i++)
+    {
+        permute(str.substr(1), out + str[0], words);
+        rotate(str.begin(), str.begin() + 1, str.end());
+    }
+    return words;
+}
+
+void combinationEasy(string input, int pos, string r) {
+    cout << r << endl;
+
+    for (int i = pos; i < input.length(); i++) {
+        //if (i != pos && input[i] == input[i-1]){
+          //  continue;
+       // }
+        r.push_back(input[i]);
+        combinationEasy(input, i +1, r);
+        r.erase(r.size()-1);
+    }
+}
+
+void combinationEasy(string input) {
+    string r;
+    sort(input.begin(), input.end());
+    combinationEasy(input, 0, r);
 }

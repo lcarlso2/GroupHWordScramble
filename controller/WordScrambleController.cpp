@@ -11,7 +11,7 @@ WordScrambleController::WordScrambleController()
 
 WordScrambleController::~WordScrambleController()
 {
-    //dtor
+
 }
 
 int WordScrambleController::getNumberOfLetters()
@@ -33,74 +33,52 @@ void WordScrambleController::writeSettingsToFile(const int numberOfLetters, cons
 
 vector<string> WordScrambleController::getLettersToDisplay(const int numberOfLettersToGenerate)
 {
-    vector<string> letters = this->letterFrequency.getRandomLetters(numberOfLettersToGenerate);
-    return letters;
-
+    return this->logic.getLettersForRound(numberOfLettersToGenerate);
 }
 
 vector<string> WordScrambleController::getShuffledLetters(vector<string> letters)
 {
-    return this->letterFrequency.shuffleLetters(letters);
+    return this->logic.shuffle(letters);
 }
 
-int WordScrambleController::getPointsForWord(const string& word, const int currentPoints)
+void WordScrambleController::addScoreForWord(const string& word)
 {
-    int wordLength = word.length();
-    int pointsPerLetter;
-    switch(wordLength)
-    {
-    case 3:
-        pointsPerLetter = 20;
-        break;
-    case 4:
-        pointsPerLetter = 30;
-        break;
-    case 5:
-        pointsPerLetter = 40;
-        break;
-    case 6:
-        pointsPerLetter = 50;
-        break;
-    case 7:
-        pointsPerLetter = 60;
-        break;
-    }
-    return (word.length() * pointsPerLetter) + currentPoints;
+    this->logic.addScore(word);
 }
 
-void WordScrambleController::loadDictionary()
+void WordScrambleController::decrementScore(const int pointsToRemove)
 {
-    this->validWords = this->dictionaryFileReader.getValidWords();
+    this->logic.decrementScore(pointsToRemove);
+}
 
+int WordScrambleController::getTotalScore()
+{
+    this->logic.getTotalScore();
 }
 
 bool WordScrambleController::checkThatWordWasNotAlreadyGuessed(const string& word)
 {
-    return this->guessedWords.count(word) == WORD_ALREADY_GUESSED;
+    return this->logic.checkThatWordWasNotAlreadyGuessed(word);
 }
 
 bool WordScrambleController::checkWord(const string& word)
 {
-    if (this->possibleWords.count(word) == WORD_IS_VALID)
-    {
-        this->guessedWords.insert({word, this->getPointsForWord(word, 0)});
-        return WORD_IS_VALID;
-    }
-    else
-    {
-        return WORD_IS_NOT_VALID;
-    }
+    return this->logic.checkWord(word);
 }
 
-int WordScrambleController::getWordsRemaining(){
-    return this->possibleWords.size() - this->guessedWords.size();
+string WordScrambleController::getWordsRemainingCountFormatted()
+{
+    return this->formatter.formatRemainingWords(this->logic.getTotalNumberOfWords(), this->logic.getWordsRemaining());
 }
 
-int WordScrambleController::getTotalNumberOfWords(){
-    return this->possibleWords.size();
+void WordScrambleController::setPossibleWords(const string& characters)
+{
+    this->logic.setPossibleWords(characters);
 }
-string WordScrambleController::getFormattedWordsAndTheirPoints() {
-    return this->formatter.formatWords(this->guessedWords);
+
+string WordScrambleController::getFormattedWordsAndTheirPoints()
+{
+    return this->formatter.formatWords(this->logic.getGuessedWords());
 }
 
 string WordScrambleController::getFormattedHighScores()
@@ -110,8 +88,5 @@ string WordScrambleController::getFormattedHighScores()
     return this->formatter.formatScores(scores);
 }
 
-void WordScrambleController::resetWords(const string& word) {
-    this->possibleWords = findAllValidWords(word);
-}
 
 }

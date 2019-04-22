@@ -29,7 +29,7 @@ void DictionaryFileReader::readFile()
     inFile.close();
 }
 
-unordered_set<string> DictionaryFileReader::getValidWords()
+    unordered_set<string> DictionaryFileReader::getValidWords()
 {
     this->readFile();
     unordered_set<string> words;

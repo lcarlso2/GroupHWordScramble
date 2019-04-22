@@ -13,7 +13,8 @@ using namespace std;
 namespace model
 {
 
-const map<string, int> LETTER_FREQUENCIES = {
+const map<string, int> LETTER_FREQUENCIES =
+{
     {"e", 11},
     {"t", 9},
     {"o", 8},

@@ -24,30 +24,30 @@ const char COMMA = ',';
 
 class HighScoreFileReader
 {
-    private:
+private:
 
-        vector<string> split(const string& stringToSplit, char delimiter);
+    vector<string> split(const string& stringToSplit, char delimiter);
 
-    public:
-        /**
-        * Creates a new HighScoreFileReader object
-        * @precondition none
-        * @postcondition none
-        */
-        HighScoreFileReader();
+public:
+    /**
+    * Creates a new HighScoreFileReader object
+    * @precondition none
+    * @postcondition none
+    */
+    HighScoreFileReader();
 
-        /**
-        * Clears all resources associated with HighScoreFileReader
-        */
-        virtual ~HighScoreFileReader();
+    /**
+    * Clears all resources associated with HighScoreFileReader
+    */
+    virtual ~HighScoreFileReader();
 
-        /**
-        * Reads a file with names, scores, and times and returns a map with that information
-        * @precondition none
-        * @postcondition none
-        * @return Returns a map with names, scores and times
-        */
-        map<string, vector<int>> readFile();
+    /**
+    * Reads a file with names, scores, and times and returns a map with that information
+    * @precondition none
+    * @postcondition none
+    * @return Returns a map with names, scores and times
+    */
+    map<string, vector<int>> readFile();
 
 
 };

@@ -3,6 +3,8 @@
 #include <iostream>
 namespace view
 {
+
+
 MainWindow::MainWindow(int width, int height, const char* title) : Fl_Window(width, height, title)
 {
     begin();
@@ -19,13 +21,16 @@ MainWindow::MainWindow(int width, int height, const char* title) : Fl_Window(wid
     this->titleLabel = new Fl_Output(245,50,0,0, "Word Scramble");
 
     end();
+
+    std::thread labelChangingThread(&MainWindow::switchLabel, this);
+    labelChangingThread.detach();
 }
 
 
 void MainWindow::cbStartGame(Fl_Widget* widget, void* data)
 {
     MainWindow* window = (MainWindow*)data;
-    GameWindow gameWindow(540, 250, "Word Scramble");
+    GameWindow gameWindow(540, 300, "Word Scramble");
 
     gameWindow.set_modal();
     gameWindow.show();
@@ -71,9 +76,32 @@ void MainWindow::cbSettings(Fl_Widget* widget, void* data)
 
 }
 
+void MainWindow::cbSwitchLabel(Fl_Widget* widget, void* data)
+{
+    MainWindow* window = (MainWindow*)data;
+    window->switchLabel();
+}
+
 void MainWindow::resetButtons(const int numberOfLetters, const int timer)
 {
     this->controller.writeSettingsToFile(numberOfLetters, timer);
+}
+
+void MainWindow::switchLabel()
+{
+    while (true)
+    {
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+        if (this->titleLabel->label() == "Word Scramble")
+        {
+            this->titleLabel->label("Word Sracmebl");
+        }
+        else
+        {
+            this->titleLabel->label("Word Scramble");
+        }
+        this->redraw();
+    }
 }
 
 

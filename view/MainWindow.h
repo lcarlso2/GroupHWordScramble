@@ -11,6 +11,11 @@
 #include "GameWindow.h"
 #include "HighScoreWindow.h"
 
+#include <chrono>
+#include <thread>
+#include <unistd.h>
+using namespace std;
+
 #include "WordScrambleController.h"
 using namespace controller;
 
@@ -36,11 +41,11 @@ private:
     Fl_Button* highScoresButton;
     Fl_Button* settingsButton;
 
-    Fl_Output* titleLabel;
 
     static void cbStartGame(Fl_Widget* widget, void* data);
     static void cbHighScore(Fl_Widget* widget, void* data);
     static void cbSettings(Fl_Widget* widget, void* data);
+    static void cbSwitchLabel(Fl_Widget* widget, void* data);
 
     inline void resetButtons(const int numberOfLetters, const int timer);
 
@@ -61,6 +66,10 @@ public:
     * Destructs the main window object
     */
     virtual ~MainWindow();
+
+    inline void switchLabel();
+
+    Fl_Output* titleLabel;
 
 };
 }

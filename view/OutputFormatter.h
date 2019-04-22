@@ -8,7 +8,8 @@
 #include <sstream>
 using namespace std;
 
-namespace view {
+namespace view
+{
 
 /**
 * the output formatter class responsible for formatting output
@@ -18,35 +19,37 @@ namespace view {
 */
 class OutputFormatter
 {
-    public:
-        /**
-        * Creates a new output formatter
-        * @precondition none
-        * @postcondition a new output formatter is created
-        */
-        OutputFormatter();
+public:
+    /**
+    * Creates a new output formatter
+    * @precondition none
+    * @postcondition a new output formatter is created
+    */
+    OutputFormatter();
 
-        /**
-        * Formats the given map of names and scores
-        * @precondition none
-        * @postcondition none
-        * @param scores The map of names and scores
-        * @return The formatted output for scores
-        */
-        string formatScores(map<string, vector<int>> scores);
+    /**
+    * Formats the given map of names and scores
+    * @precondition none
+    * @postcondition none
+    * @param scores The map of names and scores
+    * @return The formatted output for scores
+    */
+    string formatScores(map<string, vector<int>> scores);
 
-        /**
-        * Formats the given map of words and associated points
-        * @param words the words and their points
-        * @precondition none
-        * @return the formatted string
-        */
-        string formatWords(map<string, int> words);
+    /**
+    * Formats the given map of words and associated points
+    * @param words the words and their points
+    * @precondition none
+    * @return the formatted string
+    */
+    string formatWords(map<string, int> words);
 
-        /**
-        * Destructs the output formatter
-        */
-        virtual ~OutputFormatter();
+        string formatRemainingWords(const int totalWords, const int wordsGuessed);
+
+    /**
+    * Destructs the output formatter
+    */
+    virtual ~OutputFormatter();
 
 
 

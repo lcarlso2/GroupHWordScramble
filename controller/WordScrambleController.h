@@ -7,7 +7,7 @@
 #include <map>
 using namespace std;
 
-#include "LetterFrequency.h"
+#include "GameLogic.h"
 using namespace model;
 
 #include "SettingsFileReader.h"
@@ -24,9 +24,9 @@ using namespace view;
 namespace controller
 {
 
-    const int WORD_IS_VALID = 1;
-    const int WORD_IS_NOT_VALID = 0;
-    const int WORD_ALREADY_GUESSED = 1;
+const int WORD_IS_VALID = 1;
+const int WORD_IS_NOT_VALID = 0;
+const int WORD_ALREADY_GUESSED = 1;
 /**
 * The controller class that controls the communication between the model and view classes
 * @authors Lucas Carlson and Carson Bedrosian
@@ -36,22 +36,18 @@ class WordScrambleController
 {
 
 private:
-
     HighScoreFileReader scoreFileReader;
 
     SettingsFileReader settingsFileReader;
 
     OutputFormatter formatter;
 
+    GameLogic logic;
+
     DictionaryFileReader dictionaryFileReader;
 
     LetterFrequency letterFrequency;
 
-    unordered_set<string> validWords;
-
-    map<string, int> guessedWords;
-
-    unordered_set<string> possibleWords;
 
 public:
     /**
@@ -80,7 +76,7 @@ public:
     */
     int getTimer();
 
-     /**
+    /**
     * Writes the settings to the settings file
     * @param numberOfLetters the number of letters to display
     * @param timer the timer to display
@@ -89,7 +85,7 @@ public:
     */
     void writeSettingsToFile(const int numberOfLetters, const int timer);
 
-     /**
+    /**
     * Gets the letters to display
     * @param numberOfLettersToGenerate the number of letters to generate
     * @precondition none
@@ -107,20 +103,27 @@ public:
     vector<string> getShuffledLetters(vector<string> letters);
 
     /**
-    * Gets the points for the word
+    * Add the points for the word
     * @param word the word
-    * @param currentPoints the current points
     * @precondition none
     * @return the points for the word
     */
-    int getPointsForWord(const string& word, const int currentPoints);
+    void addScoreForWord(const string& word);
 
     /**
-    * Loads the dictionary
+    * Decrements the score by the desired amount
     * @precondition none
-    * @postcondition the dictionary is loaded
+    * @postcondition the score is decremented
     */
-    void loadDictionary();
+    void decrementScore(const int pointsToRemove);
+
+    /**
+    * Gets the total score
+    * @precondition none
+    * @return the the total score
+    */
+    int getTotalScore();
+
 
     /**
     * Checks that the given word is in the dictionary
@@ -153,11 +156,21 @@ public:
     */
     string getFormattedHighScores();
 
-    void resetWords(const string& word);
+    /**
+    * Sets the possible words to guess from
+    * @param characters the characters being used to generate the possible words
+    * @precondition none
+    * @postcondition the possible words are set
+    */
+    void setPossibleWords(const string& characters);
 
-    int getWordsRemaining();
+    /**
+    * Gets the count of the words remaining formatted for output
+    * @precondition none
+    * @return the count of the words remaining formatted for  ouput
+    */
+    string getWordsRemainingCountFormatted();
 
-    int getTotalNumberOfWords();
 
 
 };

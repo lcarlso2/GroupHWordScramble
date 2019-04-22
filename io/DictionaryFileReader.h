@@ -13,7 +13,7 @@ using namespace std;
 
 namespace io
 {
-    const string DICTIONARY_FILE_NAME = "dictionary";
+const string DICTIONARY_FILE_NAME = "dictionary";
 
 //The dictionary file reader that handles reading data from the dictionary file
 //@author Lucas Carlson

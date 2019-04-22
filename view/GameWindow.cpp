@@ -6,18 +6,17 @@ namespace view
 GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(width, height, title)
 {
     begin();
-
-    this->controller.loadDictionary();
     this->numberOfButtonsToShow = this->controller.getNumberOfLetters();
 
     this->letters = this->controller.getLettersToDisplay(this->numberOfButtonsToShow);
 
     string word;
-    for (auto& letter : this->letters) {
+    for (auto& letter : this->letters)
+    {
         word += letter;
     }
 
-    this->controller.resetWords(word);
+    this->controller.setPossibleWords(word);
 
     createAndDisplayLetterSelection(this->letters);
 
@@ -48,13 +47,10 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
     this->shuffleButton = new Fl_Button(50,175,125,25,"Shuffle letters");
     this->shuffleButton->callback(cbShuffleLetters, this);
 
-    this->newLettersButton = new Fl_Button(365,175,125,25,"New letters");
-    this->newLettersButton->callback(cbNewLetters, this);
-
-    this->submitWordButton = new Fl_Button(365,145,125,25,"Submit word");
+    this->submitWordButton = new Fl_Button(210,250,125,25,"Submit word");
     this->submitWordButton->callback(cbSubmitWord, this);
 
-    this->clearWordButton = new Fl_Button(50,145,125,25,"Clear word");
+    this->clearWordButton = new Fl_Button(365,175,125,25,"Clear word");
     this->clearWordButton->callback(cbClearWord, this);
 
     globalTimer = this->controller.getTimer() * 60 + 1;
@@ -66,8 +62,9 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
     end();
 }
 
-void GameWindow::setWordsLeftLabel() {
-    string wordsLeft = to_string(this->controller.getWordsRemaining()) + "/" + to_string(this->controller.getTotalNumberOfWords());
+void GameWindow::setWordsLeftLabel()
+{
+    string wordsLeft = this->controller.getWordsRemainingCountFormatted();
     this->wordsLeftLabel->value(wordsLeft.c_str());
 }
 
@@ -117,12 +114,6 @@ void GameWindow::cbShuffleLetters(Fl_Widget* widget, void* data)
     window->shuffleLetters();
 }
 
-void GameWindow::cbNewLetters(Fl_Widget* widget, void* data)
-{
-    GameWindow* window = (GameWindow*)data;
-    window->getNewLetters();
-}
-
 void GameWindow::cbSubmitWord(Fl_Widget* widget, void* data)
 {
     GameWindow* window = (GameWindow*)data;
@@ -155,19 +146,6 @@ void GameWindow::shuffleLetters()
     this->replaceLettersBeingDisplayed(this->letters);
 }
 
-void GameWindow::getNewLetters()
-{
-    this->submitWordButton->hide();
-    this->letters = this->controller.getLettersToDisplay(this->numberOfButtonsToShow);
-    string word;
-    for (auto& letter : this->letters) {
-        word += letter;
-    }
-    this->controller.resetWords(word);
-    this->setWordsLeftLabel();
-
-    this->replaceLettersBeingDisplayed(this->letters);
-}
 
 void GameWindow::submitWord(const string& word)
 {
@@ -179,20 +157,18 @@ void GameWindow::submitWord(const string& word)
     {
         this->setWordsLeftLabel();
         this->guessedWordsTextBuffer->text(this->controller.getFormattedWordsAndTheirPoints().c_str());
-        string currentPoints = this->pointsLabel->value();
-        int totalPoints = this->controller.getPointsForWord(word, stoi(currentPoints));
-        string points = to_string(totalPoints);
+        this->controller.addScoreForWord(word);
+        string points = to_string(this->controller.getTotalScore());
         this->pointsLabel->value(points.c_str());
-        this->clearWord();
     }
     else
     {
         fl_message("%s", "Invalid word! You lose ten points!");
-        string currentPoints = this->pointsLabel->value();
-        int totalPoints = stoi(currentPoints) - 10;
-        string points = to_string(totalPoints);
+        this->controller.decrementScore(10);
+        string points = to_string(this->controller.getTotalScore());
         this->pointsLabel->value(points.c_str());
     }
+    this->clearWord();
 }
 
 void GameWindow::replaceLettersBeingDisplayed(vector<string> newLetters)
@@ -300,7 +276,6 @@ GameWindow::~GameWindow()
 {
     Fl::remove_timeout(Timer_CB);
     delete this->shuffleButton;
-    delete this->newLettersButton;
     delete this->submitWordButton;
     delete this->clearWordButton;
     delete this->endGameButton;

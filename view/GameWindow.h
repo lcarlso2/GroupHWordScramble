@@ -58,7 +58,7 @@ private:
     vector<string> letters;
 
     Fl_Button* shuffleButton;
-    Fl_Button* newLettersButton;
+    // Fl_Button* newLettersButton;
     Fl_Button* submitWordButton;
     Fl_Button* clearWordButton;
     Fl_Button* letterSelectionButton[MAX_NUMBER_OF_BUTTONS];
@@ -81,7 +81,6 @@ private:
 
     static void cbLetterSelected(Fl_Widget* widget, void* data);
     static void cbShuffleLetters(Fl_Widget* widget, void* data);
-    static void cbNewLetters(Fl_Widget* widget, void* data);
     static void cbSubmitWord(Fl_Widget* widget, void* data);
     static void cbClearWord(Fl_Widget* widget, void* data);
     static void cbEndgame(Fl_Widget* widget, void* data);
@@ -91,7 +90,6 @@ private:
     static void Timer_CB(void* data);
 
     inline void shuffleLetters();
-    inline void getNewLetters();
     inline void letterSelected(Fl_Widget* widget);
     inline void submitWord(const string& word);
     inline void clearWord();

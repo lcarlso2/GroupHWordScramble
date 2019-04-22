@@ -1,7 +1,8 @@
 #include "OutputFormatter.h"
 
 #include <iostream>
-namespace view {
+namespace view
+{
 OutputFormatter::OutputFormatter()
 {
     //ctor
@@ -12,9 +13,11 @@ OutputFormatter::~OutputFormatter()
     //dtor
 }
 
-string OutputFormatter::formatWords(map<string, int> words) {
+string OutputFormatter::formatWords(map<string, int> words)
+{
     stringstream builder;
-    for (auto& currentWord : words) {
+    for (auto& currentWord : words)
+    {
         builder << "Word: " << currentWord.first << "-" << currentWord.second << " point(s)" << endl;
     }
     return builder.str();
@@ -34,6 +37,11 @@ string OutputFormatter::formatScores(map<string, vector<int>> scores)
     }
 
     return builder.str();
+}
+
+    string OutputFormatter::formatRemainingWords(const int totalWords, const int wordsGuessed)
+    {
+    return to_string(wordsGuessed) + "/" + to_string(totalWords);
 }
 
 }

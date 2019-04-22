@@ -2,10 +2,6 @@
 #include <FL/Fl_Window.H>
 #include <FL/Fl_Box.H>
 
-#include "Utils.h"
-#include <iostream>
-#include <string>
-using namespace std;
 #include "MainWindow.h"
 using namespace view;
 

@@ -33,11 +33,17 @@
 		<Unit filename="dictionary" />
 		<Unit filename="io/DictionaryFileReader.cpp" />
 		<Unit filename="io/DictionaryFileReader.h" />
+		<Unit filename="io/HighScoreFileReader.cpp" />
+		<Unit filename="io/HighScoreFileReader.h" />
+		<Unit filename="io/HighScoreFileWriter.cpp" />
+		<Unit filename="io/HighScoreFileWriter.h" />
 		<Unit filename="io/SettingsFileReader.cpp" />
 		<Unit filename="io/SettingsFileReader.h" />
 		<Unit filename="io/SettingsFileWriter.cpp" />
 		<Unit filename="io/SettingsFileWriter.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="model/GameLogic.cpp" />
+		<Unit filename="model/GameLogic.h" />
 		<Unit filename="model/LetterFrequency.cpp" />
 		<Unit filename="model/LetterFrequency.h" />
 		<Unit filename="settings" />

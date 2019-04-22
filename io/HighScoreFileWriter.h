@@ -7,13 +7,13 @@ namespace io
 
 class HighScoreFileWriter
 {
-    public:
-        HighScoreFileWriter();
-        virtual ~HighScoreFileWriter();
+public:
+    HighScoreFileWriter();
+    virtual ~HighScoreFileWriter();
 
-    protected:
+protected:
 
-    private:
+private:
 };
 }
 #endif // HIGHSCOREFILEWRITER_H

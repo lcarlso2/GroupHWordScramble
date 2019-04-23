@@ -28,4 +28,9 @@ int PlayerScore::getTime()
     return this->time;
 }
 
+string PlayerScore::getName()
+{
+    return this->name;
+}
+
 }

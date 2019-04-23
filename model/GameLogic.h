@@ -38,7 +38,7 @@ private:
 
     bool isPossible(string word, string letters);
 
-    unordered_set<string> findAllValidWords(string letters);
+    unordered_set<string> findAllPossibleWords(string letters);
 
 public:
 
@@ -48,6 +48,14 @@ public:
     * @postcondition a new game logic object is created
     */
     GameLogic();
+
+    /**
+    * Creates a new game logic
+    * @precondition none
+    * @postcondition a new game logic object is created
+    * @param words The dictionary words
+    */
+    GameLogic(unordered_set<string> words);
 
     /**
     * Destructs the game logic object

@@ -23,17 +23,13 @@ string OutputFormatter::formatWords(map<string, int> words)
     return builder.str();
 }
 
-string OutputFormatter::formatScores(map<string, vector<int>> scores)
+string OutputFormatter::formatScores(vector<PlayerScore> scores)
 {
     stringstream builder;
-    int score;
-    int time;
     builder << left << setw(10) << "Name" << left << setw(10) << "Score" << left << setw(10) << "Time" << endl;
     for (auto& currentScore : scores)
     {
-        score = currentScore.second[0];
-        time = currentScore.second[1];
-        builder << left << setw(10) << currentScore.first << left << setw(10) << score << left << setw(10) << time << endl;
+        builder << left << setw(10) << currentScore.getName() << left << setw(10) << currentScore.getScore() << left << setw(10) << currentScore.getTime() << endl;
     }
 
     return builder.str();

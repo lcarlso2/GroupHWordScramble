@@ -4,16 +4,14 @@
 #include <string>
 #include <vector>
 #include <unordered_set>
-#include <map>
 using namespace std;
 
 #include "GameLogic.h"
+#include "PlayerScore.h"
 using namespace model;
 
-#include "SettingsFileReader.h"
 #include "SettingsFileWriter.h"
-#include "DictionaryFileReader.h"
-#include "HighScoreFileReader.h"
+#include "TextFileReader.h"
 using namespace io;
 
 #include "OutputFormatter.h"
@@ -36,15 +34,12 @@ class WordScrambleController
 {
 
 private:
-    HighScoreFileReader scoreFileReader;
 
-    SettingsFileReader settingsFileReader;
+    TextFileReader fileReader;
 
     OutputFormatter formatter;
 
     GameLogic logic;
-
-    DictionaryFileReader dictionaryFileReader;
 
     LetterFrequency letterFrequency;
 
@@ -154,7 +149,7 @@ public:
     * @postcondition none
     * @return Formatted highscores
     */
-    string getFormattedHighScores();
+    string getInitialHighScores();
 
     /**
     * Sets the possible words to guess from

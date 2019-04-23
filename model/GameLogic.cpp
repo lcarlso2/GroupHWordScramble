@@ -4,10 +4,15 @@
 
 namespace model
 {
+
 GameLogic::GameLogic()
 {
-    DictionaryFileReader reader;
-    this->validWords = reader.getValidWords();
+
+}
+
+GameLogic::GameLogic(unordered_set<string> words)
+{
+    this->validWords = words;
 }
 
 GameLogic::~GameLogic()
@@ -103,7 +108,7 @@ int GameLogic::getTotalNumberOfWords()
 
 void GameLogic::setPossibleWords(const string& characters)
 {
-    this->possibleWords = this->findAllValidWords(characters);
+    this->possibleWords = this->findAllPossibleWords(characters);
 }
 
 bool GameLogic::isPossible(string word, string letters)
@@ -127,17 +132,16 @@ bool GameLogic::isPossible(string word, string letters)
 
 }
 
-unordered_set<string> GameLogic::findAllValidWords(string letters)
+unordered_set<string> GameLogic::findAllPossibleWords(string letters)
 {
-    DictionaryFileReader reader;
-    unordered_set<string> dictionary = reader.getValidWords();
     unordered_set<string> result;
-    for (auto& word : dictionary)
+    for (auto& word : this->validWords)
     {
         if (word.length() >= 3)
         {
             if (this->isPossible(word, letters))
             {
+
                 result.insert(word);
             }
         }

@@ -15,13 +15,6 @@ using namespace std;
 namespace io
 {
 
-const string HIGH_SCORE_FILE_NAME = "highscores";
-const int INDEX_OF_VALUES = 0;
-const int INDEX_OF_NAME = 0;
-const int INDEX_OF_SCORE = 1;
-const int INDEX_OF_TIME = 2;
-const char COMMA = ',';
-
 class HighScoreFileReader
 {
 private:

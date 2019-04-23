@@ -48,11 +48,11 @@ class TextFileReader
         */
         virtual ~TextFileReader();
 
-        unordered_set<string> readDictionaryFile();
+        unordered_set<string> getDictionaryData();
 
-        vector<string> readSettingsFile();
+        vector<string> getSettingsData();
 
-        vector<PlayerScore> readHighScoreFile();
+        vector<PlayerScore> getHighScoreData();
 
 
 };

@@ -6,7 +6,7 @@
 #include <string>
 using namespace std;
 
-#include "SettingsFileReader.h"
+#include "TextFileReader.h"
 
 
 namespace io

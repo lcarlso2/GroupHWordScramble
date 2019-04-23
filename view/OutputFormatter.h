@@ -1,12 +1,15 @@
 #ifndef OUTPUTFORMATTER_H
 #define OUTPUTFORMATTER_H
 
-#include <map>
 #include <iomanip>
 #include <vector>
 #include <string>
+#include <map>
 #include <sstream>
 using namespace std;
+
+#include "PlayerScore.h"
+using namespace model;
 
 namespace view
 {
@@ -28,13 +31,13 @@ public:
     OutputFormatter();
 
     /**
-    * Formats the given map of names and scores
+    * Formats the given PlayerScore objects
     * @precondition none
     * @postcondition none
-    * @param scores The map of names and scores
+    * @param scores The PlayerScores to be formatted
     * @return The formatted output for scores
     */
-    string formatScores(map<string, vector<int>> scores);
+    string formatScores(vector<PlayerScore> scores);
 
     /**
     * Formats the given map of words and associated points

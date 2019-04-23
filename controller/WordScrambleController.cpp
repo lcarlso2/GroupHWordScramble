@@ -6,7 +6,8 @@ namespace controller
 
 WordScrambleController::WordScrambleController()
 {
-
+    unordered_set<string> words = this->fileReader.getDictionaryData();
+    this->logic = GameLogic(words);
 }
 
 WordScrambleController::~WordScrambleController()
@@ -16,13 +17,17 @@ WordScrambleController::~WordScrambleController()
 
 int WordScrambleController::getNumberOfLetters()
 {
-    this->settingsFileReader.getNumberOfLetters();
+    vector<string> settings = this->fileReader.getSettingsData();
+    int numberOfLetters = stoi(settings[INDEX_OF_NUMBER_OF_LETTERS]);
+    return numberOfLetters;
 
 }
 
 int WordScrambleController::getTimer()
 {
-    this->settingsFileReader.getTimer();
+    vector<string> settings = this->fileReader.getSettingsData();
+    int timer = stoi(settings[INDEX_OF_TIMER]);
+    return timer;
 }
 
 void WordScrambleController::writeSettingsToFile(const int numberOfLetters, const int timer)
@@ -81,11 +86,11 @@ string WordScrambleController::getFormattedWordsAndTheirPoints()
     return this->formatter.formatWords(this->logic.getGuessedWords());
 }
 
-string WordScrambleController::getFormattedHighScores()
+string WordScrambleController::getInitialHighScores()
 {
-    map<string, vector<int>> scores = this->scoreFileReader.readFile();
-    string output = this->formatter.formatScores(scores);
-    return this->formatter.formatScores(scores);
+    vector<PlayerScore> playerScores = this->fileReader.getHighScoreData();
+    string output = this->formatter.formatScores(playerScores);
+    return output;
 }
 
 

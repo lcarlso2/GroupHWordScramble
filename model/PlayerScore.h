@@ -48,6 +48,14 @@ class PlayerScore
         */
         int getTime();
 
+        /**
+        * Returns the name
+        * @precondition none
+        * @postcondition none
+        * @return Returns the name
+        */
+        string getName();
+
 
 
 };

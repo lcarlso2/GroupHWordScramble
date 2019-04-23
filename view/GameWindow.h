@@ -58,7 +58,6 @@ private:
     vector<string> letters;
 
     Fl_Button* shuffleButton;
-    // Fl_Button* newLettersButton;
     Fl_Button* submitWordButton;
     Fl_Button* clearWordButton;
     Fl_Button* letterSelectionButton[MAX_NUMBER_OF_BUTTONS];

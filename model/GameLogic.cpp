@@ -13,6 +13,7 @@ GameLogic::GameLogic()
 GameLogic::GameLogic(unordered_set<string> words)
 {
     this->validWords = words;
+    this->totalScore = 0;
 }
 
 GameLogic::~GameLogic()

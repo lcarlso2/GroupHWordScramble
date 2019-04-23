@@ -15,7 +15,7 @@ class HighScoreBoard
 {
     private:
 
-        vector<PlayerScore> highScores;
+        vector<PlayerScore> scores;
 
 
     public:
@@ -48,12 +48,12 @@ class HighScoreBoard
 
 
         /**
-        * Returns the high scores
+        * Returns the desired number of high scores
         * @precondition none
         * @postcondition none
-        * @return Returns the high scores
+        * @return Returns the desired number of high scores
         */
-        vector<PlayerScore> getHighScores();
+        vector<PlayerScore> getSpecifiedNumberOfHighScores(const int number);
 
         /**
         * Adds a PlayerScore to the scoreboard

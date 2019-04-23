@@ -76,6 +76,11 @@ string WordScrambleController::getWordsRemainingCountFormatted()
     return this->formatter.formatRemainingWords(this->logic.getTotalNumberOfWords(), this->logic.getWordsRemaining());
 }
 
+bool WordScrambleController::checkForNoRemainingWords()
+{
+    return this->logic.getWordsRemaining() == 0;
+}
+
 void WordScrambleController::setPossibleWords(const string& characters)
 {
     this->logic.setPossibleWords(characters);
@@ -90,7 +95,7 @@ string WordScrambleController::getInitialHighScores()
 {
     this->scoreBoard = this->fileReader.getHighScoreData();
     this->scoreBoard.sortByScoreAndTime();
-    string output = this->formatter.formatScores(this->scoreBoard.getHighScores());
+    string output = this->formatter.formatScores(this->scoreBoard.getSpecifiedNumberOfHighScores(5));
     return output;
 }
 

@@ -169,6 +169,8 @@ public:
     */
     string getWordsRemainingCountFormatted();
 
+    bool checkForNoRemainingWords();
+
 
 
 };

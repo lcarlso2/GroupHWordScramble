@@ -21,7 +21,7 @@ struct scoreAndTimeComparer
 
 HighScoreBoard::HighScoreBoard()
 {
-    this->highScores.reserve(5);
+
 }
 
 HighScoreBoard::~HighScoreBoard()
@@ -29,27 +29,31 @@ HighScoreBoard::~HighScoreBoard()
 
 }
 
-vector<PlayerScore> HighScoreBoard::getHighScores()
+vector<PlayerScore> HighScoreBoard::getSpecifiedNumberOfHighScores(const int number)
 {
-    return this->highScores;
+    vector<PlayerScore> highscores;
+    for (int index = 0; index < number; index++) {
+        highscores.push_back(this->scores[index]);
+    }
+    return highscores;
 }
 
 
 void HighScoreBoard::sortByScore()
 {
-    sort(this->highScores.begin(), this->highScores.end(), scoreComparer());
+    sort(this->scores.begin(), this->scores.end(), scoreComparer());
 
 }
 
 
 void HighScoreBoard::sortByScoreAndTime()
 {
-    sort(this->highScores.begin(), this->highScores.end(), scoreAndTimeComparer());
+    sort(this->scores.begin(), this->scores.end(), scoreAndTimeComparer());
 }
 
 void HighScoreBoard::add(PlayerScore score)
 {
-    this->highScores.push_back(score);
+    this->scores.push_back(score);
 }
 
 

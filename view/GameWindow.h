@@ -63,7 +63,7 @@ private:
     Fl_Button* letterSelectionButton[MAX_NUMBER_OF_BUTTONS];
     Fl_Button* endGameButton;
 
-    Fl_Output* pointsLabel;
+    Fl_Output* scoreLabel;
 
     Fl_Output* wordsLeftLabel;
 

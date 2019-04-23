@@ -1,8 +1,14 @@
 #ifndef HIGHSCOREBOARD_H
 #define HIGHSCOREBOARD_H
 
+#include "PlayerScore.h"
+using namespace model;
+
 #include <vector>
 using namespace std;
+
+namespace model
+{
 
 class HighScoreBoard
 {
@@ -48,5 +54,5 @@ class HighScoreBoard
         vector<PlayerScore> getHighScores();
 
 };
-
+}
 #endif // HIGHSCOREBOARD_H

@@ -450,3 +450,20 @@
 1556027547 source:/home/csuser/GroupHWordScramble/model/GameLogic.cpp
 	"GameLogic.h"
 
+1556028441 source:/home/csuser/GroupHWordScramble/model/PlayerScore.cpp
+	"PlayerScore.h"
+
+1556028366 /home/csuser/GroupHWordScramble/model/PlayerScore.h
+	<string>
+
+1556032960 source:/home/csuser/GroupHWordScramble/io/TextFileReader.cpp
+	"TextFileReader.h"
+
+1556032896 /home/csuser/GroupHWordScramble/io/TextFileReader.h
+	"PlayerScore.h"
+	<sstream>
+	<fstream>
+	<vector>
+	<string>
+	<unordered_set>
+

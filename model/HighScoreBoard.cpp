@@ -14,7 +14,7 @@ HighScoreBoard::~HighScoreBoard()
 
 }
 
-vector<PlayerScore> getHighScores()
+vector<PlayerScore> HighScoreBoard::getHighScores()
 {
     return this->highScores;
 }

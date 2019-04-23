@@ -8,6 +8,7 @@ using namespace model;
 #include <fstream>
 #include <vector>
 #include <string>
+#include <unordered_set>
 using namespace std;
 
 namespace io
@@ -47,9 +48,9 @@ class TextFileReader
         */
         virtual ~TextFileReader();
 
-        vector<string> readDictionaryFile();
+        unordered_set<string> readDictionaryFile();
 
-        vector<int> readSettingsFile();
+        vector<string> readSettingsFile();
 
         vector<PlayerScore> readHighScoreFile();
 

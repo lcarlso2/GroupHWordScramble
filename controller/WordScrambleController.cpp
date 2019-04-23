@@ -32,7 +32,7 @@ int WordScrambleController::getTimer()
 
 void WordScrambleController::writeSettingsToFile(const int numberOfLetters, const int timer)
 {
-    SettingsFileWriter writer;
+    TextFileWriter writer;
     writer.writeSettingsToFile(numberOfLetters, timer);
 }
 

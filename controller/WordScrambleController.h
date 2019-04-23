@@ -11,7 +11,7 @@ using namespace std;
 #include "HighScoreBoard.h"
 using namespace model;
 
-#include "SettingsFileWriter.h"
+#include "TextFileWriter.h"
 #include "TextFileReader.h"
 using namespace io;
 

@@ -5,6 +5,7 @@
 using namespace model;
 
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 namespace model
@@ -15,6 +16,7 @@ class HighScoreBoard
     private:
 
         vector<PlayerScore> highScores;
+
 
     public:
 
@@ -52,6 +54,16 @@ class HighScoreBoard
         * @return Returns the high scores
         */
         vector<PlayerScore> getHighScores();
+
+        /**
+        * Adds a PlayerScore to the scoreboard
+        * @precondition none
+        * @postcondition score is added
+        * @param score PlayerScore to be added
+        */
+        void add(PlayerScore score);
+
+
 
 };
 }

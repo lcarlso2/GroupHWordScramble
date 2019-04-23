@@ -154,7 +154,7 @@
 
 1555800365 D
 
-1556035797 source:/home/csuser/GroupHWordScramble/controller/WordScrambleController.cpp
+1556040947 source:/home/csuser/GroupHWordScramble/controller/WordScrambleController.cpp
 	"WordScrambleController.h"
 
 1555808571 bleController.h"
@@ -175,12 +175,13 @@
 	<vector>
 	<string>
 
-1556034205 /home/csuser/GroupHWordScramble/controller/WordScrambleController.h
+1556040198 /home/csuser/GroupHWordScramble/controller/WordScrambleController.h
 	<string>
 	<vector>
 	<unordered_set>
 	"GameLogic.h"
 	"PlayerScore.h"
+	"HighScoreBoard.h"
 	"SettingsFileWriter.h"
 	"TextFileReader.h"
 	"OutputFormatter.h"
@@ -239,7 +240,7 @@
 	<FL/Fl_Box.H>
 	"MainWindow.h"
 
-1556027547 /home/csuser/GroupHWordScramble/view/MainWindow.h
+1556041908 /home/csuser/GroupHWordScramble/view/MainWindow.h
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Output.H>
@@ -292,7 +293,7 @@
 	<algorithm>
 	<unordered_set>
 
-1556027547 /home/csuser/GroupHWordScramble/view/HighScoreWindow.h
+1556041815 /home/csuser/GroupHWordScramble/view/HighScoreWindow.h
 	"OkCancelWindow.h"
 	<FL/Fl_Text_Buffer.H>
 	<FL/Fl_Text_Display.H>
@@ -307,14 +308,14 @@
 	<iostream>
 	<unordered_set>
 
-1556038537 source:/home/csuser/GroupHWordScramble/view/GameWindow.cpp
+1556038609 source:/home/csuser/GroupHWordScramble/view/GameWindow.cpp
 	"GameWindow.h"
 	<iostream>
 
-1556034177 source:/home/csuser/GroupHWordScramble/view/HighScoreWindow.cpp
+1556041785 source:/home/csuser/GroupHWordScramble/view/HighScoreWindow.cpp
 	"HighScoreWindow.h"
 
-1556027547 source:/home/csuser/GroupHWordScramble/view/MainWindow.cpp
+1556041955 source:/home/csuser/GroupHWordScramble/view/MainWindow.cpp
 	"MainWindow.h"
 	<iostream>
 
@@ -455,21 +456,23 @@
 1556034030 /home/csuser/GroupHWordScramble/model/PlayerScore.h
 	<string>
 
-1556036168 source:/home/csuser/GroupHWordScramble/io/TextFileReader.cpp
+1556040487 source:/home/csuser/GroupHWordScramble/io/TextFileReader.cpp
 	"TextFileReader.h"
 
-1556034576 /home/csuser/GroupHWordScramble/io/TextFileReader.h
+1556040607 /home/csuser/GroupHWordScramble/io/TextFileReader.h
 	"PlayerScore.h"
+	"HighScoreBoard.h"
 	<sstream>
 	<fstream>
 	<vector>
 	<string>
 	<unordered_set>
 
-1556033053 source:/home/csuser/GroupHWordScramble/model/HighScoreBoard.cpp
+1556041307 source:/home/csuser/GroupHWordScramble/model/HighScoreBoard.cpp
 	"HighScoreBoard.h"
 
-1556033034 /home/csuser/GroupHWordScramble/model/HighScoreBoard.h
+1556041298 /home/csuser/GroupHWordScramble/model/HighScoreBoard.h
 	"PlayerScore.h"
 	<vector>
+	<algorithm>
 

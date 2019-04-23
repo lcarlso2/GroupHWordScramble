@@ -37,10 +37,10 @@ vector<string> TextFileReader::getSettingsData()
 }
 
 
-vector<PlayerScore> TextFileReader::getHighScoreData()
+HighScoreBoard TextFileReader::getHighScoreData()
 {
     vector<string> data = this->getDataFromFile(HIGH_SCORE_FILE_NAME);
-    vector<PlayerScore> playerScores;
+    HighScoreBoard scoreBoard;
     for(size_t index = 0; index < data.size(); index++)
     {
         vector<string> values = this->split(data[index], COMMA);
@@ -48,10 +48,10 @@ vector<PlayerScore> TextFileReader::getHighScoreData()
         int score = stoi(values[INDEX_OF_SCORE]);
         int timeInSeconds = stoi(values[INDEX_OF_TIME]);
         PlayerScore playerScore(name, score, timeInSeconds);
-        playerScores.push_back(playerScore);
+        scoreBoard.add(playerScore);
     }
 
-    return playerScores;
+    return scoreBoard;
 }
 
 

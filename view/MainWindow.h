@@ -48,6 +48,7 @@ private:
     static void cbSwitchLabel(Fl_Widget* widget, void* data);
 
     inline void resetButtons(const int numberOfLetters, const int timer);
+    inline string getHighScores();
 
 
 

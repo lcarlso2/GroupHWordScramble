@@ -2,7 +2,7 @@
 
 namespace view
 {
-HighScoreWindow::HighScoreWindow() : OkCancelWindow(330, 215, "High Scores")
+HighScoreWindow::HighScoreWindow(const string& scoreDisplay) : OkCancelWindow(330, 215, "High Scores")
 {
     begin();
 
@@ -14,8 +14,7 @@ HighScoreWindow::HighScoreWindow() : OkCancelWindow(330, 215, "High Scores")
     this->setOKLocation(90, 170);
     this->setCancelLocation(170, 170);
 
-    string output = this->controller.getInitialHighScores();
-    this->highScoresTextBuffer->text(output.c_str());
+    this->highScoresTextBuffer->text(scoreDisplay.c_str());
     end();
 }
 

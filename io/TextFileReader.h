@@ -2,6 +2,7 @@
 #define TEXTFILEREADER_H
 
 #include "PlayerScore.h"
+#include "HighScoreBoard.h"
 using namespace model;
 
 #include <sstream>
@@ -52,7 +53,7 @@ class TextFileReader
 
         vector<string> getSettingsData();
 
-        vector<PlayerScore> getHighScoreData();
+        HighScoreBoard getHighScoreData();
 
 
 };

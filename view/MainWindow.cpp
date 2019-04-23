@@ -45,7 +45,8 @@ void MainWindow::cbStartGame(Fl_Widget* widget, void* data)
 void MainWindow::cbHighScore(Fl_Widget* widget, void* data)
 {
     MainWindow* window = (MainWindow*)data;
-    HighScoreWindow scoreWindow;
+    string scores = window->getHighScores();
+    HighScoreWindow scoreWindow(scores);
 
     scoreWindow.set_modal();
     scoreWindow.show();
@@ -54,6 +55,11 @@ void MainWindow::cbHighScore(Fl_Widget* widget, void* data)
     {
         Fl::wait();
     }
+}
+
+string MainWindow::getHighScores()
+{
+    return this->controller.getInitialHighScores();
 }
 
 void MainWindow::cbSettings(Fl_Widget* widget, void* data)

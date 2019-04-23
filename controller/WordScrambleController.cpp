@@ -88,8 +88,9 @@ string WordScrambleController::getFormattedWordsAndTheirPoints()
 
 string WordScrambleController::getInitialHighScores()
 {
-    vector<PlayerScore> playerScores = this->fileReader.getHighScoreData();
-    string output = this->formatter.formatScores(playerScores);
+    this->scoreBoard = this->fileReader.getHighScoreData();
+    this->scoreBoard.sortByScoreAndTime();
+    string output = this->formatter.formatScores(this->scoreBoard.getHighScores());
     return output;
 }
 

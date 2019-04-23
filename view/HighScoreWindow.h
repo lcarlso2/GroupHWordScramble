@@ -29,8 +29,9 @@ public:
     * Creates a new high score window
     * @precondition none
     * @postcondition the window is created
+    * @param scoreDisplay The formatted output of scores to display
     */
-    HighScoreWindow();
+    HighScoreWindow(const string& scoreDisplay);
 
     /**
     * Destructs the high score window

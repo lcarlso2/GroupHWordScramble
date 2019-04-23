@@ -8,6 +8,7 @@ using namespace std;
 
 #include "GameLogic.h"
 #include "PlayerScore.h"
+#include "HighScoreBoard.h"
 using namespace model;
 
 #include "SettingsFileWriter.h"
@@ -34,6 +35,8 @@ class WordScrambleController
 {
 
 private:
+
+    HighScoreBoard scoreBoard;
 
     TextFileReader fileReader;
 

@@ -99,5 +99,9 @@ string WordScrambleController::getInitialHighScores()
     return output;
 }
 
+string WordScrambleController::getHintsToDisplay(){
+    return this->formatter.formatUnderscoresForPossibleWords(this->logic.getPossibleWords(), this->logic.getGuessedWords());
+}
+
 
 }

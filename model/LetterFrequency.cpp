@@ -22,13 +22,9 @@ vector<string> LetterFrequency::getRandomLetters(const int numberOfLettersToGene
     vector<string> possibleLetters;
     set<int> randomNumbersChosen;
 
-    random_device randomGenerator;
-    mt19937 mt(randomGenerator());
-    uniform_int_distribution<int> distribution(0, 96);
-
     while (randomNumbersChosen.size() < numberOfLettersToGenerate)
     {
-        int randomIndex = distribution(mt);
+        int randomIndex = generateRandomNumber(0, 96);
         randomNumbersChosen.insert(randomIndex);
     }
 

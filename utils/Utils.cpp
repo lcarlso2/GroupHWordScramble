@@ -23,4 +23,13 @@ const string toTime(const int value)
     return minutes + ":" + seconds;
 }
 
+const int generateRandomNumber(const int lowerBound, const int upperBound) {
+    random_device randomGenerator;
+    mt19937 mt(randomGenerator());
+    uniform_int_distribution<int> distribution(lowerBound, upperBound);
+    return distribution(mt);
+}
+
+
+
 

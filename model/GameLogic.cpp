@@ -37,6 +37,10 @@ map<string, int> GameLogic::getGuessedWords()
     return this->guessedWords;
 }
 
+unordered_set<string> GameLogic::getPossibleWords() {
+    return this->possibleWords;
+}
+
 int GameLogic::getPointsForWord(const string& word)
 {
     int wordLength = word.length();

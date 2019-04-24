@@ -94,6 +94,9 @@ private:
     inline void clearWord();
     inline void endGame();
 
+    void determineIfShuffleButtonNeedsToBeShown();
+    void determineIfSubmitButtonNeedsToBeShown(const string& wordToDisplay);
+
     void setWordsLeftLabel();
 
 public:

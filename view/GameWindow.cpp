@@ -32,9 +32,10 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
     this->scoreLabel->value("0");
 
     this->guessedWordsTextBuffer = new Fl_Text_Buffer();
-    this->guessedWordsTextDisplay = new Fl_Text_Display(110,50,320,90, "");
+    this->guessedWordsTextDisplay = new Fl_Text_Display(20,50,500,90, "");
     this->guessedWordsTextDisplay->textfont(FL_COURIER);
     this->guessedWordsTextDisplay->buffer(this->guessedWordsTextBuffer);
+    this->guessedWordsTextBuffer->text(this->controller.getHintsToDisplay().c_str());
 
 
     this->wordsLeftLabel = new Fl_Output(275,5,50,25,"Words left:");
@@ -137,12 +138,13 @@ void GameWindow::cbClearWord(Fl_Widget* widget, void* data)
 
 void GameWindow::clearWord()
 {
+    this->orderOfButtonsSelected.clear();
+    this->shuffleButton->show();
     this->submitWordButton->hide();
     for (int i = 0; i < this->numberOfButtonsToShow; i++)
     {
         this->letterSelectionButton[i]->color(FL_BACKGROUND_COLOR);
         this->letterSelectionButton[i]->redraw();
-        this->orderOfButtonsSelected.clear();
     }
     this->lettersChosenTextBuffer->text("");
 
@@ -165,7 +167,7 @@ void GameWindow::submitWord(const string& word)
     else if (this->controller.checkWord(word) == controller::WORD_IS_VALID)
     {
         this->setWordsLeftLabel();
-        this->guessedWordsTextBuffer->text(this->controller.getFormattedWordsAndTheirPoints().c_str());
+        this->guessedWordsTextBuffer->text(this->controller.getHintsToDisplay().c_str());
         this->controller.addScoreForWord(word);
         string points = to_string(this->controller.getTotalScore());
         this->scoreLabel->value(points.c_str());
@@ -178,6 +180,7 @@ void GameWindow::submitWord(const string& word)
         this->scoreLabel->value(points.c_str());
     }
     this->clearWord();
+    this->shuffleButton->show();
 }
 
 void GameWindow::replaceLettersBeingDisplayed(vector<string> newLetters)
@@ -249,6 +252,20 @@ void GameWindow::letterSelected(Fl_Widget* widget)
         this->orderOfButtonsSelected.push_back(widget);
     }
     this->displayLettersSelected();
+
+    this->determineIfShuffleButtonNeedsToBeShown();
+}
+
+void GameWindow::determineIfShuffleButtonNeedsToBeShown()
+{
+    if (!this->orderOfButtonsSelected.empty())
+    {
+        this->shuffleButton->hide();
+    }
+    else
+    {
+        this->shuffleButton->show();
+    }
 }
 
 void GameWindow::displayLettersSelected()
@@ -261,6 +278,11 @@ void GameWindow::displayLettersSelected()
 
     this->lettersChosenTextBuffer->text(wordToDisplay.c_str());
 
+    this->determineIfSubmitButtonNeedsToBeShown(wordToDisplay);
+}
+
+void GameWindow::determineIfSubmitButtonNeedsToBeShown(const string& wordToDisplay)
+{
     if(wordToDisplay.length() >= MINIMUM_NUMBER_OF_LETTERS_REQUIRED)
     {
         this->submitWordButton->show();
@@ -269,6 +291,7 @@ void GameWindow::displayLettersSelected()
     {
         this->submitWordButton->hide();
     }
+
 }
 
 string GameWindow::getWordToSubmit()

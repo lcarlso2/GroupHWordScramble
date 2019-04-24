@@ -69,6 +69,8 @@ public:
     */
     map<string, int> getGuessedWords();
 
+    unordered_set<string> getPossibleWords();
+
     /**
     * Gets the letters for the round
     * @param numberOfLettersToGenerate the number of letters to generate

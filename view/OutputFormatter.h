@@ -8,6 +8,8 @@
 #include <sstream>
 using namespace std;
 
+#include "Utils.h"
+
 #include "PlayerScore.h"
 using namespace model;
 
@@ -22,6 +24,10 @@ namespace view
 */
 class OutputFormatter
 {
+
+private:
+    string formatUnderscoresForWord(string word);
+
 public:
     /**
     * Creates a new output formatter
@@ -47,7 +53,9 @@ public:
     */
     string formatWords(map<string, int> words);
 
-        string formatRemainingWords(const int totalWords, const int wordsGuessed);
+    string formatRemainingWords(const int totalWords, const int wordsGuessed);
+
+    string formatUnderscoresForPossibleWords(unordered_set<string> words,map<string, int> guessedWords);
 
     /**
     * Destructs the output formatter

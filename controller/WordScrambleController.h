@@ -171,6 +171,8 @@ public:
 
     bool checkForNoRemainingWords();
 
+    string getHintsToDisplay();
+
 
 
 };

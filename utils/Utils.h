@@ -15,4 +15,6 @@ using namespace std;
 const string toTime(const int value);
 
 
+const int generateRandomNumber(const int lowerBound, const int upperBound);
+
 #endif // UTILS_H

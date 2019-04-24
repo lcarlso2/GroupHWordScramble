@@ -27,6 +27,7 @@ namespace controller
 const int WORD_IS_VALID = 1;
 const int WORD_IS_NOT_VALID = 0;
 const int WORD_ALREADY_GUESSED = 1;
+const int MININUM_NUMBER_OF_WORDS = 5;
 /**
 * The controller class that controls the communication between the model and view classes
 * @authors Lucas Carlson and Carson Bedrosian
@@ -164,7 +165,7 @@ public:
     * @precondition none
     * @postcondition the possible words are set
     */
-    void setPossibleWords(const string& characters);
+    void setPossibleWords(vector<string> characters);
 
     /**
     * Gets the count of the words remaining formatted for output

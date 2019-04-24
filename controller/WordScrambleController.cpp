@@ -45,7 +45,13 @@ void WordScrambleController::writeSettingsToFile()
 
 vector<string> WordScrambleController::getLettersToDisplay(const int numberOfLettersToGenerate)
 {
-    return this->logic.getLettersForRound(numberOfLettersToGenerate);
+    unordered_set<string> wordsPossibleFromCharacters;
+    vector<string> letters;
+    while (wordsPossibleFromCharacters.size() < MININUM_NUMBER_OF_WORDS) {
+        letters = this->logic.getLettersForRound(numberOfLettersToGenerate);
+        wordsPossibleFromCharacters = this->logic.getPossibleWordsFromCharacters(letters);
+    }
+    return letters;
 }
 
 vector<string> WordScrambleController::getShuffledLetters(vector<string> letters)
@@ -88,7 +94,7 @@ bool WordScrambleController::checkForNoRemainingWords()
     return this->logic.getWordsRemaining() == 0;
 }
 
-void WordScrambleController::setPossibleWords(const string& characters)
+void WordScrambleController::setPossibleWords(vector<string> characters)
 {
     this->logic.setPossibleWords(characters);
 }

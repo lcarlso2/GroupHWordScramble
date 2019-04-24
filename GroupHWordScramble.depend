@@ -64,10 +64,10 @@
 1556112140 source:/home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.cpp
 	"SettingsWindow.h"
 
-1556113248 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
+1556114254 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
 	"WordScrambleController.h"
 
-1556113248 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
+1556114290 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
 	<string>
 	<vector>
 	<unordered_set>
@@ -107,7 +107,7 @@
 	<thread>
 	<chrono>
 
-1556113263 source:/home/csuser/Desktop/GroupHWordScramble/view/GameWindow.cpp
+1556113624 source:/home/csuser/Desktop/GroupHWordScramble/view/GameWindow.cpp
 	"GameWindow.h"
 	<iostream>
 
@@ -439,11 +439,11 @@
 	<vector>
 	"LetterNode.h"
 
-1556110023 /home/csuser/Desktop/GroupHWordScramble/model/GameLogic.h
+1556114201 /home/csuser/Desktop/GroupHWordScramble/model/GameLogic.h
 	"LetterFrequency.h"
-	"DictionaryFileReader.h"
+	<numeric>
 
-1556112423 source:/home/csuser/Desktop/GroupHWordScramble/model/GameLogic.cpp
+1556114214 source:/home/csuser/Desktop/GroupHWordScramble/model/GameLogic.cpp
 	"GameLogic.h"
 
 1556035674 /home/csuser/GroupHWordScramble/model/GameLogic.h

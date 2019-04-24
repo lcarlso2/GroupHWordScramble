@@ -11,13 +11,7 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
 
     this->letters = this->controller.getLettersToDisplay(this->numberOfButtonsToShow);
 
-    string word;
-    for (auto& letter : this->letters)
-    {
-        word += letter;
-    }
-
-    this->controller.setPossibleWords(word);
+    this->controller.setPossibleWords(this->letters);
 
     createAndDisplayLetterSelection(this->letters);
 
@@ -37,7 +31,6 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
     this->guessedWordsTextDisplay->textfont(FL_COURIER);
     this->guessedWordsTextDisplay->buffer(this->guessedWordsTextBuffer);
     this->guessedWordsTextBuffer->text(this->controller.getHintsToDisplay().c_str());
-
 
     this->wordsLeftLabel = new Fl_Output(275,5,50,25,"Words left:");
 

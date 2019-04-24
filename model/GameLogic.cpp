@@ -1,7 +1,6 @@
 #include "GameLogic.h"
 
 
-
 namespace model
 {
 
@@ -112,9 +111,17 @@ int GameLogic::getTotalNumberOfWords()
     return this->possibleWords.size();
 }
 
-void GameLogic::setPossibleWords(const string& characters)
+void GameLogic::setPossibleWords(vector<string> characters)
 {
-    this->possibleWords = this->findAllPossibleWords(characters);
+    string charactersAsString;
+    charactersAsString = accumulate(characters.begin(), characters.end(), charactersAsString);
+    this->possibleWords = this->findAllPossibleWords(charactersAsString);
+}
+
+unordered_set<string> GameLogic::getPossibleWordsFromCharacters(vector<string> characters) {
+    string charactersAsString;
+    charactersAsString = accumulate(characters.begin(), characters.end(), charactersAsString);
+    return this->findAllPossibleWords(charactersAsString);
 }
 
 bool GameLogic::isPossible(string word, string letters)

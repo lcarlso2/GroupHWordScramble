@@ -3,8 +3,9 @@
 
 #include "LetterFrequency.h"
 
-#include "DictionaryFileReader.h"
-using namespace io;
+
+#include <numeric>
+using namespace std;
 
 
 
@@ -133,7 +134,7 @@ public:
     * @precondition none
     * @postcondition the possible words are set
     */
-    void setPossibleWords(const string& characters);
+    void setPossibleWords(vector<string> characters);
 
     /**
     * Gets the number of remaining words
@@ -148,6 +149,8 @@ public:
     * @return the total number of words
     */
     int getTotalNumberOfWords();
+
+    unordered_set<string> getPossibleWordsFromCharacters(vector<string> characters);
 };
 
 }

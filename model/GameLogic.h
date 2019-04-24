@@ -70,6 +70,11 @@ public:
     */
     map<string, int> getGuessedWords();
 
+    /**
+    * Gets the possible words
+    * @precondition none
+    * @return the possible words
+    */
     unordered_set<string> getPossibleWords();
 
     /**
@@ -150,7 +155,6 @@ public:
     */
     int getTotalNumberOfWords();
 
-    unordered_set<string> getPossibleWordsFromCharacters(vector<string> characters);
 };
 
 }

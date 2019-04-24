@@ -27,6 +27,7 @@ const int INDEX_OF_SCORE = 1;
 const int INDEX_OF_TIME = 1;
 const int INDEX_OF_BUTTON_COUNT = 0;
 const int INDEX_OF_TIMER_COUNT = 1;
+const int OFFSET_OF_UNNEEDED_CHARACTER = 1;
 
 const char COMMA = ',';
 
@@ -41,7 +42,8 @@ public:
 
     /**
     * Creates a TextFileReader object
-    *
+    * @precondition none
+    * @postcondition a text reader is created
     */
     TextFileReader();
 
@@ -50,10 +52,26 @@ public:
     */
     virtual ~TextFileReader();
 
+    /**
+    * Gets the dictionary data
+    * @precondition none
+    * @return the dictionary data
+    */
     unordered_set<string> getDictionaryData();
 
+    /**
+    * Gets the settings data
+    * @precondition none
+    * @return the settings data
+    */
     Settings getSettingsData();
 
+    /**
+    * Gets the high score data
+    * @precondition none
+    * @return the high score data
+    *
+    */
     HighScoreBoard getHighScoreData();
 
 

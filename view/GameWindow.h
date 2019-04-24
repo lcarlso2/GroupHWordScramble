@@ -33,6 +33,10 @@ const int DEFAULT_NUMBER_OF_BUTTONS = 6;
 const int MAX_NUMBER_OF_BUTTONS = 7;
 const int MINIMUM_NUMBER_OF_LETTERS_REQUIRED = 3;
 const int MINIMUM_NUMBER_OF_BUTTONS = 5;
+const int SECONDS = 60;
+const int SECOND = 1;
+const int TIME_ALMOST_UP = 10;
+const int NO_TIME_LEFT = 0;
 static int globalTimer = 60;
 static int currentTimer = globalTimer;
 static bool timeUp = false;
@@ -73,11 +77,6 @@ private:
     Fl_Text_Buffer* lettersChosenTextBuffer;
     Fl_Text_Display* lettersChosenTextDisplay;
 
-    void displayLettersSelected();
-    void createAndDisplayLetterSelection(vector<string> letters);
-    void deleteLetterButtons();
-    void replaceLettersBeingDisplayed(vector<string> newLetters);
-
     static void cbLetterSelected(Fl_Widget* widget, void* data);
     static void cbShuffleLetters(Fl_Widget* widget, void* data);
     static void cbSubmitWord(Fl_Widget* widget, void* data);
@@ -97,7 +96,15 @@ private:
     void determineIfShuffleButtonNeedsToBeShown();
     void determineIfSubmitButtonNeedsToBeShown(const string& wordToDisplay);
 
+    void displayLettersSelected();
+    void createAndDisplayLetterSelection(vector<string> letters);
+    void deleteLetterButtons();
+    void replaceLettersBeingDisplayed(vector<string> newLetters);
     void setWordsLeftLabel();
+    void initializeButtons();
+    void initializeLabels();
+    void initializeTextDisplays();
+    void startTimer();
 
 public:
     /**

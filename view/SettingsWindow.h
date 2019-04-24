@@ -84,7 +84,7 @@ public:
     * @precondition none
     * @return the selected timer
     */
-        int getSelectedTimerCount();
+    int getSelectedTimerCount();
 
     /**
     * Gets the selected number of buttons

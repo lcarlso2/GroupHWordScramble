@@ -28,6 +28,8 @@ const int WORD_IS_VALID = 1;
 const int WORD_IS_NOT_VALID = 0;
 const int WORD_ALREADY_GUESSED = 1;
 const int MININUM_NUMBER_OF_WORDS = 5;
+const int AMOUNT_TO_DECREMENT_POINTS_BY = 10;
+const int NO_WORDS_LEFT = 0;
 /**
 * The controller class that controls the communication between the model and view classes
 * @authors Lucas Carlson and Carson Bedrosian
@@ -118,7 +120,7 @@ public:
     * @precondition none
     * @postcondition the score is decremented
     */
-    void decrementScore(const int pointsToRemove);
+    void decrementScore();
 
     /**
     * Gets the total score
@@ -160,25 +162,32 @@ public:
     string getInitialHighScores();
 
     /**
-    * Sets the possible words to guess from
-    * @param characters the characters being used to generate the possible words
-    * @precondition none
-    * @postcondition the possible words are set
-    */
-    void setPossibleWords(vector<string> characters);
-
-    /**
     * Gets the count of the words remaining formatted for output
     * @precondition none
     * @return the count of the words remaining formatted for  ouput
     */
     string getWordsRemainingCountFormatted();
 
+    /**
+    * Checks if there are remaining words
+    * @precondition none
+    * @return true if there are no remaining words to guess otherwise false
+    */
     bool checkForNoRemainingWords();
 
-    string getHintsToDisplay();
+    /**
+    * Gets the output to display during game
+    * @precondition none
+    * @return the output to display during game
+    */
+    string getWordsToDisplay();
 
-    void intializeGameLogic();
+    /**
+    * Initialize the game logic
+    * @precondition none
+    * @postcondition the game logic is initialized
+    */
+    void initializeGameLogic();
 
 
 

@@ -118,12 +118,6 @@ void GameLogic::setPossibleWords(vector<string> characters)
     this->possibleWords = this->findAllPossibleWords(charactersAsString);
 }
 
-unordered_set<string> GameLogic::getPossibleWordsFromCharacters(vector<string> characters) {
-    string charactersAsString;
-    charactersAsString = accumulate(characters.begin(), characters.end(), charactersAsString);
-    return this->findAllPossibleWords(charactersAsString);
-}
-
 bool GameLogic::isPossible(string word, string letters)
 {
     for (size_t index = 0; index < word.length(); index ++)

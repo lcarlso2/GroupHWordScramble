@@ -69,7 +69,6 @@ void GameWindow::setWordsLeftLabel()
     {
         fl_message("%s", "You won!");
         this->endGame();
-
     }
     else
     {
@@ -105,7 +104,7 @@ void GameWindow::Timer_CB(void* data)
     currentTimer -= 1;
     string time = toTime(currentTimer);
     timerLabel->value(time.c_str());
-    if ( currentTimer <= 0 )
+    if (currentTimer <= 0 )
     {
         Fl::remove_timeout(Timer_CB, data);
         timeUp = true;
@@ -113,6 +112,9 @@ void GameWindow::Timer_CB(void* data)
     }
     else
     {
+        if (currentTimer < 10) {
+            timerLabel->color(FL_RED);
+        }
         Fl::repeat_timeout(1, Timer_CB, data);
     }
 }

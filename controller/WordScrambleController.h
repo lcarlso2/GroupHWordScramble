@@ -9,6 +9,7 @@ using namespace std;
 #include "GameLogic.h"
 #include "PlayerScore.h"
 #include "HighScoreBoard.h"
+#include "Settings.h"
 using namespace model;
 
 #include "TextFileWriter.h"
@@ -46,6 +47,8 @@ private:
 
     LetterFrequency letterFrequency;
 
+    Settings settings;
+
 
 public:
     /**
@@ -65,23 +68,24 @@ public:
     * @precondition none
     * @return the number of letters to display
     */
-    int getNumberOfLetters();
+    int getButtonCount();
 
     /**
     * Gets the timer to display
     * @precondition none
     * @return the timer to display
     */
-    int getTimer();
+    int getTimerCount();
 
+    void setButtonCount(const int buttonCount);
+
+    void setTimerCount(const int timerCount);
     /**
     * Writes the settings to the settings file
-    * @param numberOfLetters the number of letters to display
-    * @param timer the timer to display
     * @precondition none
     * @postcondition the file is written to
     */
-    void writeSettingsToFile(const int numberOfLetters, const int timer);
+    void writeSettingsToFile();
 
     /**
     * Gets the letters to display
@@ -172,6 +176,8 @@ public:
     bool checkForNoRemainingWords();
 
     string getHintsToDisplay();
+
+    void intializeGameLogic();
 
 
 

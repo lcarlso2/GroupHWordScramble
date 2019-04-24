@@ -1,5 +1,5 @@
 #include "TextFileReader.h"
-
+#include "iostream"
 
 namespace io
 {
@@ -28,10 +28,12 @@ unordered_set<string> TextFileReader::getDictionaryData()
 }
 
 
-vector<string> TextFileReader::getSettingsData()
+Settings TextFileReader::getSettingsData()
 {
     vector<string> data = this->getDataFromFile(SETTINGS_FILE_NAME);
-    vector<string> settings = this->split(data[INDEX_OF_VALUES], COMMA);
+    vector<string> settingsData = this->split(data[INDEX_OF_VALUES], COMMA);
+
+    Settings settings(stoi(settingsData[INDEX_OF_TIMER_COUNT]), stoi(settingsData[INDEX_OF_BUTTON_COUNT]));
 
     return settings;
 }

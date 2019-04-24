@@ -6,7 +6,8 @@ namespace view
 GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(width, height, title)
 {
     begin();
-    this->numberOfButtonsToShow = this->controller.getNumberOfLetters();
+    this->controller.intializeGameLogic();
+    this->numberOfButtonsToShow = this->controller.getButtonCount();
 
     this->letters = this->controller.getLettersToDisplay(this->numberOfButtonsToShow);
 
@@ -54,7 +55,7 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
     this->clearWordButton = new Fl_Button(365,175,125,25,"Clear word");
     this->clearWordButton->callback(cbClearWord, this);
 
-    globalTimer = this->controller.getTimer() * 60 + 1;
+    globalTimer = this->controller.getTimerCount() * 60 + 1;
     currentTimer = globalTimer;
     Fl::add_timeout(1, Timer_CB);
 
@@ -112,7 +113,8 @@ void GameWindow::Timer_CB(void* data)
     }
     else
     {
-        if (currentTimer < 10) {
+        if (currentTimer < 10)
+        {
             timerLabel->color(FL_RED);
         }
         Fl::repeat_timeout(1, Timer_CB, data);

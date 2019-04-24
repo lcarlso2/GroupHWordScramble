@@ -21,9 +21,6 @@ MainWindow::MainWindow(int width, int height, const char* title) : Fl_Window(wid
     this->titleLabel = new Fl_Output(245,50,0,0, "Word Scramble");
 
     end();
-
-    std::thread labelChangingThread(&MainWindow::switchLabel, this);
-    labelChangingThread.detach();
 }
 
 
@@ -65,7 +62,7 @@ string MainWindow::getHighScores()
 void MainWindow::cbSettings(Fl_Widget* widget, void* data)
 {
     MainWindow* window = (MainWindow*)data;
-    SettingsWindow settingsWindow;
+    SettingsWindow settingsWindow(window->getTimerCount(), window->getButtonCount());
 
     settingsWindow.set_modal();
     settingsWindow.show();
@@ -77,43 +74,30 @@ void MainWindow::cbSettings(Fl_Widget* widget, void* data)
 
     if (settingsWindow.getWindowResult() == OkCancelWindow::WindowResult::OK)
     {
-        window->resetButtons(settingsWindow.getSelectedNumberOfLetters(), settingsWindow.getSelectedTimer());
-    }
-
-}
-
-void MainWindow::cbSwitchLabel(Fl_Widget* widget, void* data)
-{
-    MainWindow* window = (MainWindow*)data;
-    window->switchLabel();
-}
-
-void MainWindow::resetButtons(const int numberOfLetters, const int timer)
-{
-    this->controller.writeSettingsToFile(numberOfLetters, timer);
-}
-
-void MainWindow::switchLabel()
-{
-    while (true)
-    {
-        std::this_thread::sleep_for(std::chrono::seconds(1));
-        if (this->titleLabel->label() == "Word Scramble")
-        {
-            this->titleLabel->label("Word Sracmebl");
-        }
-        else
-        {
-            this->titleLabel->label("Word Scramble");
-        }
-        this->redraw();
+        window->resetSettings(settingsWindow.getSelectedButtonCount(), settingsWindow.getSelectedTimerCount());
     }
 }
 
+void MainWindow::resetSettings(const int buttonCount, const int timer)
+{
+    this->controller.setButtonCount(buttonCount);
+    this->controller.setTimerCount(timer);
+    this->controller.writeSettingsToFile();
+}
 
+int MainWindow::getTimerCount()
+{
+    return this->controller.getTimerCount();
+}
+
+int MainWindow::getButtonCount()
+{
+    this->controller.getButtonCount();
+}
 
 MainWindow::~MainWindow()
 {
+    this->controller.writeSettingsToFile();
     delete this->startGameButton;
     delete this->highScoresButton;
     delete this->settingsButton;

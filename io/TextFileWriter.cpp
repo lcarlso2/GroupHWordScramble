@@ -1,4 +1,3 @@
-
 #include "TextFileWriter.h"
 
 namespace io

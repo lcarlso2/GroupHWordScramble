@@ -46,13 +46,13 @@ private:
 
     Fl_Round_Button* letterRadioGroupButton[NUMBER_OF_BUTTONS_FOR_LETTER_COUNT];
 
-    int selectedTimer;
+    int selectedTimerCount;
 
-    int selectedNumberOfLetters;
+    int selectedButtonCount;
 
     void createButtonsForTimer();
 
-    void createButtonsForLetters();
+    void createButtonsForButtonCount();
 
     static void cbTimerChanged(Fl_Widget* widget, void* data);
 
@@ -64,15 +64,15 @@ private:
 
     void draw();
 
-    WordScrambleController controller;
-
 public:
     /**
     * Creates a new settings window
+    * @param timerCount the current timer count
+    * @param buttonCount the current button count
     * @precondition none
     * @postcondition a new settings window is created
     */
-    SettingsWindow();
+    SettingsWindow(const int timerCount, const int buttonCount);
 
     /**
     * Destructs the settings window
@@ -84,14 +84,14 @@ public:
     * @precondition none
     * @return the selected timer
     */
-    int getSelectedTimer();
+        int getSelectedTimerCount();
 
     /**
-    * Gets the selected number of letters
+    * Gets the selected number of buttons
     * @precondition none
-    * @return the selected number of letters
+    * @return the selected number of buttons
     */
-    int getSelectedNumberOfLetters();
+    int getSelectedButtonCount();
 
     /**
     * Handles the ok click event

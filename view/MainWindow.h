@@ -41,15 +41,19 @@ private:
     Fl_Button* highScoresButton;
     Fl_Button* settingsButton;
 
+    Fl_Output* titleLabel;
+
 
     static void cbStartGame(Fl_Widget* widget, void* data);
     static void cbHighScore(Fl_Widget* widget, void* data);
     static void cbSettings(Fl_Widget* widget, void* data);
-    static void cbSwitchLabel(Fl_Widget* widget, void* data);
 
-    inline void resetButtons(const int numberOfLetters, const int timer);
+    inline void resetSettings(const int numberOfLetters, const int timer);
     inline string getHighScores();
 
+    int getTimerCount();
+
+    int getButtonCount();
 
 
 public:
@@ -68,9 +72,6 @@ public:
     */
     virtual ~MainWindow();
 
-    inline void switchLabel();
-
-    Fl_Output* titleLabel;
 
 };
 }

@@ -3,6 +3,7 @@
 
 #include "PlayerScore.h"
 #include "HighScoreBoard.h"
+#include "Settings.h"
 using namespace model;
 
 #include <sstream>
@@ -23,37 +24,37 @@ const string SETTINGS_FILE_NAME = "settings";
 const int INDEX_OF_VALUES = 0;
 const int INDEX_OF_NAME = 0;
 const int INDEX_OF_SCORE = 1;
-const int INDEX_OF_TIME = 2;
-const int INDEX_OF_NUMBER_OF_LETTERS = 0;
-const int INDEX_OF_TIMER = 1;
+const int INDEX_OF_TIME = 1;
+const int INDEX_OF_BUTTON_COUNT = 0;
+const int INDEX_OF_TIMER_COUNT = 1;
 
 const char COMMA = ',';
 
 class TextFileReader
 {
-    private:
+private:
 
-        vector<string> getDataFromFile(string fileName);
-        vector<string> split(const string& stringToSplit, char delimiter);
+    vector<string> getDataFromFile(string fileName);
+    vector<string> split(const string& stringToSplit, char delimiter);
 
-    public:
+public:
 
-        /**
-        * Creates a TextFileReader object
-        *
-        */
-        TextFileReader();
+    /**
+    * Creates a TextFileReader object
+    *
+    */
+    TextFileReader();
 
-        /**
-        * Clears resources associated with TextFileReader
-        */
-        virtual ~TextFileReader();
+    /**
+    * Clears resources associated with TextFileReader
+    */
+    virtual ~TextFileReader();
 
-        unordered_set<string> getDictionaryData();
+    unordered_set<string> getDictionaryData();
 
-        vector<string> getSettingsData();
+    Settings getSettingsData();
 
-        HighScoreBoard getHighScoreData();
+    HighScoreBoard getHighScoreData();
 
 
 };

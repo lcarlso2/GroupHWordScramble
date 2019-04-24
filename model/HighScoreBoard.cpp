@@ -32,7 +32,8 @@ HighScoreBoard::~HighScoreBoard()
 vector<PlayerScore> HighScoreBoard::getSpecifiedNumberOfHighScores(const int number)
 {
     vector<PlayerScore> highscores;
-    for (int index = 0; index < number; index++) {
+    for (int index = 0; index < number; index++)
+    {
         highscores.push_back(this->scores[index]);
     }
     return highscores;

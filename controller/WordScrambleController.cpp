@@ -6,8 +6,7 @@ namespace controller
 
 WordScrambleController::WordScrambleController()
 {
-    unordered_set<string> words = this->fileReader.getDictionaryData();
-    this->logic = GameLogic(words);
+    this->settings = this->fileReader.getSettingsData();
 }
 
 WordScrambleController::~WordScrambleController()
@@ -15,25 +14,33 @@ WordScrambleController::~WordScrambleController()
 
 }
 
-int WordScrambleController::getNumberOfLetters()
-{
-    vector<string> settings = this->fileReader.getSettingsData();
-    int numberOfLetters = stoi(settings[INDEX_OF_NUMBER_OF_LETTERS]);
-    return numberOfLetters;
-
+void WordScrambleController::intializeGameLogic(){
+    unordered_set<string> words = this->fileReader.getDictionaryData();
+    this->logic = GameLogic(words);
 }
 
-int WordScrambleController::getTimer()
+int WordScrambleController::getButtonCount()
 {
-    vector<string> settings = this->fileReader.getSettingsData();
-    int timer = stoi(settings[INDEX_OF_TIMER]);
-    return timer;
+    return this->settings.getButtonCount();
 }
 
-void WordScrambleController::writeSettingsToFile(const int numberOfLetters, const int timer)
+    int WordScrambleController::getTimerCount()
+{
+    return this->settings.getTimerCount();
+}
+
+void WordScrambleController::setButtonCount(const int buttonCount){
+    this->settings.setButtonCount(buttonCount);
+}
+
+void WordScrambleController::setTimerCount(const int timerCount) {
+    this->settings.setTimerCount(timerCount);
+}
+
+void WordScrambleController::writeSettingsToFile()
 {
     TextFileWriter writer;
-    writer.writeSettingsToFile(numberOfLetters, timer);
+    writer.writeSettingsToFile(this->settings.getButtonCount(), this->settings.getTimerCount());
 }
 
 vector<string> WordScrambleController::getLettersToDisplay(const int numberOfLettersToGenerate)

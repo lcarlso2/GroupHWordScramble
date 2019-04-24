@@ -3,14 +3,16 @@
 namespace view
 {
 
-SettingsWindow::SettingsWindow() : OkCancelWindow(330, 215, "Settings window")
+SettingsWindow::SettingsWindow(const int timerCount, const int buttonCount) : OkCancelWindow(330, 215, "Settings window")
 {
+    this->selectedTimerCount = timerCount;
+    this->selectedButtonCount = buttonCount;
     begin();
 
     this->timerLabel = new Fl_Output(210, 25, 0, 0, "Timer in minutes:");
     this->letterCountLabel = new Fl_Output(180, 90, 0, 0, "Letter count:");
     createButtonsForTimer();
-    createButtonsForLetters();
+    createButtonsForButtonCount();
 
     this->setOKLocation(90, 170);
     this->setCancelLocation(170, 170);
@@ -64,13 +66,12 @@ void SettingsWindow::createButtonsForTimer()
 
     this->timerRadioGroup->end();
 
-    int timer = this->controller.getTimer();
+    int timer = this->selectedTimerCount;
     this->timerRadioGroupButton[(timer-OFFSET_TO_SELECTED_TIMER)]->set();
-    this->selectedTimer = timer;
 
 }
 
-void SettingsWindow::createButtonsForLetters()
+void SettingsWindow::createButtonsForButtonCount()
 {
 
     const int X_RADIO_GROUP = 95;
@@ -91,19 +92,18 @@ void SettingsWindow::createButtonsForLetters()
 
     this->letterRadioGroup->end();
 
-    int numberOfLetters = this->controller.getNumberOfLetters();
-    this->letterRadioGroupButton[(numberOfLetters-OFFSET_TO_SELECTED_LETTER_COUNT)]->set();
-    this->selectedNumberOfLetters = numberOfLetters;
+    int buttonCount = this->selectedButtonCount;
+    this->letterRadioGroupButton[(buttonCount-OFFSET_TO_SELECTED_LETTER_COUNT)]->set();
 }
 
-int SettingsWindow::getSelectedTimer()
+int SettingsWindow::getSelectedTimerCount()
 {
-    return this->selectedTimer;
+    return this->selectedTimerCount;
 }
 
-int SettingsWindow::getSelectedNumberOfLetters()
+int SettingsWindow::getSelectedButtonCount()
 {
-    return this->selectedNumberOfLetters;
+    return this->selectedButtonCount;
 }
 
 
@@ -121,13 +121,13 @@ void SettingsWindow::cbLetterCountChanged(Fl_Widget* widget, void* data)
 
 void SettingsWindow::setTimer(const string& value)
 {
-    this->selectedTimer = stoi(value);
+    this->selectedTimerCount = stoi(value);
 }
 
 
 void SettingsWindow::setLetterCount(const string& value)
 {
-    this->selectedNumberOfLetters = stoi(value);
+    this->selectedButtonCount = stoi(value);
 }
 
 void SettingsWindow::okHandler()

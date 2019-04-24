@@ -64,10 +64,10 @@
 1556112140 source:/home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.cpp
 	"SettingsWindow.h"
 
-1556116113 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
+1556116938 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
 	"WordScrambleController.h"
 
-1556116107 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
+1556116372 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
 	<string>
 	<vector>
 	<unordered_set>
@@ -145,7 +145,7 @@
 	<iostream>
 	<unordered_set>
 
-1556110023 /home/csuser/Desktop/GroupHWordScramble/utils/Utils.h
+1556116902 /home/csuser/Desktop/GroupHWordScramble/utils/Utils.h
 	<string>
 	<vector>
 	<algorithm>
@@ -360,11 +360,11 @@
 
 1555794410 _set>
 
-1556110023 source:/home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.cpp
+1556116846 source:/home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.cpp
 	"OutputFormatter.h"
 	<iostream>
 
-1556110023 /home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.h
+1556116846 /home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.h
 	<iomanip>
 	<vector>
 	<string>
@@ -439,7 +439,7 @@
 	<vector>
 	"LetterNode.h"
 
-1556114551 /home/csuser/Desktop/GroupHWordScramble/model/GameLogic.h
+1556116986 /home/csuser/Desktop/GroupHWordScramble/model/GameLogic.h
 	"LetterFrequency.h"
 	<numeric>
 
@@ -497,7 +497,7 @@
 	<string>
 	<unordered_set>
 
-1556112837 source:/home/csuser/Desktop/GroupHWordScramble/io/TextFileReader.cpp
+1556116240 source:/home/csuser/Desktop/GroupHWordScramble/io/TextFileReader.cpp
 	"TextFileReader.h"
 	"iostream"
 
@@ -516,7 +516,7 @@
 1556112423 source:/home/csuser/Desktop/GroupHWordScramble/io/TextFileWriter.cpp
 	"TextFileWriter.h"
 
-1556112423 /home/csuser/Desktop/GroupHWordScramble/model/Settings.h
+1556116537 /home/csuser/Desktop/GroupHWordScramble/model/Settings.h
 
 1556112423 source:/home/csuser/Desktop/GroupHWordScramble/model/Settings.cpp
 	"Settings.h"

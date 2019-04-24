@@ -33,6 +33,8 @@ private:
 
     unordered_set<string> possibleWords;
 
+    unordered_set<string> bonusWords;
+
     int totalScore;
 
     int getPointsForWord(const string& word);

@@ -99,7 +99,6 @@ bool WordScrambleController::checkForNoRemainingWords()
     return this->logic.getWordsRemaining() == NO_WORDS_LEFT;
 }
 
-
 string WordScrambleController::getFormattedWordsAndTheirPoints()
 {
     return this->formatter.formatWords(this->logic.getGuessedWords());
@@ -115,7 +114,7 @@ string WordScrambleController::getInitialHighScores()
 
 string WordScrambleController::getWordsToDisplay()
 {
-    return this->formatter.formatUnderscoresForPossibleWords(this->logic.getPossibleWords(), this->logic.getGuessedWords());
+    return this->formatter.formatWordsToDisplayDuringGame(this->logic.getPossibleWords(), this->logic.getGuessedWords());
 }
 
 

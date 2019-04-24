@@ -37,6 +37,11 @@ public:
     OutputFormatter();
 
     /**
+    * Destructs the output formatter
+    */
+    virtual ~OutputFormatter();
+
+    /**
     * Formats the given PlayerScore objects
     * @precondition none
     * @postcondition none
@@ -53,18 +58,23 @@ public:
     */
     string formatWords(map<string, int> words);
 
+    /**
+    * Formats the remaining words into *wordsLeftCount* // *totalWords*
+    * @param totalWords the total number of words
+    * @param wordsGuessed the number of words guessed
+    * @precondition none
+    * @return the formated string
+    */
     string formatRemainingWords(const int totalWords, const int wordsGuessed);
 
-    string formatUnderscoresForPossibleWords(unordered_set<string> words,map<string, int> guessedWords);
-
     /**
-    * Destructs the output formatter
+    * Formats the total words with * and one letter revealed and formats the guessed words as visible with there points shown
+    * @param all this words for this round
+    * @param guessedWords the guessed words and their points
+    * @precondition none
+    * @return the formatted string
     */
-    virtual ~OutputFormatter();
-
-
-
-
+    string formatWordsToDisplayDuringGame(unordered_set<string> words,map<string, int> guessedWords);
 };
 
 }

@@ -40,7 +40,7 @@ string OutputFormatter::formatRemainingWords(const int totalWords, const int wor
     return to_string(wordsGuessed) + "/" + to_string(totalWords);
 }
 
-string OutputFormatter::formatUnderscoresForPossibleWords(unordered_set<string> words, map<string, int> guessedWords)
+string OutputFormatter::formatWordsToDisplayDuringGame(unordered_set<string> words, map<string, int> guessedWords)
 {
     stringstream builder;
 

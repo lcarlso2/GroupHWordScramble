@@ -80,9 +80,22 @@ public:
     */
     int getTimerCount();
 
+    /**
+    * Sets the button count
+    * @param buttonCount the count of buttons
+    * @precondition none
+    * @postcondition the button count is set
+    */
     void setButtonCount(const int buttonCount);
 
+    /**
+    * Sets the timer count
+    * @param timerCount the count of the timer
+    * @precondition none
+    * @postcondition the timer count is set
+    */
     void setTimerCount(const int timerCount);
+
     /**
     * Writes the settings to the settings file
     * @precondition none

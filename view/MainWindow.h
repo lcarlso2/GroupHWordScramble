@@ -50,10 +50,13 @@ private:
 
     inline void resetSettings(const int numberOfLetters, const int timer);
     inline string getHighScores();
+    inline void addNewScore(const string& name, int score, int time);
 
     int getTimerCount();
 
     int getButtonCount();
+
+
 
 
 public:

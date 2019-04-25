@@ -36,7 +36,14 @@ void MainWindow::cbStartGame(Fl_Widget* widget, void* data)
     {
         Fl::wait();
     }
+
     int score = gameWindow.getScore();
+    string timerValue = gameWindow.getTimer();
+    int time = timeToInt(timerValue);
+
+    window->addNewScore("test", score, time);
+
+
 }
 
 void MainWindow::cbHighScore(Fl_Widget* widget, void* data)
@@ -93,6 +100,11 @@ int MainWindow::getTimerCount()
 int MainWindow::getButtonCount()
 {
     this->controller.getButtonCount();
+}
+
+inline void MainWindow::addNewScore(const string& name, int score, int time)
+{
+    this->controller.addNewScore(name, score, time);
 }
 
 MainWindow::~MainWindow()

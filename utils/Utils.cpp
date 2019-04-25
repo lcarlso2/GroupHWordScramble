@@ -31,6 +31,25 @@ const int generateRandomNumber(const int lowerBound, const int upperBound)
     return distribution(mt);
 }
 
+const int timeToInt(const string& value)
+{
+    vector<string> values = split(value, ':');
+    return ((stoi(values[0])*60) + stoi(values[1]));
+}
+
+
+vector<string> split(const string& stringToSplit, char delimiter)
+{
+    vector<string> lines;
+    string line;
+    istringstream tokenStream(stringToSplit);
+    while (getline(tokenStream, line, delimiter))
+    {
+        lines.push_back(line);
+    }
+    return lines;
+}
+
 
 
 

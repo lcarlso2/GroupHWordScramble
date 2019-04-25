@@ -38,7 +38,7 @@ const int SECOND = 1;
 const int TIME_ALMOST_UP = 10;
 const int NO_TIME_LEFT = 0;
 static int globalTimer = 60;
-static int currentTimer = globalTimer;
+static int currentTimer;
 static bool timeUp = false;
 
 static Fl_Output* timerLabel;
@@ -135,6 +135,14 @@ public:
     * @return the number of points the player scored
     */
     int getScore();
+
+    /**
+    * Gets current value of the timer
+    * @precondition none
+    * @postcondition none
+    * @return Returns the current value of the timer
+    */
+    string getTimer();
 };
 
 }

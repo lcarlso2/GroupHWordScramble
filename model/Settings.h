@@ -4,6 +4,12 @@
 namespace model
 {
 
+/**
+* The settings class that keeps track of the settings
+* @author Lucas Carlson and Carson Bedrosian
+* @version 4/25/2019
+*
+*/
 class Settings
 {
 private:

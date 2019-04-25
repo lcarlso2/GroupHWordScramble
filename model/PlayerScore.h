@@ -7,7 +7,11 @@ using namespace std;
 namespace model
 {
 
-
+/**
+* The player score class that keeps track of the player score
+* @author Lucas Carlson and Carson Bedrosian
+* @version 4/25/2019
+*/
 class PlayerScore
 {
 private:

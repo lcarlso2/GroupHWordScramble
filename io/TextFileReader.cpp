@@ -19,17 +19,46 @@ unordered_set<string> TextFileReader::getDictionaryData()
 {
     vector<string> data = this->getDataFromFile(DICTIONARY_FILE_NAME);
     unordered_set<string> words;
+
     for (size_t index = 0; index < data.size(); index++)
     {
         string word = data[index].erase(data[index].length() - OFFSET_OF_UNNEEDED_CHARACTER);
-        if (word.length() > 3) {
+        if (this->determineIfWordIsValid(word))
+        {
             words.insert(word);
         }
-
     }
     return words;
 }
 
+bool TextFileReader::determineIfWordIsValid(const string& word)
+{
+    bool wordIsValid = false;
+    if (this->determineIfWordLengthIsValid(word))
+    {
+        wordIsValid = this->determineIfCharactersAppearAppropriateAmountOfTimes(word);
+    }
+
+    return wordIsValid;
+}
+
+bool TextFileReader::determineIfCharactersAppearAppropriateAmountOfTimes(const string& word)
+{
+    for (int indexOfLetter = 0; indexOfLetter < word.length(); indexOfLetter++)
+    {
+        string character(1,word[indexOfLetter]);
+        if (count(word.begin(), word.end(), word[indexOfLetter]) >= LETTER_FREQUENCIES.find(character)->second)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool TextFileReader::determineIfWordLengthIsValid(const string& word)
+{
+    return (word.length() >= MININUM_NUMBER_OF_CHARACTERS && word.length() < MAX_NUMBER_OF_CHARACTERS);
+}
 
 Settings TextFileReader::getSettingsData()
 {
@@ -40,7 +69,6 @@ Settings TextFileReader::getSettingsData()
 
     return settings;
 }
-
 
 HighScoreBoard TextFileReader::getHighScoreData()
 {
@@ -58,7 +86,6 @@ HighScoreBoard TextFileReader::getHighScoreData()
 
     return scoreBoard;
 }
-
 
 vector<string> TextFileReader::getDataFromFile(string fileName)
 {

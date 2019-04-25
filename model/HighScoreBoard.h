@@ -11,6 +11,12 @@ using namespace std;
 namespace model
 {
 
+/**
+* The high score board that keeps track of the high scores
+* @author Lucas Carlson and Carson Bedrosian
+* @version 4/25/2019
+*
+*/
 class HighScoreBoard
 {
 private:

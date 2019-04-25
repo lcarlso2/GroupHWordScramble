@@ -14,6 +14,7 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
     this->initializeButtons();
     this->initializeLabels();
     this->initializeTextDisplays();
+    timerLabel->value(STARTING_TIMER_LABEL.c_str());
     this->startTimer();
 
     this->submitWordButton->hide();

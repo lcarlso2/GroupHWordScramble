@@ -15,6 +15,7 @@ WordScrambleController::~WordScrambleController()
 
 }
 
+
 void WordScrambleController::initializeGameLogic()
 {
     unordered_set<string> words = this->fileReader.getDictionaryData();

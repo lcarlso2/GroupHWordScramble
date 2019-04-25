@@ -15,6 +15,7 @@ namespace model
 const int WORD_IS_VALID = 1;
 const int WORD_IS_NOT_VALID = 0;
 const int WORD_ALREADY_GUESSED = 1;
+const int MININUM_NUMBER_OF_WORDS = 5;
 
 /**
 * The game logic class that controls the game
@@ -26,6 +27,8 @@ class GameLogic
 {
 private:
     LetterFrequency letterFrequency;
+
+        vector<string> letters;
 
     unordered_set<string> validWords;
 
@@ -73,6 +76,14 @@ public:
     map<string, int> getGuessedWords();
 
     /**
+    * Gets the letters for that round
+    * @precondition none
+    * @return the letters for the round
+    *
+    */
+    vector<string> getLetters();
+
+    /**
     * Gets the possible words
     * @precondition none
     * @return the possible words
@@ -80,13 +91,13 @@ public:
     unordered_set<string> getPossibleWords();
 
     /**
-    * Gets the letters for the round
+    * Initializes the words and letters for the round
     * @param numberOfLettersToGenerate the number of letters to generate
     * @precondition none
-    * @return the desired number of letters for the round
+    * @postcondition the words and letters for the round are initialized
     *
     */
-    vector<string> getLettersForRound(const int numberOfLettersToGenerate);
+    void initializeRound(const int numberOfLettersToGenerate);
 
     /**
     * Shuffles the given letters

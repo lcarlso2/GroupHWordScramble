@@ -4,6 +4,7 @@
 #include "PlayerScore.h"
 #include "HighScoreBoard.h"
 #include "Settings.h"
+#include "LetterFrequency.h"
 using namespace model;
 
 #include <sstream>

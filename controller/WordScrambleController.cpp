@@ -46,17 +46,14 @@ void WordScrambleController::writeSettingsToFile()
     writer.writeSettingsToFile(this->settings.getButtonCount(), this->settings.getTimerCount());
 }
 
-vector<string> WordScrambleController::getLettersToDisplay(const int numberOfLettersToGenerate)
+vector<string> WordScrambleController::getLettersToDisplay()
 {
-    unordered_set<string> wordsPossibleFromCharacters;
-    vector<string> letters;
-    while (wordsPossibleFromCharacters.size() < MININUM_NUMBER_OF_WORDS)
-    {
-        letters = this->logic.getLettersForRound(numberOfLettersToGenerate);
-        this->logic.setPossibleWords(letters);
-        wordsPossibleFromCharacters = this->logic.getPossibleWords();
-    }
-    return letters;
+    return this->logic.getLetters();
+}
+
+void WordScrambleController::initializeRound(const int numberOfCharactersToGenerate)
+{
+    return this->logic.initializeRound(numberOfCharactersToGenerate);
 }
 
 vector<string> WordScrambleController::getShuffledLetters(vector<string> letters)

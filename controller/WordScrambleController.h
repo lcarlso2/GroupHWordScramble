@@ -27,7 +27,6 @@ namespace controller
 const int WORD_IS_VALID = 1;
 const int WORD_IS_NOT_VALID = 0;
 const int WORD_ALREADY_GUESSED = 1;
-const int MININUM_NUMBER_OF_WORDS = 5;
 const int AMOUNT_TO_DECREMENT_POINTS_BY = 10;
 const int NO_WORDS_LEFT = 0;
 /**
@@ -104,13 +103,21 @@ public:
     void writeSettingsToFile();
 
     /**
-    * Gets the letters to display
-    * @param numberOfLettersToGenerate the number of letters to generate
+    * Gets the letters  to display
     * @precondition none
-    * @return the desired number of letters to display
+    * @return the desired letters to display
     *
     */
-    vector<string> getLettersToDisplay(const int numberOfLettersToGenerate);
+    vector<string> getLettersToDisplay();
+
+    /**
+    * Initializes the round
+    * @param numberOfCharactersToGenerate the number of characters to generate
+    * @precondition none
+    * @postcondition the round is set up
+    *
+    */
+    void initializeRound(const int numberOfCharactersToGenerate);
 
     /**
     * Gets the given letters in a new shuffled order =

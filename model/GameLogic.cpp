@@ -1,6 +1,6 @@
 #include "GameLogic.h"
 
-
+#include <iostream>
 namespace model
 {
 
@@ -20,10 +20,19 @@ GameLogic::~GameLogic()
     //dtor
 }
 
-vector<string> GameLogic::getLettersForRound(const int numberOfLettersToGenerate)
+void GameLogic::initializeRound(const int numberOfLettersToGenerate)
 {
-    vector<string> letters = this->letterFrequency.getRandomLetters(numberOfLettersToGenerate);
-    return letters;
+    unordered_set<string> wordsPossibleFromCharacters;
+    vector<string> lettersForRound;
+    while (wordsPossibleFromCharacters.size() < MININUM_NUMBER_OF_WORDS)
+    {
+        lettersForRound = this->letterFrequency.getRandomLetters(numberOfLettersToGenerate);
+        string charactersAsString;
+        charactersAsString = accumulate(lettersForRound.begin(), lettersForRound.end(), charactersAsString);
+        wordsPossibleFromCharacters = this->findAllPossibleWords(charactersAsString);
+    }
+    this->possibleWords = wordsPossibleFromCharacters;
+    this->letters = lettersForRound;
 }
 
 vector<string> GameLogic::shuffle(vector<string> letters)
@@ -34,6 +43,11 @@ vector<string> GameLogic::shuffle(vector<string> letters)
 map<string, int> GameLogic::getGuessedWords()
 {
     return this->guessedWords;
+}
+
+vector<string> GameLogic::getLetters()
+{
+    return this->letters;
 }
 
 unordered_set<string> GameLogic::getPossibleWords()

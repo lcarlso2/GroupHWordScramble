@@ -31,10 +31,11 @@
 		<Unit filename="controller/WordScrambleController.cpp" />
 		<Unit filename="controller/WordScrambleController.h" />
 		<Unit filename="dictionary" />
-		<Unit filename="io/SettingsFileWriter.cpp" />
-		<Unit filename="io/SettingsFileWriter.h" />
+		<Unit filename="highscores" />
 		<Unit filename="io/TextFileReader.cpp" />
 		<Unit filename="io/TextFileReader.h" />
+		<Unit filename="io/TextFileWriter.cpp" />
+		<Unit filename="io/TextFileWriter.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="model/GameLogic.cpp" />
 		<Unit filename="model/GameLogic.h" />

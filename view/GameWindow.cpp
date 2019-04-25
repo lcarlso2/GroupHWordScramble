@@ -8,8 +8,8 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
     begin();
     this->controller.initializeGameLogic();
     this->numberOfButtonsToShow = this->controller.getButtonCount();
-
-    this->letters = this->controller.getLettersToDisplay(this->numberOfButtonsToShow);
+    this->controller.initializeRound(this->numberOfButtonsToShow);
+    this->letters = this->controller.getLettersToDisplay();
 
     this->initializeButtons();
     this->initializeLabels();
@@ -20,7 +20,8 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
     end();
 }
 
-void GameWindow::startTimer() {
+void GameWindow::startTimer()
+{
     globalTimer = this->controller.getTimerCount() * SECONDS + SECOND;
     currentTimer = globalTimer;
     Fl::add_timeout(SECOND, Timer_CB);

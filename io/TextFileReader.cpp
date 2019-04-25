@@ -22,7 +22,10 @@ unordered_set<string> TextFileReader::getDictionaryData()
     for (size_t index = 0; index < data.size(); index++)
     {
         string word = data[index].erase(data[index].length() - OFFSET_OF_UNNEEDED_CHARACTER);
-        words.insert(word);
+        if (word.length() > 3) {
+            words.insert(word);
+        }
+
     }
     return words;
 }

@@ -45,6 +45,8 @@
 		<Unit filename="model/LetterFrequency.h" />
 		<Unit filename="model/PlayerScore.cpp" />
 		<Unit filename="model/PlayerScore.h" />
+		<Unit filename="model/Settings.cpp" />
+		<Unit filename="model/Settings.h" />
 		<Unit filename="settings" />
 		<Unit filename="utils/Utils.cpp" />
 		<Unit filename="utils/Utils.h" />

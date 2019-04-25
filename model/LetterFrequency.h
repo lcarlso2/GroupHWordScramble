@@ -15,7 +15,8 @@ using namespace std;
 namespace model
 {
 
-const map<string, int> LETTER_FREQUENCIES =
+const int TEST = 1;
+static const map<string, int> LETTER_FREQUENCIES =
 {
     {"e", 11},
     {"t", 9},

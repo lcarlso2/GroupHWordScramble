@@ -7,6 +7,7 @@ namespace controller
 WordScrambleController::WordScrambleController()
 {
     this->settings = this->fileReader.getSettingsData();
+    this->scoreBoard = this->fileReader.getHighScoreData();
 }
 
 WordScrambleController::~WordScrambleController()
@@ -101,9 +102,9 @@ string WordScrambleController::getFormattedWordsAndTheirPoints()
     return this->formatter.formatWords(this->logic.getGuessedWords());
 }
 
-string WordScrambleController::getInitialHighScores()
+string WordScrambleController::getHighScores(int number)
 {
-    this->scoreBoard = this->fileReader.getHighScoreData();
+
     this->scoreBoard.sortByScoreAndTime();
     string output = this->formatter.formatScores(this->scoreBoard.getSpecifiedNumberOfHighScores(5));
     return output;

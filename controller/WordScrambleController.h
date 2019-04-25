@@ -179,7 +179,7 @@ public:
     * @postcondition none
     * @return Formatted highscores
     */
-    string getInitialHighScores();
+    string getHighScores(int number = -1);
 
     /**
     * Gets the count of the words remaining formatted for output

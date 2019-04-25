@@ -64,6 +64,14 @@ public:
     void add(PlayerScore score);
 
 
+    /**
+    * Returns the number of scores
+    * @precondition none
+    * @postcondition
+    * @return Returns the number of scores
+    */
+    int size();
+
 
 };
 }

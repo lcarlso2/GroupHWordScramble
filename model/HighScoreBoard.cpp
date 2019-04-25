@@ -57,5 +57,10 @@ void HighScoreBoard::add(PlayerScore score)
     this->scores.push_back(score);
 }
 
+int HighScoreBoard::size()
+{
+    return this->scores.size();
+}
+
 
 }

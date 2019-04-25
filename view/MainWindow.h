@@ -10,6 +10,7 @@
 #include "SettingsWindow.h"
 #include "GameWindow.h"
 #include "HighScoreWindow.h"
+#include "InputNameWindow.h"
 
 #include <chrono>
 #include <thread>
@@ -26,7 +27,7 @@ namespace view
 
 /**
 * The main window class
-* @author Lucas Carlson and Carson Bedrosian
+* @author Carson Bedrosian and Lucas Carlson
 * @version 4/12/2019
 */
 class MainWindow : public Fl_Window
@@ -51,6 +52,7 @@ private:
     inline void resetSettings(const int numberOfLetters, const int timer);
     inline string getHighScores();
     inline void addNewScore(const string& name, int score, int time);
+    inline string showInputNameWindow();
 
     int getTimerCount();
 

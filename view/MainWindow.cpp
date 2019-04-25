@@ -23,7 +23,6 @@ MainWindow::MainWindow(int width, int height, const char* title) : Fl_Window(wid
     end();
 }
 
-
 void MainWindow::cbStartGame(Fl_Widget* widget, void* data)
 {
     MainWindow* window = (MainWindow*)data;
@@ -41,9 +40,11 @@ void MainWindow::cbStartGame(Fl_Widget* widget, void* data)
     string timerValue = gameWindow.getTimer();
     int time = timeToInt(timerValue);
 
-    window->addNewScore("test", score, time);
-
-
+    if(score != 0)
+    {
+        string name = window->showInputNameWindow();
+        window->addNewScore(name, score, time);
+    }
 }
 
 void MainWindow::cbHighScore(Fl_Widget* widget, void* data)
@@ -61,9 +62,23 @@ void MainWindow::cbHighScore(Fl_Widget* widget, void* data)
     }
 }
 
+string MainWindow::showInputNameWindow()
+{
+    InputNameWindow nameWindow;
+    nameWindow.set_modal();
+    nameWindow.show();
+
+    while (nameWindow.shown())
+    {
+        Fl::wait();
+    }
+    string name = nameWindow.getName();
+    return name;
+}
+
 string MainWindow::getHighScores()
 {
-    return this->controller.getInitialHighScores();
+    return this->controller.getHighScores();
 }
 
 void MainWindow::cbSettings(Fl_Widget* widget, void* data)

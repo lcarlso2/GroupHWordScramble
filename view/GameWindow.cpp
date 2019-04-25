@@ -316,6 +316,11 @@ int GameWindow::getScore()
     return stoi(this->scoreLabel->value());
 }
 
+string GameWindow::getTimer()
+{
+    return timerLabel->value();
+}
+
 GameWindow::~GameWindow()
 {
     Fl::remove_timeout(Timer_CB);

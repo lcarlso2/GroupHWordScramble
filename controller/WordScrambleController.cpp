@@ -109,6 +109,12 @@ string WordScrambleController::getInitialHighScores()
     return output;
 }
 
+void WordScrambleController::addNewScore(const string& name, int score, int time)
+{
+    PlayerScore playerScore(name, score, time);
+    this->scoreBoard.add(playerScore);
+}
+
 string WordScrambleController::getWordsToDisplay()
 {
     return this->formatter.formatWordsToDisplayDuringGame(this->logic.getPossibleWords(), this->logic.getGuessedWords());

@@ -209,6 +209,16 @@ public:
     */
     void initializeGameLogic();
 
+    /**
+    * Adds a new PlayerScore object to this->scoreBoard
+    * @precondition none
+    * @postcondition Score is added
+    * @param name Name of the player
+    * @param score Score that the player achieved
+    * @param time Time allotted for the game
+    */
+    void addNewScore(const string& name, int score, int time);
+
 
 
 };

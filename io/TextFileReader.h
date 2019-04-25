@@ -37,7 +37,7 @@ class TextFileReader
 private:
 
     vector<string> getDataFromFile(string fileName);
-    vector<string> split(const string& stringToSplit, char delimiter);
+
 
 public:
 

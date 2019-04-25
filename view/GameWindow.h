@@ -29,6 +29,7 @@ using namespace controller;
 namespace view
 {
 
+const string STARTING_TIMER_LABEL = "0:00";
 const int DEFAULT_NUMBER_OF_BUTTONS = 6;
 const int MAX_NUMBER_OF_BUTTONS = 7;
 const int MINIMUM_NUMBER_OF_LETTERS_REQUIRED = 3;

@@ -35,9 +35,11 @@ const int generateRandomNumber(const int lowerBound, const int upperBound);
 const int timeToInt(const string& value);
 
 /**
-*
-*
-*
+* Splits the given string on the given delimiter
+* @param stringToSplit the string being split
+* @param delimiter the delimiter
+* @precondition none
+* @return the string split into a vector
 */
 vector<string> split(const string& stringToSplit, char delimiter);
 

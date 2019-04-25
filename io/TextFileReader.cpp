@@ -19,11 +19,25 @@ unordered_set<string> TextFileReader::getDictionaryData()
 {
     vector<string> data = this->getDataFromFile(DICTIONARY_FILE_NAME);
     unordered_set<string> words;
+
     for (size_t index = 0; index < data.size(); index++)
     {
+
         string word = data[index].erase(data[index].length() - OFFSET_OF_UNNEEDED_CHARACTER);
-        if (word.length() > 3) {
-            words.insert(word);
+        if (word.length() >= 3)
+        {
+            bool wordIsGood = true;
+            for (int indexOfLetter = 0; indexOfLetter < word.length(); indexOfLetter++)
+            {
+                string character(1,word[indexOfLetter]);
+                if (count(word.begin(), word.end(), word[indexOfLetter]) >= LETTER_FREQUENCIES.find(character)->second)
+                {
+                    wordIsGood = false;
+                }
+            }
+            if (wordIsGood){
+                words.insert(word);
+            }
         }
 
     }

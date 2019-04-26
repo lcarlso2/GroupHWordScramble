@@ -24,24 +24,50 @@ void GameLogic::initializeRound(const int numberOfLettersToGenerate)
 {
     unordered_set<string> wordsPossibleFromCharacters;
     vector<string> lettersForRound;
-    while (wordsPossibleFromCharacters.size() < MININUM_NUMBER_OF_WORDS)
+    while (wordsPossibleFromCharacters.size() < numberOfLettersToGenerate)
     {
         lettersForRound = this->letterFrequency.getRandomLetters(numberOfLettersToGenerate);
         string charactersAsString;
         charactersAsString = accumulate(lettersForRound.begin(), lettersForRound.end(), charactersAsString);
         wordsPossibleFromCharacters = this->findAllPossibleWords(charactersAsString);
     }
-    this->possibleWords = wordsPossibleFromCharacters;
+    this->seperatePossibleAndBonusWords(wordsPossibleFromCharacters, numberOfLettersToGenerate, this->possibleWords, this->bonusWords);
     this->possibleWordsWithHints = this->generatePossibleWordsWithHints(this->possibleWords);
     this->letters = lettersForRound;
+}
+
+void GameLogic::seperatePossibleAndBonusWords(unordered_set<string> words, const int seperator, unordered_set<string>& possible, unordered_set<string>& bonus) {
+    int count = 1;
+    for (auto& current : words) {
+        if (count <= seperator) {
+            possible.insert(current);
+        } else {
+            bonus.insert(current);
+        }
+        count++;
+    }
 }
 
 map<string, string> GameLogic::generatePossibleWordsWithHints(unordered_set<string> words) {
     map<string, string> wordsWithHints;
     for (auto& current : words) {
-            wordsWithHints[current] = generateHintsForWord(current);
+            wordsWithHints[current] = this->generateHintsForWord(current);
     }
     return wordsWithHints;
+}
+
+string GameLogic::generateHintsForWord(string word)
+{
+    stringstream builder;
+    for (size_t indexOfCharacter = 0; indexOfCharacter < word.size(); indexOfCharacter++)
+    {
+        builder << "*";
+    }
+    int randomIndex = generateRandomNumber(0,word.size() - 1);
+    string characterToInsert(1,word[randomIndex]);
+    string stringWithNoHint = builder.str();
+    string stringWithHintInIt = stringWithNoHint.replace(randomIndex, 1, characterToInsert.c_str());
+    return stringWithHintInIt;
 }
 
 vector<string> GameLogic::shuffle(vector<string> letters)
@@ -66,27 +92,8 @@ map<string, string> GameLogic::getPossibleWordsWithHints()
 
 int GameLogic::getPointsForWord(const string& word)
 {
-    int wordLength = word.length();
-    int pointsPerLetter;
-    switch(wordLength)
-    {
-    case 3:
-        pointsPerLetter = 20;
-        break;
-    case 4:
-        pointsPerLetter = 30;
-        break;
-    case 5:
-        pointsPerLetter = 40;
-        break;
-    case 6:
-        pointsPerLetter = 50;
-        break;
-    case 7:
-        pointsPerLetter = 60;
-        break;
-    }
-    return (word.length() * pointsPerLetter);
+    int points = (((word.length()) - 1) * 10) * word.length();
+    return points;
 }
 
 void GameLogic::addScore(const string& word)
@@ -110,9 +117,14 @@ bool GameLogic::checkThatWordWasNotAlreadyGuessed(const string& word)
     return this->guessedWords.count(word) == WORD_ALREADY_GUESSED;
 }
 
-bool GameLogic::checkWord(const string& word)
+int GameLogic::checkWord(const string& word)
 {
-    if (this->possibleWords.count(word) == WORD_IS_VALID)
+    if (this->bonusWords.count(word) == WORD_IS_VALID) {
+        int points = this->getPointsForWord(word);
+        this->guessedWords.insert({word, points});
+        return BONUS_WORD;
+    }
+    else if (this->possibleWordsWithHints.count(word) == WORD_IS_VALID)
     {
         int points = this->getPointsForWord(word);
         this->guessedWords.insert({word, points});

@@ -24,7 +24,6 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
 void GameWindow::startTimer()
 {
     globalTimer = this->controller.getTimerCount() * SECONDS + SECOND;
-    currentTimer = globalTimer;
     Fl::add_timeout(SECOND, Timer_CB);
 }
 
@@ -111,10 +110,10 @@ void GameWindow::endGame()
 
 void GameWindow::Timer_CB(void* data)
 {
-    currentTimer -= SECOND;
-    string time = toTime(currentTimer);
+    globalTimer -= SECOND;
+    string time = toTime(globalTimer);
     timerLabel->value(time.c_str());
-    if (currentTimer <= NO_TIME_LEFT )
+    if (globalTimer <= NO_TIME_LEFT )
     {
         Fl::remove_timeout(Timer_CB, data);
         timeUp = true;
@@ -122,7 +121,7 @@ void GameWindow::Timer_CB(void* data)
     }
     else
     {
-        if (currentTimer < TIME_ALMOST_UP)
+        if (globalTimer < TIME_ALMOST_UP)
         {
             timerLabel->color(FL_RED);
         }
@@ -176,6 +175,13 @@ void GameWindow::submitWord(const string& word)
     if (this->controller.checkThatWordWasNotAlreadyGuessed(word) == controller::WORD_ALREADY_GUESSED)
     {
         fl_message("%s", "Word already guessed!");
+    }
+    else if (this->controller.checkWord(word) == controller::BONUS_WORD) {
+        fl_message("%s", "Bonus word!");
+        this->guessedWordsTextBuffer->text(this->controller.getWordsToDisplay().c_str());
+        this->controller.addScoreForWord(word);
+        string points = to_string(this->controller.getTotalScore());
+        this->scoreLabel->value(points.c_str());
     }
     else if (this->controller.checkWord(word) == controller::WORD_IS_VALID)
     {

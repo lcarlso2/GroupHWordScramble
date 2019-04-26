@@ -12,14 +12,15 @@ using namespace std;
 namespace model
 {
 
+const int BONUS_WORD = 2;
 const int WORD_IS_VALID = 1;
 const int WORD_IS_NOT_VALID = 0;
 const int WORD_ALREADY_GUESSED = 1;
-const int MININUM_NUMBER_OF_WORDS = 5;
+const int MININUM_NUMBER_OF_WORDS = 10;
 
 /**
 * The game logic class that controls the game
-* @author Lucas Carlson and Carson Bedrosian
+* @author Carson Bedrosian and Lucas Carlson
 * @version 4/22/2019
 *
 */
@@ -49,6 +50,10 @@ private:
     unordered_set<string> findAllPossibleWords(string letters);
 
     map<string, string> generatePossibleWordsWithHints(unordered_set<string> words);
+
+    string generateHintsForWord(string word);
+
+    void seperatePossibleAndBonusWords(unordered_set<string> words, const int seperator, unordered_set<string>& possible, unordered_set<string>& bonus);
 
 public:
 
@@ -140,7 +145,7 @@ public:
     * @precondition none
     * @return true if the word is present otherwise false
     */
-    bool checkWord(const string& word);
+    int checkWord(const string& word);
 
     /**
     * Checks that the word was not already guessed

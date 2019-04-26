@@ -15,7 +15,7 @@ namespace io
 
 /**
 * The settings file writer that controls writing the settings to the file so they persist
-* @author Lucas Carlson and Carson Bedrosian
+* @author Carson Bedrosian and Lucas Carlson
 * @version 4/16/2019
 */
 class TextFileWriter

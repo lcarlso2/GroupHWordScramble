@@ -3,21 +3,13 @@
 namespace model
 {
 
-struct scoreComparer
-{
-    inline bool operator() (PlayerScore scoreOne, PlayerScore scoreTwo)
-    {
-        return (scoreOne.getScore() > scoreTwo.getScore());
-    }
-};
+bool compareByScore(PlayerScore scoreOne, PlayerScore scoreTwo){
+    return (scoreOne.getScore() > scoreTwo.getScore());
+}
 
-struct scoreAndTimeComparer
-{
-    inline bool operator() (PlayerScore scoreOne, PlayerScore scoreTwo)
-    {
-        return ((scoreOne.getScore() > scoreTwo.getScore()) || (scoreOne.getScore() == scoreTwo.getScore() && scoreOne.getTime() < scoreTwo.getTime()));
-    }
-};
+bool compareByScoreAndTime(PlayerScore scoreOne, PlayerScore scoreTwo) {
+    return ((scoreOne.getScore() > scoreTwo.getScore()) || (scoreOne.getScore() == scoreTwo.getScore() && scoreOne.getTime() < scoreTwo.getTime()));
+}
 
 HighScoreBoard::HighScoreBoard()
 {
@@ -42,14 +34,13 @@ vector<PlayerScore> HighScoreBoard::getSpecifiedNumberOfHighScores(const int num
 
 void HighScoreBoard::sortByScore()
 {
-    sort(this->scores.begin(), this->scores.end(), scoreComparer());
-
+    sort(this->scores.begin(), this->scores.end(), compareByScore);
 }
 
 
 void HighScoreBoard::sortByScoreAndTime()
 {
-    sort(this->scores.begin(), this->scores.end(), scoreAndTimeComparer());
+    sort(this->scores.begin(), this->scores.end(), compareByScoreAndTime);
 }
 
 void HighScoreBoard::add(PlayerScore score)

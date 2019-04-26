@@ -38,8 +38,7 @@ const int SECONDS = 60;
 const int SECOND = 1;
 const int TIME_ALMOST_UP = 10;
 const int NO_TIME_LEFT = 0;
-static int globalTimer = 60;
-static int currentTimer;
+static int globalTimer;
 static bool timeUp = false;
 
 static Fl_Output* timerLabel;

@@ -32,7 +32,7 @@ const char COMMA = ',';
 
 /**
 * The class responsible for reading a text file
-* @author Lucas Carlson and Carson Bedrosian
+* @author Carson Bedrosian and Lucas Carlson
 * @author 4/25/2019
 *
 */

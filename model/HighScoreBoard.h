@@ -23,7 +23,6 @@ private:
 
     vector<PlayerScore> scores;
 
-
 public:
 
     /**

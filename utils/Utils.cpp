@@ -51,5 +51,19 @@ vector<string> split(const string& stringToSplit, char delimiter)
 }
 
 
+string generateHintsForWord(string word)
+{
+    stringstream builder;
+    for (size_t indexOfCharacter = 0; indexOfCharacter < word.size(); indexOfCharacter++)
+    {
+        builder << "*";
+    }
+    int randomIndex = generateRandomNumber(0,word.size() - 1);
+    string characterToInsert(1,word[randomIndex]);
+    string stringWithNoHint = builder.str();
+    string stringWithHintInIt = stringWithNoHint.replace(randomIndex, 1, characterToInsert.c_str());
+    return stringWithHintInIt;
+}
+
 
 

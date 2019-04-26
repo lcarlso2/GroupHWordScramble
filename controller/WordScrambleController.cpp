@@ -18,8 +18,11 @@ WordScrambleController::~WordScrambleController()
 
 void WordScrambleController::initializeGameLogic()
 {
-    unordered_set<string> words = this->fileReader.getDictionaryData();
-    this->logic = GameLogic(words);
+    vector<string> words = this->fileReader.getDictionaryData();
+
+    DictionaryCleaner cleaner;
+    unordered_set<string> cleanedWords = cleaner.generateCleanedDictionary(words);
+    this->logic = GameLogic(cleanedWords);
 }
 
 int WordScrambleController::getButtonCount()
@@ -119,7 +122,7 @@ void WordScrambleController::addNewScore(const string& name, int score, int time
 
 string WordScrambleController::getWordsToDisplay()
 {
-    return this->formatter.formatWordsToDisplayDuringGame(this->logic.getPossibleWords(), this->logic.getGuessedWords());
+    return this->formatter.formatWordsToDisplayDuringGame(this->logic.getPossibleWordsWithHints(), this->logic.getGuessedWords());
 }
 
 

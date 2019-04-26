@@ -2,7 +2,7 @@
 #define GAMELOGIC_H
 
 #include "LetterFrequency.h"
-
+#include "Utils.h"
 
 #include <numeric>
 using namespace std;
@@ -28,15 +28,17 @@ class GameLogic
 private:
     LetterFrequency letterFrequency;
 
-        vector<string> letters;
+    vector<string> letters;
 
-    unordered_set<string> validWords;
+    unordered_set<string> dictionaryOfWords;
 
     map<string, int> guessedWords;
 
     unordered_set<string> possibleWords;
 
     unordered_set<string> bonusWords;
+
+    map<string, string> possibleWordsWithHints;
 
     int totalScore;
 
@@ -45,6 +47,8 @@ private:
     bool isPossible(string word, string letters);
 
     unordered_set<string> findAllPossibleWords(string letters);
+
+    map<string, string> generatePossibleWordsWithHints(unordered_set<string> words);
 
 public:
 
@@ -84,11 +88,11 @@ public:
     vector<string> getLetters();
 
     /**
-    * Gets the possible words
+    * Gets the possible words with their hints
     * @precondition none
-    * @return the possible words
+    * @return the possible words with their hints
     */
-    unordered_set<string> getPossibleWords();
+    map<string, string> getPossibleWordsWithHints();
 
     /**
     * Initializes the words and letters for the round

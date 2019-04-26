@@ -11,7 +11,7 @@ GameLogic::GameLogic()
 
 GameLogic::GameLogic(unordered_set<string> words)
 {
-    this->validWords = words;
+    this->dictionaryOfWords = words;
     this->totalScore = 0;
 }
 
@@ -32,7 +32,16 @@ void GameLogic::initializeRound(const int numberOfLettersToGenerate)
         wordsPossibleFromCharacters = this->findAllPossibleWords(charactersAsString);
     }
     this->possibleWords = wordsPossibleFromCharacters;
+    this->possibleWordsWithHints = this->generatePossibleWordsWithHints(this->possibleWords);
     this->letters = lettersForRound;
+}
+
+map<string, string> GameLogic::generatePossibleWordsWithHints(unordered_set<string> words) {
+    map<string, string> wordsWithHints;
+    for (auto& current : words) {
+            wordsWithHints[current] = generateHintsForWord(current);
+    }
+    return wordsWithHints;
 }
 
 vector<string> GameLogic::shuffle(vector<string> letters)
@@ -50,9 +59,9 @@ vector<string> GameLogic::getLetters()
     return this->letters;
 }
 
-unordered_set<string> GameLogic::getPossibleWords()
+map<string, string> GameLogic::getPossibleWordsWithHints()
 {
-    return this->possibleWords;
+    return this->possibleWordsWithHints;
 }
 
 int GameLogic::getPointsForWord(const string& word)
@@ -156,7 +165,7 @@ bool GameLogic::isPossible(string word, string letters)
 unordered_set<string> GameLogic::findAllPossibleWords(string letters)
 {
     unordered_set<string> result;
-    for (auto& word : this->validWords)
+    for (auto& word : this->dictionaryOfWords)
     {
         if (word.length() >= 3)
         {

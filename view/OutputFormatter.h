@@ -74,7 +74,7 @@ public:
     * @precondition none
     * @return the formatted string
     */
-    string formatWordsToDisplayDuringGame(unordered_set<string> words,map<string, int> guessedWords);
+    string formatWordsToDisplayDuringGame(map<string, string> words,map<string, int> guessedWords);
 };
 
 }

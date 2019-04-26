@@ -43,4 +43,12 @@ const int timeToInt(const string& value);
 */
 vector<string> split(const string& stringToSplit, char delimiter);
 
+/**
+* Generates the hint form of the word
+* @precondition none
+* @return the word formatted with hints
+* @param word the word being used to generate the hints
+*/
+string generateHintsForWord(string word);
+
 #endif // UTILS_H

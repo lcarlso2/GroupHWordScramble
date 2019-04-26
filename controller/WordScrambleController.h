@@ -10,6 +10,7 @@ using namespace std;
 #include "PlayerScore.h"
 #include "HighScoreBoard.h"
 #include "Settings.h"
+#include "DictionaryCleaner.h"
 using namespace model;
 
 #include "TextFileWriter.h"

@@ -11,7 +11,6 @@ using namespace model;
 #include <fstream>
 #include <vector>
 #include <string>
-#include <unordered_set>
 using namespace std;
 
 namespace io
@@ -28,9 +27,6 @@ const int INDEX_OF_SCORE = 1;
 const int INDEX_OF_TIME = 1;
 const int INDEX_OF_BUTTON_COUNT = 0;
 const int INDEX_OF_TIMER_COUNT = 1;
-const int OFFSET_OF_UNNEEDED_CHARACTER = 1;
-const int MININUM_NUMBER_OF_CHARACTERS = 3;
-const int MAX_NUMBER_OF_CHARACTERS = 8;
 
 const char COMMA = ',';
 
@@ -45,12 +41,6 @@ class TextFileReader
 private:
 
     vector<string> getDataFromFile(string fileName);
-
-    bool determineIfWordIsValid(const string& word);
-
-    bool determineIfWordLengthIsValid(const string& word);
-
-    bool determineIfCharactersAppearAppropriateAmountOfTimes(const string& word);
 
 
 public:
@@ -72,7 +62,7 @@ public:
     * @precondition none
     * @return the dictionary data
     */
-    unordered_set<string> getDictionaryData();
+    vector<string> getDictionaryData();
 
     /**
     * Gets the settings data

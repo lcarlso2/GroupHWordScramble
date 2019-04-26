@@ -40,21 +40,21 @@ string OutputFormatter::formatRemainingWords(const int totalWords, const int wor
     return to_string(wordsGuessed) + "/" + to_string(totalWords);
 }
 
-string OutputFormatter::formatWordsToDisplayDuringGame(unordered_set<string> words, map<string, int> guessedWords)
+string OutputFormatter::formatWordsToDisplayDuringGame(map<string, string> words, map<string, int> guessedWords)
 {
     stringstream builder;
 
     int columnCount = 0;
     for (auto& word : words)
     {
-        if (guessedWords.count(word) != 0)
+        if (guessedWords.count(word.first) != 0)
         {
-            string guessedWordAndPoints = word + "-" + to_string(guessedWords[word]) + " points";
+            string guessedWordAndPoints = word.first + "-" + to_string(guessedWords[word.first]) + " points";
             builder << left << setw(20) << guessedWordAndPoints;
         }
         else
         {
-            builder << left << setw(20) << this->formatUnderscoresForWord(word.c_str());
+            builder << left << setw(20) << word.second;
         }
 
         if (columnCount == 2)
@@ -66,24 +66,6 @@ string OutputFormatter::formatWordsToDisplayDuringGame(unordered_set<string> wor
     }
 
     return builder.str();
-
-}
-
-string OutputFormatter::formatUnderscoresForWord(string word)
-{
-    stringstream builder;
-    for (size_t indexOfCharacter = 0; indexOfCharacter < word.size(); indexOfCharacter++)
-    {
-        builder << "*";
-    }
-
-    int randomIndex = generateRandomNumber(0,word.size() - 1);
-    string characterToInsert(1,word[randomIndex]);
-    string stringWithNoHint = builder.str();
-    string stringWithHintInIt = stringWithNoHint.replace(randomIndex, 1, characterToInsert.c_str());
-    return stringWithHintInIt;
-
-
 }
 
 }

@@ -13,7 +13,7 @@ HighScoreWindow::HighScoreWindow(const string& scoreDisplay, WordScrambleControl
     this->highScoresTextDisplay = new Fl_Text_Display(15,30,500,300, "");
     this->highScoresTextDisplay->textfont(FL_COURIER);
     this->highScoresTextDisplay->buffer(this->highScoresTextBuffer);
-    this->okButton = new Fl_Button(0, 0, 100, 30, "BACK");
+    this->okButton = new Fl_Button(0, 0, 100, 30, "Back");
     this->okButton->callback(cbOk, this);
     this->setOKLocation(210, 335);
     this->createButtonsForDisplayChoice();

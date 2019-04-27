@@ -27,11 +27,11 @@
 	<map>
 	"Utils.h"
 
-1556283353 source:/home/csuser/Desktop/GroupHWordScramble/view/MainWindow.cpp
+1556375003 source:/home/csuser/Desktop/GroupHWordScramble/view/MainWindow.cpp
 	"MainWindow.h"
 	<iostream>
 
-1556283353 /home/csuser/Desktop/GroupHWordScramble/view/MainWindow.h
+1556375003 /home/csuser/Desktop/GroupHWordScramble/view/MainWindow.h
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Output.H>
@@ -45,7 +45,7 @@
 	<unistd.h>
 	"WordScrambleController.h"
 
-1556283353 source:/home/csuser/Desktop/GroupHWordScramble/view/OkCancelWindow.cpp
+1556374284 source:/home/csuser/Desktop/GroupHWordScramble/view/OkCancelWindow.cpp
 	"OkCancelWindow.h"
 
 1556283353 /home/csuser/Desktop/GroupHWordScramble/view/OkCancelWindow.h
@@ -62,13 +62,13 @@
 	<string>
 	"WordScrambleController.h"
 
-1556283353 source:/home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.cpp
+1556371949 source:/home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.cpp
 	"SettingsWindow.h"
 
-1556289868 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
+1556373707 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
 	"WordScrambleController.h"
 
-1556289879 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
+1556373689 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
 	<string>
 	<vector>
 	<unordered_set>
@@ -109,11 +109,11 @@
 	<thread>
 	<chrono>
 
-1556290185 source:/home/csuser/Desktop/GroupHWordScramble/view/GameWindow.cpp
+1556374580 source:/home/csuser/Desktop/GroupHWordScramble/view/GameWindow.cpp
 	"GameWindow.h"
 	<iostream>
 
-1556290256 /home/csuser/Desktop/GroupHWordScramble/view/GameWindow.h
+1556371949 /home/csuser/Desktop/GroupHWordScramble/view/GameWindow.h
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Group.H>
@@ -133,13 +133,22 @@
 	"Utils.h"
 	"WordScrambleController.h"
 
-1556283353 /home/csuser/Desktop/GroupHWordScramble/view/HighScoreWindow.h
+1556371949 /home/csuser/Desktop/GroupHWordScramble/view/HighScoreWindow.h
 	"OkCancelWindow.h"
 	<FL/Fl_Text_Buffer.H>
 	<FL/Fl_Text_Display.H>
+	<FL/Fl_Group.H>
+	<FL/Fl_Round_Button.H>
+	<FL/Fl_Output.H>
+	<FL/Fl_Window.H>
+	<Fl/fl_draw.H>
+	<Fl/Fl_Button.H>
+	<Fl/Fl_Window.H>
+	<string>
+	<map>
 	"WordScrambleController.h"
 
-1556283353 source:/home/csuser/Desktop/GroupHWordScramble/view/HighScoreWindow.cpp
+1556374284 source:/home/csuser/Desktop/GroupHWordScramble/view/HighScoreWindow.cpp
 	"HighScoreWindow.h"
 
 1556287155 source:/home/csuser/Desktop/GroupHWordScramble/utils/Utils.cpp
@@ -377,7 +386,7 @@
 
 1555794410 _set>
 
-1556285015 source:/home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.cpp
+1556371949 source:/home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.cpp
 	"OutputFormatter.h"
 	<iostream>
 
@@ -457,12 +466,12 @@
 	<vector>
 	"LetterNode.h"
 
-1556289863 /home/csuser/Desktop/GroupHWordScramble/model/GameLogic.h
+1556374887 /home/csuser/Desktop/GroupHWordScramble/model/GameLogic.h
 	"LetterFrequency.h"
 	"Utils.h"
 	<numeric>
 
-1556290286 source:/home/csuser/Desktop/GroupHWordScramble/model/GameLogic.cpp
+1556374887 source:/home/csuser/Desktop/GroupHWordScramble/model/GameLogic.cpp
 	"GameLogic.h"
 	<iostream>
 
@@ -506,12 +515,12 @@
 1556283353 /home/csuser/Desktop/GroupHWordScramble/model/PlayerScore.h
 	<string>
 
-1556287736 /home/csuser/Desktop/GroupHWordScramble/model/HighScoreBoard.h
+1556371949 /home/csuser/Desktop/GroupHWordScramble/model/HighScoreBoard.h
 	"PlayerScore.h"
 	<vector>
 	<algorithm>
 
-1556286266 /home/csuser/Desktop/GroupHWordScramble/io/TextFileReader.h
+1556371949 /home/csuser/Desktop/GroupHWordScramble/io/TextFileReader.h
 	"PlayerScore.h"
 	"HighScoreBoard.h"
 	"Settings.h"
@@ -525,19 +534,20 @@
 	"TextFileReader.h"
 	"iostream"
 
-1556287736 source:/home/csuser/Desktop/GroupHWordScramble/model/HighScoreBoard.cpp
+1556373689 source:/home/csuser/Desktop/GroupHWordScramble/model/HighScoreBoard.cpp
 	"HighScoreBoard.h"
 
 1556283353 source:/home/csuser/Desktop/GroupHWordScramble/model/PlayerScore.cpp
 	"PlayerScore.h"
 
-1556286266 /home/csuser/Desktop/GroupHWordScramble/io/TextFileWriter.h
+1556371949 /home/csuser/Desktop/GroupHWordScramble/io/TextFileWriter.h
 	<iostream>
 	<fstream>
 	<string>
 	"TextFileReader.h"
+	"HighScoreBoard.h"
 
-1556283353 source:/home/csuser/Desktop/GroupHWordScramble/io/TextFileWriter.cpp
+1556371949 source:/home/csuser/Desktop/GroupHWordScramble/io/TextFileWriter.cpp
 	"TextFileWriter.h"
 
 1556283353 /home/csuser/Desktop/GroupHWordScramble/model/Settings.h

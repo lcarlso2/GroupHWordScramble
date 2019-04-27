@@ -12,11 +12,15 @@ using namespace std;
 namespace model
 {
 
-const int BONUS_WORD = 2;
-const int WORD_IS_VALID = 1;
-const int WORD_IS_NOT_VALID = 0;
-const int WORD_ALREADY_GUESSED = 1;
+const bool WORD_IS_VALID = true;
+const bool WORD_IS_NOT_VALID = false;
+const bool WORD_ALREADY_GUESSED = true;
 const int MININUM_NUMBER_OF_WORDS = 10;
+const int INITIAL_COUNT = 1;
+const int POINT_MULTIPLIER = 10;
+const int ONE_INDEX = 1;
+const int LOWER_BOUND = 0;
+const int DEFAULT_STARTING_SCORE = 0;
 
 /**
 * The game logic class that controls the game
@@ -34,6 +38,8 @@ private:
     unordered_set<string> dictionaryOfWords;
 
     map<string, int> guessedWords;
+
+    unordered_set<string> guessedBonusWords;
 
     unordered_set<string> possibleWords;
 
@@ -145,7 +151,7 @@ public:
     * @precondition none
     * @return true if the word is present otherwise false
     */
-    int checkWord(const string& word);
+    bool checkWord(const string& word);
 
     /**
     * Checks that the word was not already guessed
@@ -154,6 +160,15 @@ public:
     * @return true if the word was guessed otherwise false
     */
     bool checkThatWordWasNotAlreadyGuessed(const string& word);
+
+    /**
+    * Check that the given word is a bonus word
+    * @param word the word to check
+    * @precondition none
+    * @return true if the word is a bonus word otherwise false
+    *
+    */
+    bool checkThatWordIsBonusWord(const string& word);
 
     /**
     * Sets the possible words to guess from

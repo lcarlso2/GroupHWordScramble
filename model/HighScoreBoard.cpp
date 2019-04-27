@@ -3,11 +3,13 @@
 namespace model
 {
 
-bool compareByScore(PlayerScore scoreOne, PlayerScore scoreTwo){
+bool compareByScore(PlayerScore scoreOne, PlayerScore scoreTwo)
+{
     return (scoreOne.getScore() > scoreTwo.getScore());
 }
 
-bool compareByScoreAndTime(PlayerScore scoreOne, PlayerScore scoreTwo) {
+bool compareByScoreAndTime(PlayerScore scoreOne, PlayerScore scoreTwo)
+{
     return ((scoreOne.getScore() > scoreTwo.getScore()) || (scoreOne.getScore() == scoreTwo.getScore() && scoreOne.getTime() < scoreTwo.getTime()));
 }
 

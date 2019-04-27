@@ -106,6 +106,7 @@ void GameWindow::cbEndgame(Fl_Widget* widget, void* data)
 
 void GameWindow::endGame()
 {
+    Fl::remove_timeout(Timer_CB);
     this->hide();
 }
 
@@ -174,18 +175,19 @@ void GameWindow::shuffleLetters()
 
 void GameWindow::submitWord(const string& word)
 {
-    if (this->controller.checkThatWordWasNotAlreadyGuessed(word) == controller::WORD_ALREADY_GUESSED)
+    if (this->controller.checkThatWordWasNotAlreadyGuessed(word))
     {
         fl_message("%s", "Word already guessed!");
     }
-    else if (this->controller.checkWord(word) == controller::BONUS_WORD) {
+    else if (this->controller.checkThatWordIsBonusWord(word))
+    {
         fl_message("%s", "Bonus word!");
         this->guessedWordsTextBuffer->text(this->controller.getWordsToDisplay().c_str());
         this->controller.addScoreForWord(word);
         string points = to_string(this->controller.getTotalScore());
         this->scoreLabel->value(points.c_str());
     }
-    else if (this->controller.checkWord(word) == controller::WORD_IS_VALID)
+    else if (this->controller.checkWord(word))
     {
         this->setWordsLeftLabel();
         this->guessedWordsTextBuffer->text(this->controller.getWordsToDisplay().c_str());

@@ -25,10 +25,6 @@ using namespace view;
 namespace controller
 {
 
-const int WORD_IS_VALID = 1;
-const int WORD_IS_NOT_VALID = 0;
-const int WORD_ALREADY_GUESSED = 1;
-const int BONUS_WORD = 2;
 const int AMOUNT_TO_DECREMENT_POINTS_BY = 10;
 const int NO_WORDS_LEFT = 0;
 const int MINUTE_MULTIPLIER = 60;
@@ -166,7 +162,16 @@ public:
     * @precondition none
     * @return true if the word is present otherwise false
     */
-    int checkWord(const string& word);
+    bool checkWord(const string& word);
+
+    /**
+    * Check that the given word is a bonus word
+    * @param word the word to check
+    * @precondition none
+    * @return true if the word is a bonus word otherwise false
+    *
+    */
+    bool checkThatWordIsBonusWord(const string& word);
 
     /**
     * Checks that the word was not already guessed

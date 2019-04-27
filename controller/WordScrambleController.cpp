@@ -86,7 +86,12 @@ bool WordScrambleController::checkThatWordWasNotAlreadyGuessed(const string& wor
     return this->logic.checkThatWordWasNotAlreadyGuessed(word);
 }
 
-int WordScrambleController::checkWord(const string& word)
+bool WordScrambleController::checkThatWordIsBonusWord(const string& word)
+{
+    return this->logic.checkThatWordIsBonusWord(word);
+}
+
+bool WordScrambleController::checkWord(const string& word)
 {
     return this->logic.checkWord(word);
 }

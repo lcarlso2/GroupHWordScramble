@@ -100,11 +100,11 @@ void MainWindow::cbSettings(Fl_Widget* widget, void* data)
 
     if (settingsWindow.getWindowResult() == OkCancelWindow::WindowResult::OK)
     {
-        window->resetSettings(settingsWindow.getSelectedButtonCount(), settingsWindow.getSelectedTimerCount());
+        window->updateSettings(settingsWindow.getSelectedButtonCount(), settingsWindow.getSelectedTimerCount());
     }
 }
 
-void MainWindow::resetSettings(const int buttonCount, const int timer)
+void MainWindow::updateSettings(const int buttonCount, const int timer)
 {
     this->controller.setButtonCount(buttonCount);
     this->controller.setTimerCount(timer);

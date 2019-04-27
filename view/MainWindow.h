@@ -50,7 +50,7 @@ private:
     static void cbHighScore(Fl_Widget* widget, void* data);
     static void cbSettings(Fl_Widget* widget, void* data);
 
-    inline void resetSettings(const int numberOfLetters, const int timer);
+    inline void updateSettings(const int numberOfLetters, const int timer);
     inline string getHighScores();
     inline void addNewScore(const string& name, int score, int time);
     inline string showInputNameWindow();

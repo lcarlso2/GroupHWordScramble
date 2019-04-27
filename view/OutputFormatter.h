@@ -16,6 +16,12 @@ using namespace model;
 namespace view
 {
 
+const int NUMBER_OF_SPACES_BETWEEN_COLUMNS_FOR_SCORES = 27;
+const int NUMBER_OF_SPACES_BETWEEN_COLUMNS_FOR_DISPLAYING_WORDS = 20;
+const int MAX_COLUMN_COUNT = 2;
+const int DEFAULT_COLUMN_COUNT = 0;
+    const bool WORD_IS_NOT_PRESENT = false;
+
 /**
 * the output formatter class responsible for formatting output
 * @author Lucas Carlson and Carson Bedrosian
@@ -49,14 +55,6 @@ public:
     * @return The formatted output for scores
     */
     string formatScores(vector<PlayerScore> scores);
-
-    /**
-    * Formats the given map of words and associated points
-    * @param words the words and their points
-    * @precondition none
-    * @return the formatted string
-    */
-    string formatWords(map<string, int> words);
 
     /**
     * Formats the remaining words into *wordsLeftCount* // *totalWords*

@@ -24,7 +24,7 @@ vector<string> LetterFrequency::getRandomLetters(const int numberOfLettersToGene
 
     while (randomNumbersChosen.size() < numberOfLettersToGenerate)
     {
-        int randomIndex = generateRandomNumber(0, 96);
+        int randomIndex = generateRandomNumber(LOWER_BOUND, UPPER_BOUND);
         randomNumbersChosen.insert(randomIndex);
     }
 

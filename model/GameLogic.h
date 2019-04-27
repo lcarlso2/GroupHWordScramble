@@ -19,7 +19,6 @@ const int MININUM_NUMBER_OF_WORDS = 10;
 const int INITIAL_COUNT = 1;
 const int POINT_MULTIPLIER = 10;
 const int ONE_INDEX = 1;
-const int LOWER_BOUND = 0;
 const int DEFAULT_STARTING_SCORE = 0;
 
 /**

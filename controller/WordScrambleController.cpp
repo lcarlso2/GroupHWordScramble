@@ -71,7 +71,8 @@ void WordScrambleController::addScoreForWord(const string& word)
     this->logic.addScore(word);
 }
 
-void WordScrambleController::addScoreForBonusWord(const string& word) {
+void WordScrambleController::addScoreForBonusWord(const string& word)
+{
     this->logic.addScore(word, BONUS_POINTS);
 }
 
@@ -108,11 +109,6 @@ string WordScrambleController::getWordsRemainingCountFormatted()
 bool WordScrambleController::checkForNoRemainingWords()
 {
     return this->logic.getWordsRemaining() == NO_WORDS_LEFT;
-}
-
-string WordScrambleController::getFormattedWordsAndTheirPoints()
-{
-    return this->formatter.formatWords(this->logic.getGuessedWords());
 }
 
 string WordScrambleController::getHighScores(int number)

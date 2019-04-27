@@ -14,11 +14,11 @@
 	<vector>
 	"LetterFrequency.h"
 
-1556283353 source:/home/csuser/Desktop/GroupHWordScramble/model/LetterFrequency.cpp
+1556380518 source:/home/csuser/Desktop/GroupHWordScramble/model/LetterFrequency.cpp
 	"LetterFrequency.h"
 	<iostream>
 
-1556283353 /home/csuser/Desktop/GroupHWordScramble/model/LetterFrequency.h
+1556380518 /home/csuser/Desktop/GroupHWordScramble/model/LetterFrequency.h
 	<string>
 	<vector>
 	<random>
@@ -65,10 +65,10 @@
 1556371949 source:/home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.cpp
 	"SettingsWindow.h"
 
-1556376941 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
+1556379916 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
 	"WordScrambleController.h"
 
-1556376935 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
+1556379961 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
 	<string>
 	<vector>
 	<unordered_set>
@@ -386,11 +386,11 @@
 
 1555794410 _set>
 
-1556378940 source:/home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.cpp
+1556380202 source:/home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.cpp
 	"OutputFormatter.h"
 	<iostream>
 
-1556284257 /home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.h
+1556380531 /home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.h
 	<iomanip>
 	<vector>
 	<string>
@@ -466,7 +466,7 @@
 	<vector>
 	"LetterNode.h"
 
-1556376852 /home/csuser/Desktop/GroupHWordScramble/model/GameLogic.h
+1556380518 /home/csuser/Desktop/GroupHWordScramble/model/GameLogic.h
 	"LetterFrequency.h"
 	"Utils.h"
 	<numeric>
@@ -547,7 +547,7 @@
 	"TextFileReader.h"
 	"HighScoreBoard.h"
 
-1556371949 source:/home/csuser/Desktop/GroupHWordScramble/io/TextFileWriter.cpp
+1556378940 source:/home/csuser/Desktop/GroupHWordScramble/io/TextFileWriter.cpp
 	"TextFileWriter.h"
 
 1556283353 /home/csuser/Desktop/GroupHWordScramble/model/Settings.h
@@ -595,7 +595,7 @@
 	<string>
 	"LetterFrequency.h"
 
-1556378940 source:/home/csuser/Desktop/GroupHWordScramble/model/DictionaryCleaner.cpp
+1556379739 source:/home/csuser/Desktop/GroupHWordScramble/model/DictionaryCleaner.cpp
 	"DictionaryCleaner.h"
 
 1556376412 /home/csuser/GroupHWordScramble/model/DictionaryCleaner.h

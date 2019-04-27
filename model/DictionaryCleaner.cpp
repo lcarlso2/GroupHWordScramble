@@ -28,7 +28,6 @@ unordered_set<string> DictionaryCleaner::generateCleanedDictionary(vector<string
     return cleanedWords;
 }
 
-
 bool DictionaryCleaner::determineIfWordIsValid(const string& word)
 {
     bool wordIsValid = false;

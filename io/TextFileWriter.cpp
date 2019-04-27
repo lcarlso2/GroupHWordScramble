@@ -35,8 +35,6 @@ void TextFileWriter::writeScoresToFile(HighScoreBoard scoreBoard)
     }
 
     myFile.close();
-
-
 }
 
 }

@@ -18,7 +18,7 @@ string OutputFormatter::formatWords(map<string, int> words)
     stringstream builder;
     for (auto& currentWord : words)
     {
-        builder << "Word: " << currentWord.first << "-" << currentWord.second << " point(s)" << endl;
+        builder << "Word: " << currentWord.first << "-" << currentWord.second << " points" << endl;
     }
     return builder.str();
 }
@@ -26,10 +26,10 @@ string OutputFormatter::formatWords(map<string, int> words)
 string OutputFormatter::formatScores(vector<PlayerScore> scores)
 {
     stringstream builder;
-    builder << left << setw(10) << "Name" << left << setw(10) << "Score" << left << setw(10) << "Time" << endl;
+    builder << left << setw(28) << "NAME" << left << setw(28) << "SCORE" << right << setw(0) << "TIME" << endl;
     for (auto& currentScore : scores)
     {
-        builder << left << setw(10) << currentScore.getName() << left << setw(10) << currentScore.getScore() << left << setw(10) << toTime(currentScore.getTime()) << endl;
+        builder << left << setw(28) << currentScore.getName() << left << setw(28) << currentScore.getScore() << right << setw(0) << toTime(currentScore.getTime()) << endl;
     }
 
     return builder.str();

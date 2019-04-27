@@ -1,6 +1,5 @@
 #include "DictionaryCleaner.h"
 
-
 namespace model
 {
 DictionaryCleaner::DictionaryCleaner()
@@ -44,7 +43,7 @@ bool DictionaryCleaner::determineIfCharactersAppearAppropriateAmountOfTimes(cons
     for (int indexOfLetter = 0; indexOfLetter < word.length(); indexOfLetter++)
     {
         string character(1,word[indexOfLetter]);
-        if (count(word.begin(), word.end(), word[indexOfLetter]) >= LETTER_FREQUENCIES.find(character)->second)
+        if (count(word.begin(), word.end(), word[indexOfLetter]) > LETTER_FREQUENCIES.find(character)->second)
         {
             return false;
         }

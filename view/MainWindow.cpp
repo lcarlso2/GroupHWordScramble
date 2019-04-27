@@ -125,12 +125,11 @@ inline void MainWindow::addNewScore(const string& name, int score, int time)
 {
     int allottedTime = this->controller.calculateAllottedTime(time);
     this->controller.addNewScore(name, score, allottedTime);
+    this->controller.writeScoresToFile();
 }
 
 MainWindow::~MainWindow()
 {
-    this->controller.writeSettingsToFile();
-    this->controller.writeScoresToFile();
     delete this->startGameButton;
     delete this->highScoresButton;
     delete this->settingsButton;

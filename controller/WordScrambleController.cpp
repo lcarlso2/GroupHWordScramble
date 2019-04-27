@@ -71,6 +71,10 @@ void WordScrambleController::addScoreForWord(const string& word)
     this->logic.addScore(word);
 }
 
+void WordScrambleController::addScoreForBonusWord(const string& word) {
+    this->logic.addScore(word, BONUS_POINTS);
+}
+
 void WordScrambleController::decrementScore()
 {
     this->logic.decrementScore(AMOUNT_TO_DECREMENT_POINTS_BY);

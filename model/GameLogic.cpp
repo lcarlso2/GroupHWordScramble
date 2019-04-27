@@ -97,15 +97,15 @@ map<string, string> GameLogic::getPossibleWordsWithHints()
     return this->possibleWordsWithHints;
 }
 
-int GameLogic::getPointsForWord(const string& word)
+int GameLogic::getPointsForWord(const string& word, const int bonus)
 {
-    int points = (((word.length()) - ONE_INDEX) * POINT_MULTIPLIER) * word.length();
+    int points = (((word.length()) - ONE_INDEX) * POINT_MULTIPLIER) * word.length() + bonus;
     return points;
 }
 
-void GameLogic::addScore(const string& word)
+void GameLogic::addScore(const string& word, const int bonus)
 {
-    int pointsForWord = this->getPointsForWord(word);
+    int pointsForWord = this->getPointsForWord(word, bonus);
     this->totalScore += pointsForWord;
 }
 
@@ -128,7 +128,6 @@ bool GameLogic::checkThatWordIsBonusWord(const string& word)
 {
     if (this->bonusWords.count(word) == WORD_IS_VALID)
     {
-        int points = this->getPointsForWord(word);
         this->guessedBonusWords.insert(word);
         return WORD_IS_VALID;
     }

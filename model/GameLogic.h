@@ -49,7 +49,7 @@ private:
 
     int totalScore;
 
-    int getPointsForWord(const string& word);
+    int getPointsForWord(const string& word, const int bonus = 0);
 
     bool isPossible(string word, string letters);
 
@@ -125,10 +125,11 @@ public:
     /**
     * Add points for the given word
     * @param word the word
+    * @param bonus the bonus points for the word, default is zero
     * @precondition none
     * @postcondition the score for word is added to the total score
     */
-    void addScore(const string& word);
+    void addScore(const string& word, const int bonus = 0);
 
     /**
     * Decrements the score by the desired amount

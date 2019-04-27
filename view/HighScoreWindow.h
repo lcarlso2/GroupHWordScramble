@@ -45,29 +45,28 @@ private:
     Fl_Text_Buffer* highScoresTextBuffer;
     Fl_Text_Display* highScoresTextDisplay;
 
-    void setOKLocation(int x, int y);
+    void setBackLocation(int x, int y);
 
-    Fl_Button* okButton;
+    Fl_Button* backButton;
     Fl_Group* displayChoiceRadioGroup;
-    Fl_Round_Button* displayChoiceRadioGroupButton[NUMBER_OF_BUTTONS_FOR_CHOICES];
+    Fl_Round_Button* displayChoiceRadioGroupButtons[NUMBER_OF_BUTTONS_FOR_CHOICES];
 
     Fl_Group* sortChoiceRadioGroup;
-    Fl_Round_Button* sortChoiceRadioGroupButton[NUMBER_OF_BUTTONS_FOR_SORTS];
+    Fl_Round_Button* sortChoiceRadioGroupButtons[NUMBER_OF_BUTTONS_FOR_SORTS];
 
-    string* choiceLabels[NUMBER_OF_BUTTONS_FOR_CHOICES];
     int selectedDisplayChoice;
     string selectedSortChoice;
 
     static void cbDisplayChoiceChanged(Fl_Widget* widget, void* data);
     static void cbSortChoiceChanged(Fl_Widget* widget, void* data);
-    static void cbOk(Fl_Widget* widget, void* data);
+    static void cbBack(Fl_Widget* widget, void* data);
 
     inline void setDisplayChoice(const string& value);
     void setDisplayChoiceRadioButton();
     inline void setSortChoice(const string& value);
     void setSortChoiceRadioButton();
 
-    inline void okHandler();
+    inline void backHandler();
     inline void updateDisplay();
     inline void updateSort();
 

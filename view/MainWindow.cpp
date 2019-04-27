@@ -50,8 +50,7 @@ void MainWindow::cbHighScore(Fl_Widget* widget, void* data)
 {
     MainWindow* window = (MainWindow*)data;
     string scores = window->getHighScores();
-    WordScrambleController controller = window->getCopyOfController();
-    HighScoreWindow scoreWindow(scores, controller);
+    HighScoreWindow scoreWindow(scores, window->getCopyOfController());
     scoreWindow.set_modal();
     scoreWindow.show();
 

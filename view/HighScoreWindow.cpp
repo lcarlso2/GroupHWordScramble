@@ -13,9 +13,9 @@ HighScoreWindow::HighScoreWindow(const string& scoreDisplay, WordScrambleControl
     this->highScoresTextDisplay = new Fl_Text_Display(15,30,500,300, "");
     this->highScoresTextDisplay->textfont(FL_COURIER);
     this->highScoresTextDisplay->buffer(this->highScoresTextBuffer);
-    this->okButton = new Fl_Button(0, 0, 100, 30, "Back");
-    this->okButton->callback(cbOk, this);
-    this->setOKLocation(210, 335);
+    this->backButton = new Fl_Button(0, 0, 100, 30, "Back");
+    this->backButton->callback(cbBack, this);
+    this->setBackLocation(210, 335);
     this->createButtonsForDisplayChoice();
     this->createButtonsForSortChoice();
     this->highScoresTextBuffer->text(scoreDisplay.c_str());
@@ -24,23 +24,38 @@ HighScoreWindow::HighScoreWindow(const string& scoreDisplay, WordScrambleControl
 
 HighScoreWindow::~HighScoreWindow()
 {
+    for (int i = 0; i < NUMBER_OF_BUTTONS_FOR_CHOICES; i++)
+    {
+        delete this->displayChoiceRadioGroupButtons[i];
+    }
+    for (int i = 0; i < NUMBER_OF_BUTTONS_FOR_SORTS; i++)
+    {
+        delete this->sortChoiceRadioGroupButtons[i];
+    }
+
+    delete this->displayChoiceRadioGroup;
+    delete this->sortChoiceRadioGroup;
+    delete this->backButton;
+    this->highScoresTextDisplay->buffer(0);
+    delete this->highScoresTextBuffer;
+    delete this->highScoresTextDisplay;
 }
 
-void HighScoreWindow::okHandler()
+void HighScoreWindow::backHandler()
 {
     this->hide();
 
 }
 
-void HighScoreWindow::cbOk(Fl_Widget* widget, void* data)
+void HighScoreWindow::cbBack(Fl_Widget* widget, void* data)
 {
     HighScoreWindow* window = (HighScoreWindow*)data;
-    window->okHandler();
+    window->backHandler();
 }
 
-void HighScoreWindow::setOKLocation(int x, int y)
+void HighScoreWindow::setBackLocation(int x, int y)
 {
-    this->okButton->position(x, y);
+    this->backButton->position(x, y);
 }
 
 
@@ -57,9 +72,9 @@ void HighScoreWindow::createButtonsForDisplayChoice()
     for (int i = 0; i < NUMBER_OF_BUTTONS_FOR_CHOICES; i++)
     {
         string label = DISPLAY_CHOICES[i];
-        this->displayChoiceRadioGroupButton[i] = new Fl_Round_Button(X_RADIO_GROUP, 30 + i*30, 25, 25, label.c_str());
-        this->displayChoiceRadioGroupButton[i]->type(FL_RADIO_BUTTON);
-        this->displayChoiceRadioGroupButton[i]->callback(cbDisplayChoiceChanged, this);
+        this->displayChoiceRadioGroupButtons[i] = new Fl_Round_Button(X_RADIO_GROUP, 30 + i*30, 25, 25, label.c_str());
+        this->displayChoiceRadioGroupButtons[i]->type(FL_RADIO_BUTTON);
+        this->displayChoiceRadioGroupButtons[i]->callback(cbDisplayChoiceChanged, this);
     }
     this->displayChoiceRadioGroup->end();
     this->setDisplayChoiceRadioButton();
@@ -79,9 +94,9 @@ void HighScoreWindow::createButtonsForSortChoice()
     for (int i = 0; i < NUMBER_OF_BUTTONS_FOR_SORTS; i++)
     {
         string label = SORT_CHOICES[i];
-        this->sortChoiceRadioGroupButton[i] = new Fl_Round_Button(15 + i*200, 10, 25, 25, label.c_str());
-        this->sortChoiceRadioGroupButton[i]->type(FL_RADIO_BUTTON);
-        this->sortChoiceRadioGroupButton[i]->callback(cbSortChoiceChanged, this);
+        this->sortChoiceRadioGroupButtons[i] = new Fl_Round_Button(15 + i*200, 10, 25, 25, label.c_str());
+        this->sortChoiceRadioGroupButtons[i]->type(FL_RADIO_BUTTON);
+        this->sortChoiceRadioGroupButtons[i]->callback(cbSortChoiceChanged, this);
     }
 
     this->sortChoiceRadioGroup->end();
@@ -138,14 +153,14 @@ void HighScoreWindow::setSortChoiceRadioButton()
 {
     string sortChoice = this->selectedSortChoice;
     int indexForRadioButton = SORT_CHOICE_VALUES.find(sortChoice)->second;
-    this->sortChoiceRadioGroupButton[indexForRadioButton]->set();
+    this->sortChoiceRadioGroupButtons[indexForRadioButton]->set();
 }
 
 void HighScoreWindow::setDisplayChoiceRadioButton()
 {
     int displayChoice = this->selectedDisplayChoice;
     int indexForRadioButton = DISPLAY_CHOICE_VALUES.find(displayChoice)->second;
-    this->displayChoiceRadioGroupButton[indexForRadioButton]->set();
+    this->displayChoiceRadioGroupButtons[indexForRadioButton]->set();
 }
 
 void HighScoreWindow::updateDisplay()

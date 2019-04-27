@@ -202,7 +202,7 @@
 	"OutputFormatter.h"
 	"Utils.h"
 
-1556376412 /home/csuser/GroupHWordScramble/model/LetterFrequency.h
+1556380290 /home/csuser/GroupHWordScramble/model/LetterFrequency.h
 	<string>
 	<vector>
 	<random>
@@ -311,7 +311,7 @@
 	<algorithm>
 	<unordered_set>
 
-1556376412 /home/csuser/GroupHWordScramble/view/HighScoreWindow.h
+1556381218 /home/csuser/GroupHWordScramble/view/HighScoreWindow.h
 	"OkCancelWindow.h"
 	<FL/Fl_Text_Buffer.H>
 	<FL/Fl_Text_Display.H>
@@ -339,10 +339,10 @@
 	"GameWindow.h"
 	<iostream>
 
-1556376412 source:/home/csuser/GroupHWordScramble/view/HighScoreWindow.cpp
+1556381378 source:/home/csuser/GroupHWordScramble/view/HighScoreWindow.cpp
 	"HighScoreWindow.h"
 
-1556376412 source:/home/csuser/GroupHWordScramble/view/MainWindow.cpp
+1556380728 source:/home/csuser/GroupHWordScramble/view/MainWindow.cpp
 	"MainWindow.h"
 	<iostream>
 
@@ -603,6 +603,6 @@
 	<string>
 	"LetterFrequency.h"
 
-1556379569 source:/home/csuser/GroupHWordScramble/model/DictionaryCleaner.cpp
+1556379730 source:/home/csuser/GroupHWordScramble/model/DictionaryCleaner.cpp
 	"DictionaryCleaner.h"
 

@@ -24,7 +24,7 @@ const string SETTINGS_FILE_NAME = "settings";
 const int INDEX_OF_VALUES = 0;
 const int INDEX_OF_NAME = 0;
 const int INDEX_OF_SCORE = 1;
-const int INDEX_OF_TIME = 1;
+const int INDEX_OF_TIME = 2;
 const int INDEX_OF_BUTTON_COUNT = 0;
 const int INDEX_OF_TIMER_COUNT = 1;
 

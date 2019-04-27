@@ -40,6 +40,7 @@ const int TIME_ALMOST_UP = 10;
 const int NO_TIME_LEFT = 0;
 static int globalTimer;
 static bool timeUp = false;
+static bool shouldUserEnterName = false;
 
 static Fl_Output* timerLabel;
 
@@ -143,6 +144,14 @@ public:
     * @return Returns the current value of the timer
     */
     string getTimer();
+
+    /**
+    * Returns true if user should enter name and false if not
+    * @precondition none
+    * @postcondition none
+    * @return Returns true if user should enter name and false if not
+    */
+    bool getShouldUserEnterName();
 };
 
 }

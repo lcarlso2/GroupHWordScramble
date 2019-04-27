@@ -8,7 +8,6 @@ namespace view
 MainWindow::MainWindow(int width, int height, const char* title) : Fl_Window(width, height, title)
 {
     begin();
-
     this->startGameButton = new Fl_Button(125,100,125,25, "Start game");
     this->startGameButton->callback(cbStartGame, this);
 
@@ -40,7 +39,7 @@ void MainWindow::cbStartGame(Fl_Widget* widget, void* data)
     string timerValue = gameWindow.getTimer();
     int time = timeToInt(timerValue);
 
-    if(score != 0)
+    if(gameWindow.getShouldUserEnterName())
     {
         string name = window->showInputNameWindow();
         window->addNewScore(name, score, time);
@@ -51,7 +50,8 @@ void MainWindow::cbHighScore(Fl_Widget* widget, void* data)
 {
     MainWindow* window = (MainWindow*)data;
     string scores = window->getHighScores();
-    HighScoreWindow scoreWindow(scores);
+    WordScrambleController controller = window->getCopyOfController();
+    HighScoreWindow scoreWindow(scores, controller);
 
     scoreWindow.set_modal();
     scoreWindow.show();
@@ -60,6 +60,11 @@ void MainWindow::cbHighScore(Fl_Widget* widget, void* data)
     {
         Fl::wait();
     }
+}
+
+WordScrambleController MainWindow::getCopyOfController()
+{
+    return this->controller;
 }
 
 string MainWindow::showInputNameWindow()
@@ -78,7 +83,7 @@ string MainWindow::showInputNameWindow()
 
 string MainWindow::getHighScores()
 {
-    return this->controller.getHighScores();
+    return this->controller.getHighScores(DEFAULT_NUMBER_OF_SCORES);
 }
 
 void MainWindow::cbSettings(Fl_Widget* widget, void* data)

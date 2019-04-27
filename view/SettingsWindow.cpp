@@ -11,8 +11,8 @@ SettingsWindow::SettingsWindow(const int timerCount, const int buttonCount) : Ok
 
     this->timerLabel = new Fl_Output(210, 25, 0, 0, "Timer in minutes:");
     this->letterCountLabel = new Fl_Output(180, 90, 0, 0, "Letter count:");
-    createButtonsForTimer();
-    createButtonsForButtonCount();
+    this->createButtonsForTimer();
+    this->createButtonsForButtonCount();
 
     this->setOKLocation(90, 170);
     this->setCancelLocation(170, 170);

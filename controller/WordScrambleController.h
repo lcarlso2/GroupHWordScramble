@@ -221,8 +221,19 @@ public:
     */
     void addNewScore(const string& name, int score, int time);
 
+    /**
+    * Sorts the this->scoreBoard by score and time
+    * @precondition none
+    * @postcondition this->scoreBoard is sorted by score and time
+    */
+    void sortScoreBoardByScoreAndTime();
 
-
+    /**
+    * Sorts the this->scoreBoard by score
+    * @precondition none
+    * @postcondition this->scoreBoard is sorted by score
+    */
+    void sortScoreBoardByScore();
 };
 
 }

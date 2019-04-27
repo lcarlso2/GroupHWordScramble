@@ -25,6 +25,7 @@ using namespace controller;
 namespace view
 {
 
+const int DEFAULT_NUMBER_OF_SCORES = 5;
 /**
 * The main window class
 * @author Carson Bedrosian and Lucas Carlson
@@ -53,6 +54,7 @@ private:
     inline string getHighScores();
     inline void addNewScore(const string& name, int score, int time);
     inline string showInputNameWindow();
+    inline WordScrambleController getCopyOfController();
 
     int getTimerCount();
 

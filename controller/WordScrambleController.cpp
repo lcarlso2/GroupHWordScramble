@@ -108,9 +108,8 @@ string WordScrambleController::getFormattedWordsAndTheirPoints()
 
 string WordScrambleController::getHighScores(int number)
 {
-
-    this->scoreBoard.sortByScoreAndTime();
-    string output = this->formatter.formatScores(this->scoreBoard.getSpecifiedNumberOfHighScores(5));
+    this->scoreBoard.sortByScore();
+    string output = this->formatter.formatScores(this->scoreBoard.getSpecifiedNumberOfHighScores(number));
     return output;
 }
 
@@ -123,6 +122,16 @@ void WordScrambleController::addNewScore(const string& name, int score, int time
 string WordScrambleController::getWordsToDisplay()
 {
     return this->formatter.formatWordsToDisplayDuringGame(this->logic.getPossibleWordsWithHints(), this->logic.getGuessedWords());
+}
+
+void WordScrambleController::sortScoreBoardByScore()
+{
+    this->scoreBoard.sortByScore();
+}
+
+void WordScrambleController::sortScoreBoardByScoreAndTime()
+{
+    this->scoreBoard.sortByScoreAndTime();
 }
 
 

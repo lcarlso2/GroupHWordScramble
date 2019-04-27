@@ -16,8 +16,8 @@ GameWindow::GameWindow(int width, int height, const char* title) : Fl_Window(wid
     this->initializeTextDisplays();
     timerLabel->value(STARTING_TIMER_LABEL.c_str());
     this->startTimer();
-
     this->submitWordButton->hide();
+    shouldUserEnterName = false;
     end();
 }
 
@@ -76,6 +76,7 @@ void GameWindow::setWordsLeftLabel()
 {
     if (this->controller.checkForNoRemainingWords())
     {
+        shouldUserEnterName = true;
         fl_message("%s", "You won!");
         this->endGame();
     }
@@ -91,6 +92,7 @@ void GameWindow::cbGameOver(Fl_Widget* widget, void* data)
     GameWindow* window = (GameWindow*)data;
     if (timeUp == true)
     {
+        shouldUserEnterName = true;
         fl_message("%s", "Game Over");
         window->hide();
     }
@@ -326,6 +328,11 @@ int GameWindow::getScore()
 string GameWindow::getTimer()
 {
     return timerLabel->value();
+}
+
+bool GameWindow::getShouldUserEnterName()
+{
+    return shouldUserEnterName;
 }
 
 GameWindow::~GameWindow()

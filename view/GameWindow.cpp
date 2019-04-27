@@ -182,8 +182,7 @@ void GameWindow::submitWord(const string& word)
     else if (this->controller.checkThatWordIsBonusWord(word))
     {
         fl_message("%s", "Bonus word!");
-        this->guessedWordsTextBuffer->text(this->controller.getWordsToDisplay().c_str());
-        this->controller.addScoreForWord(word);
+        this->controller.addScoreForBonusWord(word);
         string points = to_string(this->controller.getTotalScore());
         this->scoreLabel->value(points.c_str());
     }
@@ -334,7 +333,7 @@ string GameWindow::getTimer()
 
 bool GameWindow::getShouldUserEnterName()
 {
-    return shouldUserEnterName;
+    return shouldUserEnterName && this->getScore() > DEFAULT_SCORE;
 }
 
 GameWindow::~GameWindow()

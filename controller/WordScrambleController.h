@@ -28,6 +28,7 @@ namespace controller
 const int AMOUNT_TO_DECREMENT_POINTS_BY = 10;
 const int NO_WORDS_LEFT = 0;
 const int MINUTE_MULTIPLIER = 60;
+const int BONUS_POINTS = 100;
 /**
 * The controller class that controls the communication between the model and view classes
 * @authors Lucas Carlson and Carson Bedrosian
@@ -140,6 +141,8 @@ public:
     * @return the points for the word
     */
     void addScoreForWord(const string& word);
+
+    void addScoreForBonusWord(const string& word);
 
     /**
     * Decrements the score by the desired amount

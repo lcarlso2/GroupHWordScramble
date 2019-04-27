@@ -31,6 +31,7 @@ const int WORD_ALREADY_GUESSED = 1;
 const int BONUS_WORD = 2;
 const int AMOUNT_TO_DECREMENT_POINTS_BY = 10;
 const int NO_WORDS_LEFT = 0;
+const int MINUTE_MULTIPLIER = 60;
 /**
 * The controller class that controls the communication between the model and view classes
 * @authors Lucas Carlson and Carson Bedrosian
@@ -234,6 +235,14 @@ public:
     * @postcondition this->scoreBoard is sorted by score
     */
     void sortScoreBoardByScore();
+
+    /**
+    * Calculates the allotted time for the game
+    * @precondition none
+    * @postcondition none
+    * @return Returns the allotted time for the game
+    */
+    int calculateAllottedTime(int time);
 };
 
 }

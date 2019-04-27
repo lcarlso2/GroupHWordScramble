@@ -138,7 +138,7 @@ void HighScoreWindow::setSortChoiceRadioButton()
 {
     string sortChoice = this->selectedSortChoice;
     int indexForRadioButton = SORT_CHOICE_VALUES.find(sortChoice)->second;
-    this->displayChoiceRadioGroupButton[indexForRadioButton]->set();
+    this->sortChoiceRadioGroupButton[indexForRadioButton]->set();
 }
 
 void HighScoreWindow::setDisplayChoiceRadioButton()

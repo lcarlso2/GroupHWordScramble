@@ -124,7 +124,8 @@ int MainWindow::getButtonCount()
 
 inline void MainWindow::addNewScore(const string& name, int score, int time)
 {
-    this->controller.addNewScore(name, score, time);
+    int allottedTime = this->controller.calculateAllottedTime(time);
+    this->controller.addNewScore(name, score, allottedTime);
 }
 
 MainWindow::~MainWindow()

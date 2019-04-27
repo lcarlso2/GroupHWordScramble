@@ -134,5 +134,10 @@ void WordScrambleController::sortScoreBoardByScoreAndTime()
     this->scoreBoard.sortByScoreAndTime();
 }
 
+int WordScrambleController::calculateAllottedTime(int time)
+{
+    return (this->getTimerCount() * MINUTE_MULTIPLIER) - time;
+}
+
 
 }

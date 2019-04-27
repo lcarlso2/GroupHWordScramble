@@ -29,7 +29,7 @@ string OutputFormatter::formatScores(vector<PlayerScore> scores)
     builder << left << setw(10) << "Name" << left << setw(10) << "Score" << left << setw(10) << "Time" << endl;
     for (auto& currentScore : scores)
     {
-        builder << left << setw(10) << currentScore.getName() << left << setw(10) << currentScore.getScore() << left << setw(10) << currentScore.getTime() << endl;
+        builder << left << setw(10) << currentScore.getName() << left << setw(10) << currentScore.getScore() << left << setw(10) << toTime(currentScore.getTime()) << endl;
     }
 
     return builder.str();

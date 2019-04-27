@@ -138,10 +138,16 @@ public:
     * Add the points for the word
     * @param word the word
     * @precondition none
-    * @return the points for the word
+    * @postcondition the post are added
     */
     void addScoreForWord(const string& word);
 
+    /**
+    * Add points for a bonus word
+    * @param word the word
+    * @precondition none
+    * @postcondition the points are added
+    */
     void addScoreForBonusWord(const string& word);
 
     /**
@@ -157,7 +163,6 @@ public:
     * @return the the total score
     */
     int getTotalScore();
-
 
     /**
     * Checks that the given word is in the dictionary
@@ -183,13 +188,6 @@ public:
     * @return true if the word was guessed otherwise false
     */
     bool checkThatWordWasNotAlreadyGuessed(const string& word);
-
-    /**
-    * Get the output for the guessed words and their points
-    * @precondition none
-    * @return the formatted output
-    */
-    string getFormattedWordsAndTheirPoints();
 
     /**
     * Gets the output for the high scores

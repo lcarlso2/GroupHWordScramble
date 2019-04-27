@@ -14,6 +14,8 @@ using namespace std;
 
 namespace model
 {
+    const int LOWER_BOUND = 0;
+    const int UPPER_BOUND = 96;
 
 const map<string, int> LETTER_FREQUENCIES =
 {

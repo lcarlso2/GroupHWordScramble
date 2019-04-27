@@ -139,5 +139,11 @@ int WordScrambleController::calculateAllottedTime(int time)
     return (this->getTimerCount() * MINUTE_MULTIPLIER) - time;
 }
 
+void WordScrambleController::writeScoresToFile()
+{
+    TextFileWriter writer;
+    writer.writeScoresToFile(this->scoreBoard);
+}
+
 
 }

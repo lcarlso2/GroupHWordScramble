@@ -106,6 +106,13 @@ public:
     void writeSettingsToFile();
 
     /**
+    * Writes the highscores to the highscores file
+    * @precondition none
+    * @postcondition the file is written to
+    */
+    void writeScoresToFile();
+
+    /**
     * Gets the letters  to display
     * @precondition none
     * @return the desired letters to display

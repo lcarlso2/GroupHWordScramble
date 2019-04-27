@@ -11,6 +11,8 @@ using namespace std;
 namespace model
 {
 
+const int DISPLAY_ALL_FLAG = 0;
+
 /**
 * The high score board that keeps track of the high scores
 * @author Lucas Carlson and Carson Bedrosian
@@ -76,6 +78,14 @@ public:
     * @return Returns the number of scores
     */
     int size();
+
+    /**
+    * Returns the scores
+    * @precondition none
+    * @postcondition
+    * @return Returns the scores
+    */
+    vector<PlayerScore> getScores();
 
 
 };

@@ -9,9 +9,13 @@ using namespace std;
 
 #include "TextFileReader.h"
 
+#include "HighScoreBoard.h"
+using namespace model;
+
 
 namespace io
 {
+
 
 /**
 * The settings file writer that controls writing the settings to the file so they persist
@@ -41,6 +45,14 @@ public:
     * @postcondition the settings are written to the file
     */
     void writeSettingsToFile(const int numberOfLetters, const int timer);
+
+    /**
+    * Writes the scores to the file so they persist
+    * @param scoreBoard The scoreboard that contains all the scores to write
+    * @precondition none
+    * @postcondition the scores are written to the file
+    */
+    void writeScoresToFile(HighScoreBoard scoreBoard);
 };
 
 }

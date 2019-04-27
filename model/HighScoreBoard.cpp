@@ -25,7 +25,7 @@ vector<PlayerScore> HighScoreBoard::getSpecifiedNumberOfHighScores(const int num
 {
     vector<PlayerScore> highscores;
     int numberOfScores = number;
-    if(number == 0 || number > this->scores.size())
+    if(number == DISPLAY_ALL_FLAG || number > this->scores.size())
     {
         numberOfScores = this->scores.size();
     }
@@ -58,6 +58,12 @@ int HighScoreBoard::size()
 {
     return this->scores.size();
 }
+
+vector<PlayerScore> HighScoreBoard::getScores()
+{
+    return this->scores;
+}
+
 
 
 }

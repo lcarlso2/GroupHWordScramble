@@ -52,7 +52,6 @@ void MainWindow::cbHighScore(Fl_Widget* widget, void* data)
     string scores = window->getHighScores();
     WordScrambleController controller = window->getCopyOfController();
     HighScoreWindow scoreWindow(scores, controller);
-
     scoreWindow.set_modal();
     scoreWindow.show();
 
@@ -131,6 +130,7 @@ inline void MainWindow::addNewScore(const string& name, int score, int time)
 MainWindow::~MainWindow()
 {
     this->controller.writeSettingsToFile();
+    this->controller.writeScoresToFile();
     delete this->startGameButton;
     delete this->highScoresButton;
     delete this->settingsButton;

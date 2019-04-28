@@ -15,7 +15,6 @@ WordScrambleController::~WordScrambleController()
 
 }
 
-
 void WordScrambleController::initializeGameLogic()
 {
     vector<string> words = this->fileReader.getDictionaryData();
@@ -111,9 +110,9 @@ bool WordScrambleController::checkForNoRemainingWords()
     return this->logic.getWordsRemaining() == NO_WORDS_LEFT;
 }
 
-string WordScrambleController::getHighScores(int number)
+string WordScrambleController::getFormattedScoresToDisplay(int numberToDisplay)
 {
-    string output = this->formatter.formatScores(this->scoreBoard.getSpecifiedNumberOfHighScores(number));
+    string output = this->formatter.formatScores(this->scoreBoard.getSpecifiedNumberOfHighScores(numberToDisplay));
     return output;
 }
 

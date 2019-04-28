@@ -19,7 +19,7 @@ HighScoreWindow::HighScoreWindow(WordScrambleController controller) : Fl_Window(
     this->setBackLocation(210, 335);
     this->createButtonsForDisplayChoice();
     this->createButtonsForSortChoice();
-    this->highScoresTextBuffer->text(this->controller.getHighScores(DEFAULT_DISPLAY_CHOICE).c_str());
+    this->highScoresTextBuffer->text(this->controller.getFormattedScoresToDisplay(DEFAULT_DISPLAY_CHOICE).c_str());
     end();
 }
 
@@ -167,7 +167,7 @@ void HighScoreWindow::setDisplayChoiceRadioButton()
 
 void HighScoreWindow::updateDisplay()
 {
-    string output = this->controller.getHighScores(this->selectedDisplayChoice);
+    string output = this->controller.getFormattedScoresToDisplay(this->selectedDisplayChoice);
     this->highScoresTextBuffer->text(output.c_str());
 }
 

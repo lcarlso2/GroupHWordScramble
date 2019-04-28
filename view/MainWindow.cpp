@@ -49,8 +49,7 @@ void MainWindow::cbStartGame(Fl_Widget* widget, void* data)
 void MainWindow::cbHighScore(Fl_Widget* widget, void* data)
 {
     MainWindow* window = (MainWindow*)data;
-    string scores = window->getHighScores();
-    HighScoreWindow scoreWindow(scores, window->getCopyOfController());
+    HighScoreWindow scoreWindow(window->getCopyOfController());
     scoreWindow.set_modal();
     scoreWindow.show();
 
@@ -77,11 +76,6 @@ string MainWindow::showInputNameWindow()
     }
     string name = nameWindow.getName();
     return name;
-}
-
-string MainWindow::getHighScores()
-{
-    return this->controller.getHighScores(DEFAULT_NUMBER_OF_SCORES);
 }
 
 void MainWindow::cbSettings(Fl_Widget* widget, void* data)

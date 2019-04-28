@@ -8,6 +8,10 @@
 #include <unordered_set>
 using namespace std;
 
+const int MINUTE_INDEX = 0;
+const int SECOND_INDEX = 1;
+const int MINUTE_MULTIPLIER = 60;
+
 /**
 * Converts the integer value into a formatted time string
 * @precondition none

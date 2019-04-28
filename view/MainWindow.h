@@ -51,7 +51,6 @@ private:
     static void cbSettings(Fl_Widget* widget, void* data);
 
     inline void updateSettings(const int numberOfLetters, const int timer);
-    inline string getHighScores();
     inline void addNewScore(const string& name, int score, int time);
     inline string showInputNameWindow();
     inline WordScrambleController getCopyOfController();

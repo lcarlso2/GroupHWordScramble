@@ -2,11 +2,12 @@
 
 namespace view
 {
-HighScoreWindow::HighScoreWindow(const string& scoreDisplay, WordScrambleController controller) : Fl_Window(575, 375, "High Scores")
+HighScoreWindow::HighScoreWindow(WordScrambleController controller) : Fl_Window(575, 375, "High Scores")
 {
     this->selectedDisplayChoice = DEFAULT_DISPLAY_CHOICE;
     this->selectedSortChoice = DEFAULT_SORT_CHOICE;
     this->controller = controller;
+    this->controller.sortScoreBoardByScore();
 
     begin();
     this->highScoresTextBuffer = new Fl_Text_Buffer();
@@ -18,7 +19,7 @@ HighScoreWindow::HighScoreWindow(const string& scoreDisplay, WordScrambleControl
     this->setBackLocation(210, 335);
     this->createButtonsForDisplayChoice();
     this->createButtonsForSortChoice();
-    this->highScoresTextBuffer->text(scoreDisplay.c_str());
+    this->highScoresTextBuffer->text(this->controller.getHighScores(DEFAULT_DISPLAY_CHOICE).c_str());
     end();
 }
 
@@ -108,6 +109,7 @@ void HighScoreWindow::cbDisplayChoiceChanged(Fl_Widget* widget, void* data)
 {
     HighScoreWindow* window = (HighScoreWindow*)data;
     window->setDisplayChoice(widget->label());
+    window->updateSort();
     window->updateDisplay();
 }
 

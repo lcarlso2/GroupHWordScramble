@@ -43,7 +43,6 @@ HighScoreBoard TextFileReader::getHighScoreData()
         PlayerScore playerScore(name, score, timeInSeconds);
         scoreBoard.add(playerScore);
     }
-
     return scoreBoard;
 }
 

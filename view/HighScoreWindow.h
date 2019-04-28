@@ -80,10 +80,9 @@ public:
     * Creates a new high score window
     * @precondition none
     * @postcondition the window is created
-    * @param scoreDisplay The formatted output of scores to display
     * @param controller The controller being passed in
     */
-    HighScoreWindow(const string& scoreDisplay, WordScrambleController controller);
+    HighScoreWindow(WordScrambleController controller);
 
     /**
     * Destructs the high score window

@@ -9,8 +9,8 @@ const string toTime(const int value)
     string minutes;
     string seconds;
     string time;
-    minutes = to_string(value / 60);
-    seconds = to_string(value % 60);
+    minutes = to_string(value / MINUTE_MULTIPLIER);
+    seconds = to_string(value % MINUTE_MULTIPLIER);
 
     if (seconds == "0")
     {
@@ -34,7 +34,7 @@ const int generateRandomNumber(const int lowerBound, const int upperBound)
 const int timeToInt(const string& value)
 {
     vector<string> values = split(value, ':');
-    return ((stoi(values[0])*60) + stoi(values[1]));
+    return ((stoi(values[MINUTE_INDEX])*MINUTE_MULTIPLIER) + stoi(values[SECOND_INDEX]));
 }
 
 

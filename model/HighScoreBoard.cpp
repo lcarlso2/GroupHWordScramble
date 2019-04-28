@@ -1,16 +1,24 @@
 #include "HighScoreBoard.h"
 
+#include <iostream>
+using namespace std;
 namespace model
 {
 
 bool compareByScore(PlayerScore scoreOne, PlayerScore scoreTwo)
 {
-    return (scoreOne.getScore() > scoreTwo.getScore());
+    return scoreOne.getScore() > scoreTwo.getScore();
 }
 
 bool compareByScoreAndTime(PlayerScore scoreOne, PlayerScore scoreTwo)
 {
-    return ((scoreOne.getScore() > scoreTwo.getScore()) || (scoreOne.getScore() == scoreTwo.getScore() && scoreOne.getTime() < scoreTwo.getTime()));
+    if(scoreOne.getScore() == scoreTwo.getScore())
+    {
+        cout << "Score One: " << scoreOne.getTime() << " Is Less Than " << scoreTwo.getTime() << " " << (scoreOne.getTime() < scoreTwo.getTime()) << endl;
+        return scoreOne.getTime() < scoreTwo.getTime();
+    }
+    return scoreOne.getScore() > scoreTwo.getScore();
+
 }
 
 HighScoreBoard::HighScoreBoard()

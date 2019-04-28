@@ -113,7 +113,6 @@ bool WordScrambleController::checkForNoRemainingWords()
 
 string WordScrambleController::getHighScores(int number)
 {
-    this->scoreBoard.sortByScore();
     string output = this->formatter.formatScores(this->scoreBoard.getSpecifiedNumberOfHighScores(number));
     return output;
 }

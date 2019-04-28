@@ -63,7 +63,7 @@ map<string, string> GameLogic::generatePossibleWordsWithHints(unordered_set<stri
     return wordsWithHints;
 }
 
-string GameLogic::generateHintsForWord(string word)
+string GameLogic::generateHintsForWord(const string& word)
 {
     stringstream builder;
     for (size_t indexOfCharacter = 0; indexOfCharacter < word.size(); indexOfCharacter++)
@@ -168,7 +168,7 @@ void GameLogic::setPossibleWords(vector<string> characters)
     this->possibleWords = this->findAllPossibleWords(charactersAsString);
 }
 
-bool GameLogic::isPossible(string word, string letters)
+bool GameLogic::isPossible(const string& word, const string& letters)
 {
     for (size_t index = 0; index < word.length(); index ++)
     {
@@ -189,14 +189,13 @@ bool GameLogic::isPossible(string word, string letters)
 
 }
 
-unordered_set<string> GameLogic::findAllPossibleWords(string letters)
+unordered_set<string> GameLogic::findAllPossibleWords(const string& letters)
 {
     unordered_set<string> result;
     for (auto& word : this->dictionaryOfWords)
     {
         if (this->isPossible(word, letters))
         {
-
             result.insert(word);
         }
     }

@@ -50,13 +50,13 @@ private:
 
     int getPointsForWord(const string& word, const int bonus = 0);
 
-    bool isPossible(string word, string letters);
+    bool isPossible(const string& word, const string& letters);
 
-    unordered_set<string> findAllPossibleWords(string letters);
+    unordered_set<string> findAllPossibleWords(const string& letters);
 
     map<string, string> generatePossibleWordsWithHints(unordered_set<string> words);
 
-    string generateHintsForWord(string word);
+    string generateHintsForWord(const string& word);
 
     void seperatePossibleAndBonusWords(unordered_set<string> words, const int seperator, unordered_set<string>& possible, unordered_set<string>& bonus);
 

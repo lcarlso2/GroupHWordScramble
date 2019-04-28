@@ -3,7 +3,7 @@ namespace view
 {
 
 
-InputNameWindow::InputNameWindow() : OkCancelWindow(330, 175, "Enter your name")
+InputNameWindow::InputNameWindow() : OkCancelWindow(330, 175, "Enter your name for the score board")
 {
     begin();
     input = new Fl_Input(100, 50, 125, 30, "Enter Name:");

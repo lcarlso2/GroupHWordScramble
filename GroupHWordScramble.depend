@@ -18,7 +18,7 @@
 	"LetterFrequency.h"
 	<iostream>
 
-1556476454 /home/csuser/Desktop/GroupHWordScramble/model/LetterFrequency.h
+1556479630 /home/csuser/Desktop/GroupHWordScramble/model/LetterFrequency.h
 	<string>
 	<vector>
 	<random>
@@ -27,11 +27,11 @@
 	<map>
 	"Utils.h"
 
-1556476490 source:/home/csuser/Desktop/GroupHWordScramble/view/MainWindow.cpp
+1556479372 source:/home/csuser/Desktop/GroupHWordScramble/view/MainWindow.cpp
 	"MainWindow.h"
 	<iostream>
 
-1556476490 /home/csuser/Desktop/GroupHWordScramble/view/MainWindow.h
+1556479372 /home/csuser/Desktop/GroupHWordScramble/view/MainWindow.h
 	<FL/Fl.H>
 	<FL/Fl_Window.H>
 	<FL/Fl_Output.H>
@@ -65,10 +65,10 @@
 1556476454 source:/home/csuser/Desktop/GroupHWordScramble/view/SettingsWindow.cpp
 	"SettingsWindow.h"
 
-1556476720 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
+1556479616 source:/home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.cpp
 	"WordScrambleController.h"
 
-1556476720 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
+1556479372 /home/csuser/Desktop/GroupHWordScramble/controller/WordScrambleController.h
 	<string>
 	<vector>
 	<unordered_set>
@@ -133,7 +133,7 @@
 	"Utils.h"
 	"WordScrambleController.h"
 
-1556476490 /home/csuser/Desktop/GroupHWordScramble/view/HighScoreWindow.h
+1556479372 /home/csuser/Desktop/GroupHWordScramble/view/HighScoreWindow.h
 	"OkCancelWindow.h"
 	<FL/Fl_Text_Buffer.H>
 	<FL/Fl_Text_Display.H>
@@ -148,7 +148,7 @@
 	<map>
 	"WordScrambleController.h"
 
-1556476732 source:/home/csuser/Desktop/GroupHWordScramble/view/HighScoreWindow.cpp
+1556479372 source:/home/csuser/Desktop/GroupHWordScramble/view/HighScoreWindow.cpp
 	"HighScoreWindow.h"
 
 1556477014 source:/home/csuser/Desktop/GroupHWordScramble/utils/Utils.cpp
@@ -390,7 +390,7 @@
 	"OutputFormatter.h"
 	<iostream>
 
-1556476454 /home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.h
+1556479630 /home/csuser/Desktop/GroupHWordScramble/view/OutputFormatter.h
 	<iomanip>
 	<vector>
 	<string>
@@ -515,7 +515,7 @@
 1556476454 /home/csuser/Desktop/GroupHWordScramble/model/PlayerScore.h
 	<string>
 
-1556476454 /home/csuser/Desktop/GroupHWordScramble/model/HighScoreBoard.h
+1556479372 /home/csuser/Desktop/GroupHWordScramble/model/HighScoreBoard.h
 	"PlayerScore.h"
 	<vector>
 	<algorithm>
@@ -534,9 +534,8 @@
 	"TextFileReader.h"
 	"iostream"
 
-1556476490 source:/home/csuser/Desktop/GroupHWordScramble/model/HighScoreBoard.cpp
+1556479372 source:/home/csuser/Desktop/GroupHWordScramble/model/HighScoreBoard.cpp
 	"HighScoreBoard.h"
-	<iostream>
 
 1556476454 source:/home/csuser/Desktop/GroupHWordScramble/model/PlayerScore.cpp
 	"PlayerScore.h"

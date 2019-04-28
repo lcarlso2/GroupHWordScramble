@@ -1,7 +1,5 @@
 #include "HighScoreBoard.h"
 
-#include <iostream>
-using namespace std;
 namespace model
 {
 
@@ -14,7 +12,6 @@ bool compareByScoreAndTime(PlayerScore scoreOne, PlayerScore scoreTwo)
 {
     if(scoreOne.getScore() == scoreTwo.getScore())
     {
-        cout << "Score One: " << scoreOne.getTime() << " Is Less Than " << scoreTwo.getTime() << " " << (scoreOne.getTime() < scoreTwo.getTime()) << endl;
         return scoreOne.getTime() < scoreTwo.getTime();
     }
     return scoreOne.getScore() > scoreTwo.getScore();

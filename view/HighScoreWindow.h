@@ -45,14 +45,14 @@ private:
     Fl_Text_Buffer* highScoresTextBuffer;
     Fl_Text_Display* highScoresTextDisplay;
 
-    void setBackLocation(int x, int y);
-
     Fl_Button* backButton;
+    Fl_Button* clearButton;
     Fl_Group* displayChoiceRadioGroup;
     Fl_Round_Button* displayChoiceRadioGroupButtons[NUMBER_OF_BUTTONS_FOR_CHOICES];
 
     Fl_Group* sortChoiceRadioGroup;
     Fl_Round_Button* sortChoiceRadioGroupButtons[NUMBER_OF_BUTTONS_FOR_SORTS];
+
 
     int selectedDisplayChoice;
     string selectedSortChoice;

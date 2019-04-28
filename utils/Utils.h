@@ -11,6 +11,8 @@ using namespace std;
 const int MINUTE_INDEX = 0;
 const int SECOND_INDEX = 1;
 const int MINUTE_MULTIPLIER = 60;
+const char DELIMITER = ':';
+const int ONE_DIGIT = 1;
 
 /**
 * Converts the integer value into a formatted time string

@@ -190,12 +190,13 @@ public:
     bool checkThatWordWasNotAlreadyGuessed(const string& word);
 
     /**
-    * Gets the output for the high scores
+    * Gets the specified number of scores formatted for display
     * @precondition none
     * @postcondition none
-    * @return Formatted highscores
+    * @return Formatted scores
+    * @param numberToDisplay the number of scores to display
     */
-    string getHighScores(int number = -1);
+    string getFormattedScoresToDisplay(int numberToDisplay);
 
     /**
     * Gets the count of the words remaining formatted for output
@@ -256,6 +257,13 @@ public:
     * @return Returns the allotted time for the game
     */
     int calculateAllottedTime(int time);
+
+    /**
+    * Clears the scoreboard of all playerscores
+    * @precondition none
+    * @postcondition scoreboard is cleared
+    */
+    void clearScoreBoard();
 };
 
 }

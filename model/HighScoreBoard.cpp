@@ -71,6 +71,11 @@ vector<PlayerScore> HighScoreBoard::getScores()
     return this->scores;
 }
 
+void HighScoreBoard::clear()
+{
+    this->scores.clear();
+}
+
 
 
 }

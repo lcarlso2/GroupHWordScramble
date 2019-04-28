@@ -74,7 +74,7 @@ public:
     /**
     * Returns the number of scores
     * @precondition none
-    * @postcondition
+    * @postcondition none
     * @return Returns the number of scores
     */
     int size();
@@ -82,10 +82,18 @@ public:
     /**
     * Returns the scores
     * @precondition none
-    * @postcondition
+    * @postcondition none
     * @return Returns the scores
     */
     vector<PlayerScore> getScores();
+
+    /**
+    * Clears the scoreboard
+    * @precondition none
+    * @postcondition the scoreboard is cleared
+    * @return Returns the scores
+    */
+    void clear();
 
 
 };

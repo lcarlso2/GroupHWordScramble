@@ -16,7 +16,7 @@ const string toTime(const int value)
     {
         seconds = "00";
     }
-    else if (seconds.length() == 1)
+    else if (seconds.length() == ONE_DIGIT)
     {
         seconds = "0" + seconds;
     }
@@ -33,7 +33,7 @@ const int generateRandomNumber(const int lowerBound, const int upperBound)
 
 const int timeToInt(const string& value)
 {
-    vector<string> values = split(value, ':');
+    vector<string> values = split(value, DELIMITER);
     return ((stoi(values[MINUTE_INDEX])*MINUTE_MULTIPLIER) + stoi(values[SECOND_INDEX]));
 }
 

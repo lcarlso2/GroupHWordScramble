@@ -148,5 +148,10 @@ void WordScrambleController::writeScoresToFile()
     writer.writeScoresToFile(this->scoreBoard);
 }
 
+void WordScrambleController::clearScoreBoard()
+{
+    this->scoreBoard.clear();
+}
+
 
 }

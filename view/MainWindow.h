@@ -54,6 +54,7 @@ private:
     inline void addNewScore(const string& name, int score, int time);
     inline string showInputNameWindow();
     inline WordScrambleController getCopyOfController();
+    inline void clearScoreBoard();
 
     int getTimerCount();
 

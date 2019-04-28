@@ -8,15 +8,17 @@ HighScoreWindow::HighScoreWindow(WordScrambleController controller) : Fl_Window(
     this->selectedSortChoice = DEFAULT_SORT_CHOICE;
     this->controller = controller;
     this->controller.sortScoreBoardByScore();
+    this->wasClearClicked = false;
 
     begin();
     this->highScoresTextBuffer = new Fl_Text_Buffer();
     this->highScoresTextDisplay = new Fl_Text_Display(15,30,500,300, "");
     this->highScoresTextDisplay->textfont(FL_COURIER);
     this->highScoresTextDisplay->buffer(this->highScoresTextBuffer);
-    this->backButton = new Fl_Button(0, 0, 100, 30, "Back");
+    this->backButton = new Fl_Button(80, 335, 150, 30, "Return");
+    this->clearButton = new Fl_Button(280, 335, 150, 30, "Clear Scoreboard");
     this->backButton->callback(cbBack, this);
-    this->setBackLocation(210, 335);
+    this->clearButton->callback(cbClear, this);
     this->createButtonsForDisplayChoice();
     this->createButtonsForSortChoice();
     this->highScoresTextBuffer->text(this->controller.getFormattedScoresToDisplay(DEFAULT_DISPLAY_CHOICE).c_str());
@@ -42,21 +44,30 @@ HighScoreWindow::~HighScoreWindow()
     delete this->highScoresTextDisplay;
 }
 
-void HighScoreWindow::backHandler()
-{
-    this->hide();
-
-}
-
 void HighScoreWindow::cbBack(Fl_Widget* widget, void* data)
 {
     HighScoreWindow* window = (HighScoreWindow*)data;
     window->backHandler();
 }
 
-void HighScoreWindow::setBackLocation(int x, int y)
+void HighScoreWindow::cbClear(Fl_Widget* widget, void* data)
 {
-    this->backButton->position(x, y);
+    HighScoreWindow* window = (HighScoreWindow*)data;
+    window->clearHandler();
+}
+
+void HighScoreWindow::backHandler()
+{
+    this->hide();
+}
+
+void HighScoreWindow::clearHandler()
+{
+    this->wasClearClicked = true;
+    this->controller.clearScoreBoard();
+    this->controller.writeScoresToFile();
+    this->updateDisplay();
+
 }
 
 
@@ -169,6 +180,11 @@ void HighScoreWindow::updateDisplay()
 {
     string output = this->controller.getFormattedScoresToDisplay(this->selectedDisplayChoice);
     this->highScoresTextBuffer->text(output.c_str());
+}
+
+bool HighScoreWindow::getWasClearClicked()
+{
+    return this->wasClearClicked;
 }
 
 

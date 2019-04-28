@@ -45,21 +45,23 @@ private:
     Fl_Text_Buffer* highScoresTextBuffer;
     Fl_Text_Display* highScoresTextDisplay;
 
-    void setBackLocation(int x, int y);
-
     Fl_Button* backButton;
+    Fl_Button* clearButton;
     Fl_Group* displayChoiceRadioGroup;
     Fl_Round_Button* displayChoiceRadioGroupButtons[NUMBER_OF_BUTTONS_FOR_CHOICES];
 
     Fl_Group* sortChoiceRadioGroup;
     Fl_Round_Button* sortChoiceRadioGroupButtons[NUMBER_OF_BUTTONS_FOR_SORTS];
 
+
     int selectedDisplayChoice;
     string selectedSortChoice;
+    bool wasClearClicked;
 
     static void cbDisplayChoiceChanged(Fl_Widget* widget, void* data);
     static void cbSortChoiceChanged(Fl_Widget* widget, void* data);
     static void cbBack(Fl_Widget* widget, void* data);
+    static void cbClear(Fl_Widget* widget, void* data);
 
     inline void setDisplayChoice(const string& value);
     void setDisplayChoiceRadioButton();
@@ -67,6 +69,8 @@ private:
     void setSortChoiceRadioButton();
 
     inline void backHandler();
+    inline void clearHandler();
+
     inline void updateDisplay();
     inline void updateSort();
 
@@ -76,6 +80,7 @@ private:
     void createButtonsForSortChoice();
 
 public:
+
     /**
     * Creates a new high score window
     * @precondition none
@@ -88,6 +93,15 @@ public:
     * Destructs the high score window
     */
     virtual ~HighScoreWindow();
+
+    /**
+    * Returns if the clear button was clicked
+    * @precondition none
+    * @postcondition none
+    * @return Returns true if clear was clicked and false if not
+    */
+    bool getWasClearClicked();
+
 };
 
 }

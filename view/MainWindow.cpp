@@ -26,7 +26,6 @@ void MainWindow::cbStartGame(Fl_Widget* widget, void* data)
 {
     MainWindow* window = (MainWindow*)data;
     GameWindow gameWindow(540, 300, "Word Scramble");
-
     gameWindow.set_modal();
     gameWindow.show();
 
@@ -34,7 +33,6 @@ void MainWindow::cbStartGame(Fl_Widget* widget, void* data)
     {
         Fl::wait();
     }
-
     int score = gameWindow.getScore();
     string timerValue = gameWindow.getTimer();
     int time = timeToInt(timerValue);
@@ -57,6 +55,15 @@ void MainWindow::cbHighScore(Fl_Widget* widget, void* data)
     {
         Fl::wait();
     }
+    if(scoreWindow.getWasClearClicked())
+    {
+        window->clearScoreBoard();
+    }
+}
+
+void MainWindow::clearScoreBoard()
+{
+    this->controller.clearScoreBoard();
 }
 
 WordScrambleController MainWindow::getCopyOfController()

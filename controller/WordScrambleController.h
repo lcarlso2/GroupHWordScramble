@@ -257,6 +257,13 @@ public:
     * @return Returns the allotted time for the game
     */
     int calculateAllottedTime(int time);
+
+    /**
+    * Clears the scoreboard of all playerscores
+    * @precondition none
+    * @postcondition scoreboard is cleared
+    */
+    void clearScoreBoard();
 };
 
 }

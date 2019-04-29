@@ -16,6 +16,10 @@ using namespace model;
 namespace view
 {
 
+const string WORD_ALREADY_GUESSED_MESSAGE = "Word already guessed!";
+const string INVALID_WORD_MESSAGE = "Invalid word! You lose 10 points";
+const string GAME_WON_MESSAGE = "You won!";
+const string GAME_OVER_MESSAGE = "Game over!";
 const int NUMBER_OF_SPACES_BETWEEN_COLUMNS_FOR_SCORES = 27;
 const int NUMBER_OF_SPACES_BETWEEN_COLUMNS_FOR_DISPLAYING_WORDS = 20;
 const int MAX_COLUMN_COUNT = 2;
@@ -73,6 +77,14 @@ public:
     * @return the formatted string
     */
     string formatWordsToDisplayDuringGame(map<string, string> words,map<string, int> guessedWords);
+
+    /**
+    * Formats bonus word points for display
+    * @param points the points for the word
+    * @precondition none
+    * @return the formatted string
+    */
+    string formatBonusWordPointsForDisplay(const int points);
 };
 
 }

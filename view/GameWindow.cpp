@@ -77,7 +77,7 @@ void GameWindow::setWordsLeftLabel()
     if (this->controller.checkForNoRemainingWords())
     {
         shouldUserEnterName = true;
-        fl_message("%s", "You won!");
+        fl_message("%s", GAME_WON_MESSAGE.c_str());
         this->endGame();
     }
     else
@@ -93,7 +93,7 @@ void GameWindow::cbGameOver(Fl_Widget* widget, void* data)
     if (timeUp == true)
     {
         shouldUserEnterName = true;
-        fl_message("%s", "Game Over");
+        fl_message("%s", GAME_OVER_MESSAGE.c_str());
         window->hide();
     }
 }
@@ -177,11 +177,12 @@ void GameWindow::submitWord(const string& word)
 {
     if (this->controller.checkThatWordWasNotAlreadyGuessed(word))
     {
-        fl_message("%s", "Word already guessed!");
+        fl_message("%s", WORD_ALREADY_GUESSED_MESSAGE.c_str());
     }
     else if (this->controller.checkThatWordIsBonusWord(word))
     {
-        fl_message("%s", "Bonus word!");
+        string message = this->controller.getFormattedBonusWordPointsToDisplay(word);
+        fl_message("%s", message.c_str());
         this->controller.addScoreForBonusWord(word);
         string points = to_string(this->controller.getTotalScore());
         this->scoreLabel->value(points.c_str());
@@ -196,7 +197,7 @@ void GameWindow::submitWord(const string& word)
     }
     else
     {
-        fl_message("%s", "Invalid word! You lose ten points!");
+        fl_message("%s", INVALID_WORD_MESSAGE.c_str());
         this->controller.decrementScore();
         string points = to_string(this->controller.getTotalScore());
         this->scoreLabel->value(points.c_str());

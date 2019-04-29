@@ -196,7 +196,7 @@ public:
     * @return Formatted scores
     * @param numberToDisplay the number of scores to display
     */
-    string getFormattedScoresToDisplay(int numberToDisplay);
+    string getFormattedScoresToDisplay(const int numberToDisplay);
 
     /**
     * Gets the count of the words remaining formatted for output
@@ -234,7 +234,7 @@ public:
     * @param score Score that the player achieved
     * @param time Time allotted for the game
     */
-    void addNewScore(const string& name, int score, int time);
+    void addNewScore(const string& name, const int score, const int time);
 
     /**
     * Sorts the this->scoreBoard by score and time
@@ -256,14 +256,22 @@ public:
     * @postcondition none
     * @return Returns the allotted time for the game
     */
-    int calculateAllottedTime(int time);
+    int calculateAllottedTime(const int time);
 
     /**
-    * Clears the scoreboard of all playerscores
+    * Clears the scoreboard of all player scores
     * @precondition none
     * @postcondition scoreboard is cleared
     */
     void clearScoreBoard();
+
+    /**
+    * Gets formatted string for the bonus word's points
+    * @param word the bonus word
+    * @precondition none
+    * @return the string to display for the bonus word
+    */
+    string getFormattedBonusWordPointsToDisplay(const string& word);
 };
 
 }

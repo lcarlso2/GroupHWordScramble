@@ -48,8 +48,6 @@ private:
 
     int totalScore;
 
-    int getPointsForWord(const string& word, const int bonus = 0);
-
     bool isPossible(const string& word, const string& letters);
 
     unordered_set<string> findAllPossibleWords(const string& letters);
@@ -129,6 +127,16 @@ public:
     * @postcondition the score for word is added to the total score
     */
     void addScore(const string& word, const int bonus = 0);
+
+    /**
+    * Gets the points for a given word
+    * @param word the word the points are being calculated for
+    * @param bonus the bonus for the points, defaults to zero
+    * @precondition none
+    * @return the points for the word
+    *
+    */
+    int getPointsForWord(const string& word, const int bonus = 0);
 
     /**
     * Decrements the score by the desired amount

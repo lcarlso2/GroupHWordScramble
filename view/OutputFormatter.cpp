@@ -60,4 +60,15 @@ string OutputFormatter::formatWordsToDisplayDuringGame(map<string, string> words
     return builder.str();
 }
 
+
+string OutputFormatter::formatBonusWordPointsForDisplay(const int points)
+{
+    stringstream builder;
+
+    builder << "Bonus word! You receive " << points << " points! 100 more points than normal!" << endl;
+
+    return builder.str();
+}
+
+
 }

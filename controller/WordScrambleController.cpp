@@ -110,13 +110,13 @@ bool WordScrambleController::checkForNoRemainingWords()
     return this->logic.getWordsRemaining() == NO_WORDS_LEFT;
 }
 
-string WordScrambleController::getFormattedScoresToDisplay(int numberToDisplay)
+string WordScrambleController::getFormattedScoresToDisplay(const int numberToDisplay)
 {
     string output = this->formatter.formatScores(this->scoreBoard.getSpecifiedNumberOfHighScores(numberToDisplay));
     return output;
 }
 
-void WordScrambleController::addNewScore(const string& name, int score, int time)
+void WordScrambleController::addNewScore(const string& name, const int score, const int time)
 {
     PlayerScore playerScore(name, score, time);
     this->scoreBoard.add(playerScore);
@@ -137,7 +137,7 @@ void WordScrambleController::sortScoreBoardByScoreAndTime()
     this->scoreBoard.sortByScoreAndTime();
 }
 
-int WordScrambleController::calculateAllottedTime(int time)
+int WordScrambleController::calculateAllottedTime(const int time)
 {
     return (this->getTimerCount() * MINUTE_MULTIPLIER) - time;
 }
@@ -151,6 +151,12 @@ void WordScrambleController::writeScoresToFile()
 void WordScrambleController::clearScoreBoard()
 {
     this->scoreBoard.clear();
+}
+
+string WordScrambleController::getFormattedBonusWordPointsToDisplay(const string& word)
+{
+    int points = this->logic.getPointsForWord(word, BONUS_POINTS);
+    return this->formatter.formatBonusWordPointsForDisplay(points);
 }
 
 

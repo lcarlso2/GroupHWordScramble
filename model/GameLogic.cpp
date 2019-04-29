@@ -97,7 +97,7 @@ map<string, string> GameLogic::getPossibleWordsWithHints()
     return this->possibleWordsWithHints;
 }
 
-int GameLogic::getPointsForWord(const string& word, const int bonus)
+    int GameLogic::getPointsForWord(const string& word, const int bonus)
 {
     int points = (((word.length()) - ONE_INDEX) * POINT_MULTIPLIER) * word.length() + bonus;
     return points;

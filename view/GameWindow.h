@@ -23,8 +23,13 @@ using namespace std;
 #include "SettingsWindow.h"
 
 #include "Utils.h"
+
+#include "OutputFormatter.h"
+
 #include "WordScrambleController.h"
 using namespace controller;
+
+
 
 namespace view
 {

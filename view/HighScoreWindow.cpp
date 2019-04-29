@@ -39,6 +39,7 @@ HighScoreWindow::~HighScoreWindow()
     delete this->displayChoiceRadioGroup;
     delete this->sortChoiceRadioGroup;
     delete this->backButton;
+    delete this->clearButton;
     this->highScoresTextDisplay->buffer(0);
     delete this->highScoresTextBuffer;
     delete this->highScoresTextDisplay;

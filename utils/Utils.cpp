@@ -1,9 +1,5 @@
 #include "Utils.h"
 
-#include <iostream>
-#include <unordered_set>
-using namespace std;
-
 const string toTime(const int value)
 {
     string minutes;

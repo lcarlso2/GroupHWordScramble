@@ -1,7 +1,5 @@
 #include "LetterFrequency.h"
 
-#include <iostream>
-
 namespace model
 {
 LetterFrequency::LetterFrequency()
@@ -37,7 +35,7 @@ vector<string> LetterFrequency::getRandomLetters(const int numberOfLettersToGene
 
 vector<string> LetterFrequency::createFrequency(vector<string> letters, const int numberOfTimes, const string& letterToAdd)
 {
-    for (int i= 0; i < numberOfTimes; i++)
+    for (int i = 0; i < numberOfTimes; i++)
     {
         letters.push_back(letterToAdd);
     }

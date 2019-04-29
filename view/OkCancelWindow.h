@@ -64,12 +64,12 @@ public:
     static void cbOk(Fl_Widget* widget, void* data);
     virtual void okHandler() = 0;
 
-    //
-    // The handler when Cancel is invoked
-    //
-    // @precondition widget != 0 AND data != 0
-    // @postcondition getWindowResult() == OkCancelWindow::CANCEL
-    //
+        //
+        // The handler when Cancel is invoked
+        //
+        // @precondition widget != 0 AND data != 0
+        // @postcondition getWindowResult() == OkCancelWindow::CANCEL
+        //
     static void cbCancel(Fl_Widget* widget, void* data);
     virtual void cancelHandler() = 0;
 

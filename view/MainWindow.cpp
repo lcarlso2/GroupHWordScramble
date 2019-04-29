@@ -1,6 +1,5 @@
 #include "MainWindow.h"
 
-#include <iostream>
 namespace view
 {
 

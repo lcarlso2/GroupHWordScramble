@@ -1,6 +1,5 @@
 #include "OutputFormatter.h"
 
-#include <iostream>
 namespace view
 {
 OutputFormatter::OutputFormatter()

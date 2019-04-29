@@ -1,5 +1,4 @@
 #include "GameWindow.h"
-#include <iostream>
 
 namespace view
 {

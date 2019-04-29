@@ -1,5 +1,4 @@
 #include "TextFileReader.h"
-#include "iostream"
 
 namespace io
 {
